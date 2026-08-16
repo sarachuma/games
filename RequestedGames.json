@@ -1,6 +1,6 @@
 {
   "_metadata_": {
-    "streamer": "MadMan1408",
+    "streamer": "sarachuma",
     "lastUpdated": "16.08.2026"
   },
   "Neputeviy": [
@@ -119,6 +119,36 @@
       "difficulty": "Легкая",
       "dateWatched": "23.07.2026",
       "tgPost": "https://t.me/sarachuma/1302"
+    }
+  ],
+  "MadMan1408": [
+    {
+      "title": "R.E.P.O.",
+      "year": "2025",
+      "type": "Игра",
+      "platforms": "Windows",
+      "genres": "Экшены, Ранний доступ",
+      "studios": "semiwork (Изд: semiwork)",
+      "overview": "An online co-op horror game with up to 6 players. Locate valuable, fully physics-based objects and handle them with care as you retrieve and extract to satisfy your creator's desires.",
+      "detailedDesc": "R.E.P.O. is an online co-op horror game featuring physics, proximity voice chat and scary monsters. You and up to 5 friends can venture into terrifying environments to extract valuable objects using your physics-based grabbing tool.Even the monsters are affected by Newton's law of gravity!Under the employ of a mysterious computer intelligence. It is your job to locate, transport and extract valuable items from the haunted remains of a long lost humanity....but know when to stay quiet.Transport anything from heavy pianos to fragile ceramics and use teamwork to make sure that the precious cargo will safely reach its destination.Robotic enhancements  increase your chances!Use your hard earned cash [SURPLUS] to purchase upgrades and weapons from your heartless [GENEROUS] creator.",
+      "poster": "https://cdn.cloudflare.steamstatic.com/steam/apps/3241660/library_600x900_2x.jpg",
+      "backdrop": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/3241660/page_bg_raw.jpg?t=1778158882",
+      "steamAppId": "3241660",
+      "price": "$5,49 / 424 ₽ / 194 ₴ / 2 800 ₸",
+      "isFree": "false",
+      "metacriticScore": "Нет оценок",
+      "metacriticUrl": "",
+      "website": "",
+      "dlcCount": "0",
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/a8a6aa04-03ef-40e5-aae6-a8a1580e9d8c-profile_image-600x600.png",
+      "id": 10,
+      "dateRequested": "16.08.2026",
+      "status": "В очереди",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "burned": false,
+      "isAuction": true,
+      "difficulty": ""
     }
   ],
   "streamelements": [],
