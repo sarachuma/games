@@ -3,30 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Книга Заклинаний | Инструкция</title>
+    <title>Игровая</title>
     
+    <!-- Подключаем Google Fonts как запасной вариант (fallback) -->
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Geologica:wght@400;600;700;900&display=swap" rel="stylesheet">
+    
     <style>
-        /* ПОДКЛЮЧЕНИЕ ЛОКАЛЬНЫХ ШРИФТОВ */
+        /* ПОДКЛЮЧЕНИЕ ЛОКАЛЬНЫХ ШРИФТОВ ИЗ ПАПКИ FONTS */
         @font-face {
             font-family: 'BOU COLLEGIATE RUS';
             src: url('fonts/Bou_Collegiate.ttf') format('truetype');
-            font-weight: normal; font-style: normal; font-display: swap;
+            font-weight: normal;
+            font-style: normal;
+            font-display: swap;
         }
 
         @font-face {
             font-family: 'Geologica Local';
             src: url('fonts/Geologica.ttf') format('truetype');
-            font-weight: 100 900; font-style: normal; font-display: swap;
+            font-weight: 100 900;
+            font-style: normal;
+            font-display: swap;
         }
 
         :root {
-            /* Синие оттенки (фон) */
+            /* Синие оттенки для фона (строго фон!) */
             --bg-deep: #030624;         
             --bg-velvet: #0C1E5B;       
             --bg-sunset: #002daa;       
             
-            /* Красные акценты */
+            /* Красные оттенки для акцентов (строго элементы!) */
             --accent-light: #ff4d4d;      
             --accent-main: #fe0000;       
             --accent-dark: #741511;       
@@ -37,300 +43,1406 @@
             --text-main: #f0edf5;       
             --text-muted: #8b9dc3;      
             
+            /* Шрифтовая пара: Локальный шрифт -> Google Шрифт -> Системный шрифт */
             --font-title: 'Geologica Local', 'Geologica', sans-serif;
             --font-text: 'Geologica Local', 'Geologica', sans-serif;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        
-        /* Эффект зернистости (film grain) */
+        /* Эффект зернистости (film grain) на весь сайт поверх контента */
         body::before {
-            content: ""; position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
-            pointer-events: none; z-index: 9999;
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            pointer-events: none;
+            z-index: 9999;
             background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.05'/%3E%3C/svg%3E");
             opacity: 0.8;
         }
 
         body {
             background-color: var(--bg-deep);
-            background-image: url('background6.webp'); /* Единый фон экосистемы */
+            background-image: url('background6.webp'); /* Оставляю имя фона из 1 кода, либо замени на нужное */
             background-size: cover;
             background-position: center top;
             background-attachment: fixed;
             color: var(--text-main);
             font-family: var(--font-text);
+            margin: 0;
+            padding: 50px 20px;
             min-height: 100vh;
-            display: flex; flex-direction: column; align-items: center;
-            padding: 50px 20px; overflow-x: hidden;
+            overflow-x: hidden; 
         }
 
+        .main-wrapper { display: flex; justify-content: center; align-items: stretch; width: 100%; }
+        .girl-col { width: 0; position: relative; z-index: 999; pointer-events: none; }
+        .sticky-box { position: sticky; top: 50vh; width: 0; height: 0; overflow: visible; }
+        .girl-img { position: absolute; height: 650px; top: -325px; filter: drop-shadow(0 15px 35px rgba(0,0,0,0.8)) contrast(1.1) brightness(0.9); }
+        .left-img { right: -210px; }
+        .right-img { left: -77px; }
+
+        @media (max-width: 1550px) { .girl-col { display: none; } }
+
         .container {
-            width: 100%; max-width: 1000px;
-            background: rgba(3, 6, 36, 0.88); 
-            backdrop-filter: blur(20px); 
-            -webkit-backdrop-filter: blur(20px);
-            position: relative;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.9), 0 0 40px rgba(254, 0, 0, 0.15); 
-            border: 2px solid var(--accent-dark); 
-            border-radius: 2px; /* Острые углы */
-            padding: 6px; 
-            animation: fadeInUp 0.8s ease forwards;
+            width: 100%; max-width: 1150px; min-height: 80vh; 
+            background: rgba(3, 6, 36, 0.88); backdrop-filter: blur(20px); 
+            position: relative; box-shadow: 0 25px 60px rgba(0,0,0,0.9), 0 0 40px rgba(254, 0, 0, 0.15); 
+            border: 2px solid var(--accent-dark); border-radius: 4px; padding: 4px; 
         }
 
         .container::before {
-            content: ''; position: absolute;
-            top: 6px; left: 6px; right: 6px; bottom: 6px;
-            border: 1px dashed rgba(254, 0, 0, 0.3);
-            border-radius: 2px;
-            pointer-events: none; z-index: 10;
+            content: ''; position: absolute; top: 6px; left: 6px; right: 6px; bottom: 6px;
+            border: 1px solid rgba(254, 0, 0, 0.2); border-radius: 2px; pointer-events: none; z-index: 10;
         }
 
-        .content-wrapper { 
-            background: rgba(12, 30, 91, 0.4); 
-            position: relative; z-index: 2; 
-            border-radius: 2px; padding: 40px 40px;
-        }
+        .content-wrapper { background: transparent; position: relative; z-index: 2; height: 100%; border-radius: 2px; min-height: 80vh; }
 
-        /* --- ЗАГОЛОВОК И КНОПКА ВОЗВРАТА --- */
-        .header-title {
-            text-align: center; margin-bottom: 50px;
-            position: relative;
+        .header {
+            padding: 35px 30px 25px; text-align: center; position: relative;
             border-bottom: 2px solid rgba(254, 0, 0, 0.3); 
-            padding-bottom: 30px;
             background: radial-gradient(circle at 50% 0%, rgba(254, 0, 0, 0.15) 0%, transparent 80%);
         }
-        
-        .header-title::after {
+        .header::after {
             content: '✦'; position: absolute; bottom: -14px; left: 50%; transform: translateX(-50%);
             color: var(--accent-main); font-size: 20px; background: var(--bg-deep); padding: 0 15px;
             border: 1px solid rgba(254, 0, 0, 0.4); text-shadow: 0 0 10px var(--accent-main);
         }
 
-        .header-title h1 {
-            font-family: var(--font-title); font-size: 52px; font-weight: 900;
-            color: #ffffff; text-transform: uppercase; letter-spacing: 3px;
+        .header-top h1 { 
+            font-family: var(--font-title); font-size: 52px; font-weight: 700; margin: 0 0 15px 0;
+            position: relative; display: inline-block; color: #ffffff;
             text-shadow: -3px 0 var(--bg-sunset), 3px 0 var(--accent-main), 0 0 20px rgba(254, 0, 0, 0.5); 
-            margin-bottom: 10px;
         }
-        .header-title h1::before, .header-title h1::after {
+        .header-top h1::before, .header-top h1::after {
             content: '♦'; display: inline-block; font-size: 26px; vertical-align: middle; margin: 0 15px;
             color: var(--accent-main); filter: drop-shadow(0 0 8px rgba(254, 0, 0, 0.6)); 
         }
 
-        .header-title p {
-            font-size: 20px; color: #ffffff; font-weight: 700;
-            letter-spacing: 1px; font-family: var(--font-title);
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5); 
+        /* Кнопка "В Архивы" как ссылка */
+        .back-btn {
+            position: absolute; top: 20px; left: 30px; display: inline-flex; align-items: center; gap: 10px;
+            background: rgba(254, 0, 0, 0.1); color: #ffffff; text-shadow: 2px 2px 0px var(--accent-dark), 0 0 15px var(--accent-main);
+            padding: 10px 20px; border: 1px solid rgba(254, 0, 0, 0.3); border-radius: 2px;
+            font-family: var(--font-title); font-weight: 700; font-size: 18px; transition: all 0.3s ease; z-index: 10;
+            text-decoration: none; 
+        }
+        .back-btn:hover { background: var(--accent-main); color: #ffffff; box-shadow: 0 0 20px rgba(254, 0, 0, 0.6); text-shadow: none; }
+
+        /* Плашка создателя */
+        .creator-badge {
+            position: absolute; top: 20px; right: 30px; display: flex; align-items: center; gap: 10px;
+            background: rgba(12, 30, 91, 0.6); padding: 6px 16px 6px 6px; cursor: pointer;
+            transition: all 0.3s ease; opacity: 0.9; border: 1px solid rgba(254, 0, 0, 0.3); border-radius: 2px;
+        }
+        .creator-badge:hover { opacity: 1; background: rgba(254, 0, 0, 0.1); border-color: var(--accent-main); box-shadow: 0 0 15px rgba(254, 0, 0, 0.3); }
+        .creator-badge img { width: 35px; height: 35px; object-fit: cover; border: 2px solid var(--accent-main); transition: all 0.3s ease; border-radius: 2px; }
+        .creator-info { display: flex; flex-direction: column; text-align: left; transition: all 0.3s ease; }
+        .creator-name { font-size: 20px; font-weight: 700; color: #fff; font-family: var(--font-title); transition: text-shadow 0.3s ease; letter-spacing: 1px;}
+        .creator-badge:hover .creator-name { text-shadow: 0 0 8px rgba(254, 0, 0, 0.8); color: var(--text-main); }
+
+        .controls-panel { display: flex; gap: 15px; flex-wrap: wrap; align-items: center; justify-content: center; margin-top: 5px; }
+        
+        .search-box, .sort-select {
+            background: rgba(3, 6, 36, 0.8); border: 1px solid rgba(254, 0, 0, 0.4); border-radius: 2px;
+            padding: 0 16px; outline: none; transition: all 0.3s ease; text-align: left; 
+            box-sizing: border-box; height: 40px; 
+        }
+        .search-box { width: 220px; color: var(--text-main); font-size: 15px; font-family: var(--font-text); }
+        .search-box::placeholder { color: var(--text-muted); font-size: 13px; font-family: var(--font-text); }
+        .search-box:focus, .sort-select:focus { border-color: var(--accent-main); color: #fff; box-shadow: 0 0 15px rgba(254, 0, 0, 0.4); }
+        
+        .sort-select { 
+            cursor: pointer; appearance: none; padding-right: 30px; font-size: 15px; color: var(--text-main); font-family: var(--font-title); letter-spacing: 1px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%23fe0000' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E"); 
+            background-repeat: no-repeat; background-position: right 12px center; 
+        }
+        .sort-select option { background: var(--bg-deep); color: var(--text-main); font-family: var(--font-text); font-size: 14px;}
+
+        .view-toggle-btn {
+            background: rgba(254, 0, 0, 0.1); border: 1px solid var(--accent-main); border-radius: 2px;
+            padding: 0 20px; color: #ffffff; text-shadow: 2px 2px 0px var(--accent-dark), 0 0 15px var(--accent-main); font-size: 17px; font-family: var(--font-title); font-weight: 700;
+            cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px;
+            box-sizing: border-box; height: 40px; letter-spacing: 1px;
+        }
+        .view-toggle-btn:hover { background: var(--accent-main); color: #ffffff; box-shadow: 0 0 20px rgba(254, 0, 0, 0.5); text-shadow: none; }
+
+        /* ================= ТАБЛИЧНЫЙ ВИД (СПИСОК) ================= */
+        table { width: 100%; border-collapse: separate; border-spacing: 0; text-align: left; table-layout: fixed; }
+        th { text-align: center; color: #ffffff; text-shadow: 2px 2px 0px var(--accent-dark), 0 0 15px var(--accent-main); font-weight: 700; font-size: 18px; text-transform: uppercase; padding: 25px 12px 15px; border-bottom: 2px solid rgba(254, 0, 0, 0.3); font-family: var(--font-title); letter-spacing: 2px; }
+        td { padding: 20px 15px; vertical-align: top; border-bottom: 1px solid rgba(254, 0, 0, 0.15); }
+        tr:last-child td { border-bottom: none; }
+        td:nth-child(1), td:nth-child(3), td:nth-child(4), td:nth-child(5) { text-align: center; }
+        tr.movie-row { cursor: pointer; transition: all 0.3s ease; position: relative; }
+        tr.movie-row:hover { background-color: rgba(254, 0, 0, 0.05); } 
+        td:nth-child(2) { text-align: left; position: relative; z-index: 1; overflow: hidden; }
+        td:nth-child(2)::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: radial-gradient(ellipse at 25% 50%, rgba(254, 0, 0, 0.08) 0%, transparent 70%); z-index: -1; pointer-events: none; transition: opacity 0.3s ease; opacity: 0; }
+        tr.movie-row:hover td:nth-child(2)::before { opacity: 1; }
+
+        .poster-wrapper { width: 140px; height: 210px; overflow: hidden; margin: 0 auto; box-shadow: 0 10px 25px rgba(0,0,0,0.8); border: 2px solid var(--accent-dark); border-radius: 4px; transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); background: var(--bg-deep); }
+        .poster-wrapper img { width: 100%; height: 100%; object-fit: cover; } 
+        tr.movie-row:has(.poster-wrapper:hover) .poster-wrapper { box-shadow: 0 12px 30px rgba(254, 0, 0, 0.4); border-color: var(--accent-main); }
+        
+        .movie-info { display: flex; flex-direction: column; gap: 8px; padding-left: 10px; overflow: hidden; }
+        .movie-header { display: flex; align-items: flex-start; justify-content: flex-start; gap: 12px; width: 100%; margin-bottom: 5px; } 
+        .movie-title { font-size: 28px; font-weight: 700; color: #fff; font-family: var(--font-title); text-shadow: 2px 2px 0 rgba(0,0,0,0.8); flex: 0 1 auto; min-width: 0; line-height: 1.1; letter-spacing: 1px; }
+        .movie-meta-box { display: flex; align-items: center; gap: 10px; flex-shrink: 0; margin-top: 1px; }
+        .movie-year { color: var(--accent-light); font-size: 20px; font-family: var(--font-title); white-space: nowrap; flex-shrink: 0; } 
+        
+        .copy-btn { background: rgba(254, 0, 0, 0.1); border: 1px solid transparent; color: var(--accent-main); cursor: pointer; padding: 4px; border-radius: 2px; display: flex; align-items: center; justify-content: center; transition: all 0.3s; opacity: 0; transform: scale(0.8); position: relative; top: 2px; flex-shrink: 0; }
+        tr.movie-row:hover .copy-btn { opacity: 1; transform: scale(1); }
+        .copy-btn:hover { background: var(--accent-main); color: var(--bg-deep); box-shadow: 0 0 15px rgba(254, 0, 0, 0.5); } 
+
+        .badges-container { display: flex; align-items: center; gap: 8px; margin: 2px 0; flex-wrap: wrap; }
+        .content-type-badge { background: var(--bg-deep); color: #ffffff; padding: 3px 10px; font-size: 12px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-title); border-radius: 2px; box-shadow: 0 2px 8px rgba(254, 0, 0, 0.5); border: 1px solid var(--accent-main); }
+        .outline-badge { border: 1px solid rgba(254, 0, 0, 0.5); color: var(--text-main); padding: 3px 10px; font-size: 11px; font-weight: 700; background: rgba(254, 0, 0, 0.05); border-radius: 2px; font-family: var(--font-title); letter-spacing: 1px; text-transform: uppercase; }
+
+        .movie-genres { font-size: 12px; color: var(--text-main); font-weight: 600; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-title); }
+        .movie-studios-list { font-size: 14px; color: var(--accent-light); font-weight: 600; letter-spacing: 1px; margin-top: 2px; font-family: var(--font-title); }
+
+        .movie-overview-wrapper { margin-top: 8px; max-height: 48px; overflow: hidden; transition: max-height 0.4s ease; }
+        .movie-overview-text { font-size: 15px; line-height: 1.6; color: var(--text-muted); font-family: var(--font-text); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        tr.movie-row:has(.poster-wrapper:hover) .movie-overview-wrapper { max-height: 250px; }
+        tr.movie-row:has(.poster-wrapper:hover) .movie-overview-text { -webkit-line-clamp: 20; color: var(--text-main); }
+
+        .requester-badge { display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; transition: transform 0.3s; margin: 0 auto; }
+        .requester-badge:hover .req-avatar { border-color: var(--text-main); box-shadow: 0 0 20px rgba(254, 0, 0, 0.6); }
+        .requester-badge:hover .req-name { color: #fff; text-shadow: 0 0 10px rgba(254, 0, 0, 0.8); }
+        .req-avatar { width: 44px; height: 44px; border-radius: 2px; display: flex; align-items: center; justify-content: center; font-family: var(--font-title); font-size: 22px; color: var(--bg-deep); font-weight: 700; box-shadow: 0 5px 15px rgba(0,0,0,0.6); object-fit: cover; border: 2px solid var(--accent-main); transition: all 0.3s; background: var(--text-main); }
+        .req-name { font-family: var(--font-title); font-size: 16px; font-weight: 700; color: var(--text-main); transition: all 0.3s; letter-spacing: 1px; }
+        
+        .date-badge, .time-box { font-size: 12px; color: var(--accent-light); font-weight: 600; background: rgba(3, 6, 36, 0.9); border: 1px solid rgba(254, 0, 0, 0.3); padding: 4px 10px; border-radius: 2px; box-shadow: 0 4px 10px rgba(0,0,0,0.5); display: inline-flex; justify-content: center; align-items: center; gap: 6px; font-family: var(--font-title); letter-spacing: 1px;}
+        .date-badge { margin-top: 10px; }
+        
+        .badge-status { font-size: 12px; font-weight: 900; text-align: center; display: inline-flex; justify-content: center; align-items: center; text-transform: uppercase; letter-spacing: 2px; font-family: var(--font-title); color: var(--bg-deep); border-radius: 2px; padding: 4px 12px; margin-bottom: 8px; box-shadow: 0 4px 15px rgba(254, 0, 0, 0.5); min-width: 85px; }
+
+        /* ОБНОВЛЕННАЯ СТИЛИСТИКА ДЛЯ КНОПОК ССЫЛОК */
+        .steam-link-btn { display: flex; align-items: center; justify-content: center; gap: 6px; background: rgba(254, 0, 0, 0.1); color: #ffffff !important; border: 1px solid rgba(254, 0, 0, 0.3); padding: 6px 12px; border-radius: 2px; text-decoration: none; font-family: var(--font-title); font-size: 13px; font-weight: 700; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.5); text-transform: uppercase; letter-spacing: 1px; width: 100%; box-sizing: border-box; margin-bottom: 8px;}
+        .steam-link-btn:last-child { margin-bottom: 0; }
+        .steam-link-btn:hover { background: var(--accent-main); color: #ffffff !important; box-shadow: 0 0 15px rgba(254, 0, 0, 0.6); transform: translateY(-2px); }
+
+        /* ================= КАРТОЧНЫЙ ВИД (СЕТКА 6 В РЯД) ================= */
+        .movies-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 15px; padding: 20px; }
+        
+        .card-view-item {
+            background: var(--bg-velvet); border: 2px solid var(--accent-dark); border-radius: 4px;
+            display: flex; flex-direction: column; position: relative; cursor: pointer;
+            transition: all 0.2s cubic-bezier(0.175, 0.285, 0.12, 0.575); 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.8); overflow: hidden;
+        }
+        .card-view-item:hover {
+            transform: translateY(-8px); border-color: var(--accent-main);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.95), 0 0 35px rgba(254, 0, 0, 0.3);
+        }
+        
+        .card-view-item::before {
+            content: ''; position: absolute; top: 4px; left: 4px; right: 4px; bottom: 4px;
+            border: 1px solid rgba(254, 0, 0, 0.2); border-radius: 2px; pointer-events: none; z-index: 10;
         }
 
-        /* Кнопка "В Архивы" 3D */
-        .back-btn {
-            display: inline-flex; align-items: center; gap: 10px;
-            background: rgba(3, 6, 36, 0.85); 
-            color: #ffffff; text-decoration: none; padding: 12px 30px;
-            border-radius: 2px; border: 2px solid var(--accent-main);
-            font-family: var(--font-title); font-weight: 900; font-size: 18px; text-transform: uppercase; letter-spacing: 2px;
-            transition: all 0.2s ease; margin-bottom: 35px;
+        .card-top { position: relative; width: 100%; padding-top: 135%; overflow: hidden; border-bottom: 2px solid var(--accent-dark); transition: border-color 0.3s; background: var(--bg-deep); }
+        .card-view-item:hover .card-top { border-color: var(--accent-main); }
+        .card-poster { position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;}
+
+        .card-overlay {
+            position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(to bottom, rgba(3,6,36,0.1) 40%, rgba(3,6,36,0.45) 100%);
+            display: flex; flex-direction: column; justify-content: space-between; padding: 10px; z-index: 2;
+            box-sizing: border-box;
+        }
+
+        .card-badges-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 4px; width: 100%; box-sizing: border-box; overflow: hidden; white-space: nowrap; }
+        .card-type-badge { background: var(--bg-deep); border: 1px solid var(--accent-main); padding: 2px 4px; border-radius: 2px; font-size: 8px; font-family: var(--font-title); color: #ffffff; letter-spacing: 1px; box-shadow: 0 5px 15px rgba(0,0,0,0.8); max-width: 50%; overflow: hidden; text-overflow: ellipsis; text-transform: uppercase; }
+        .card-status { background: var(--accent-main); color: var(--bg-deep); padding: 2px 4px; border-radius: 2px; font-size: 8px; font-family: var(--font-title); font-weight: 900; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 5px 15px rgba(0,0,0,0.8); max-width: 50%; overflow: hidden; text-overflow: ellipsis; }
+        
+        .card-bottom-badges { display: flex; flex-direction: column; align-items: flex-start; gap: 4px; position: absolute; bottom: 10px; left: 10px; z-index: 12;}
+        .card-mini-badge { font-size: 8px; font-family: var(--font-title); font-weight: 800; text-transform: uppercase; background: rgba(3, 6, 36, 0.9); border: 1px solid rgba(254, 0, 0, 0.4); padding: 4px 8px; border-radius: 2px; display: flex; align-items: center; gap: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); backdrop-filter: blur(4px); letter-spacing: 1px; }
+        .card-mini-badge.auction { color: var(--warm-star); border-color: var(--warm-star); }
+        .card-mini-badge.cried { color: var(--text-main); border-color: var(--accent-main); }
+        .card-mini-badge.burned { color: var(--accent-light); border-color: var(--accent-light); }
+        .card-mini-badge.rating { color: var(--accent-light); border-color: var(--accent-main); font-size: 12px; }
+
+        .card-content { padding: 15px 10px; display: flex; flex-direction: column; align-items: center; text-align: center; z-index: 11; position: relative; flex-grow: 1; box-sizing: border-box; width: 100%; }
+        .card-title-container { height: 55px; display: flex; align-items: center; justify-content: center; width: 100%; margin-bottom: 6px; overflow: hidden; }
+        .card-title-text { 
+            font-family: var(--font-title); font-size: 20px; font-weight: 700; color: #fff; letter-spacing: 1px;
+            margin: 0; text-shadow: 2px 2px 0px rgba(0,0,0,0.9); line-height: 1.1;
+            width: 100%; text-align: center; flex-shrink: 0;
+            word-break: normal; overflow-wrap: normal;
+        }
+        
+        .card-bottom-info { margin-top: auto; width: 100%; }
+        .card-date-meta { font-family: var(--font-title); font-size: 16px; color: var(--text-main); margin-bottom: 8px; display: flex; align-items: center; justify-content: center; gap: 6px; }
+        
+        .grid-steam-link { 
+            display: inline-flex; align-items: center; justify-content: center; gap: 4px; 
+            background: rgba(254, 0, 0, 0.1); color: #ffffff !important; 
+            border: 1px solid rgba(254, 0, 0, 0.4); padding: 2px 8px; border-radius: 2px; 
+            text-decoration: none; font-family: var(--font-title); font-size: 11px; font-weight: 800; 
+            text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease; vertical-align: middle;
+        }
+        .grid-steam-link:hover { 
+            background: var(--accent-main); color: var(--bg-deep); box-shadow: 0 0 15px rgba(254, 0, 0, 0.6); transform: translateY(-1px); 
+        }
+
+        .card-queue-box {
+            background: rgba(3, 6, 36, 0.95); padding: 6px 8px; border-radius: 2px; border: 1px solid rgba(254, 0, 0, 0.3);
+            display: flex; flex-direction: column; align-items: center; width: 100%; box-shadow: inset 0 0 15px rgba(0,0,0,0.8); box-sizing: border-box;
+        }
+        .card-queue-label { font-size: 11px; font-family: var(--font-title); color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; font-weight: 800; margin-bottom: 4px; }
+        
+        .card-user-info-row { display: flex; align-items: center; justify-content: center; gap: 6px; width: 100%; }
+        .card-user-avatar { width: 22px; height: 22px; border-radius: 2px; border: 1.5px solid var(--accent-main); object-fit: cover; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 14px; font-family: var(--font-title); font-weight: 700; background: var(--bg-deep); color: var(--text-main); }
+        
+        .card-queue-name { font-family: var(--font-title); font-weight: 700; color: var(--text-main); font-size: 15px; letter-spacing: 1px; white-space: nowrap; display: block; max-width: calc(100% - 28px); overflow: hidden; text-overflow: clip; }
+
+        .banned-dot {
+            position: absolute; right: 13px; bottom: 10px; width: 14px; height: 14px;
+            background-color: var(--accent-main); border-radius: 50%; z-index: 15; box-shadow: 0 0 15px rgba(254, 0, 0, 0.9);
+            border: 2px solid var(--bg-deep);
+        }
+
+        /* НОВАЯ КНОПКА ТГ ДЛЯ ПЛИТКИ */
+        .card-tg-btn {
+            position: absolute; right: 8px; z-index: 15;
+            background: rgba(41, 128, 185, 0.9); border: 1px solid rgba(41, 128, 185, 0.6); color: #ffffff;
+            padding: 6px; border-radius: 2px; display: flex; align-items: center; justify-content: center;
+            transition: all 0.3s; box-shadow: 0 0 10px rgba(0,0,0,0.8);
+            text-decoration: none;
+        }
+        .card-tg-btn:hover { background: rgba(41, 128, 185, 1); box-shadow: 0 0 15px rgba(41, 128, 185, 0.8); transform: scale(1.05); }
+
+        .card-copy-btn {
+            position: absolute; right: 8px; z-index: 16;
+            background: rgba(3, 6, 36, 0.9); border: 1px solid rgba(254, 0, 0, 0.5); color: var(--accent-main);
+            cursor: pointer; padding: 6px; border-radius: 2px; display: flex; align-items: center; justify-content: center;
+            transition: all 0.3s; opacity: 0; transform: scale(0.8);
+        }
+        .card-view-item:hover .card-copy-btn { opacity: 1; transform: scale(1); }
+        .card-copy-btn:hover { background: var(--accent-main); color: var(--bg-deep); box-shadow: 0 0 15px rgba(254, 0, 0, 0.6); }
+
+        /* ================= МОДАЛЬНОЕ ОКНО ================= */
+        .modal-overlay {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at center, rgba(3, 6, 36, 0.95) 0%, rgba(0, 0, 0, 0.98) 100%);
+            backdrop-filter: blur(10px); z-index: 1000; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease;
+        }
+        .modal-overlay.active { display: flex; opacity: 1; }
+
+        .modal-girl-col { width: 0; position: relative; z-index: 1001; pointer-events: none; display: flex; align-items: center; }
+        .modal-girl-img { position: absolute; height: 650px; filter: drop-shadow(0 15px 40px rgba(0,0,0,0.9)) contrast(1.1) brightness(0.9); }
+        .modal-left-img { right: -185px; }
+        .modal-right-img { left: -176px; }
+        @media (max-width: 1550px) { .modal-girl-col { display: none; } }
+
+        .modal-content {
+            background: var(--bg-deep); width: 90%; max-width: 1000px; max-height: 85vh; overflow-y: auto; position: relative;
+            box-shadow: 0 0 60px rgba(0, 0, 0, 1), 0 0 40px rgba(254, 0, 0, 0.2); border: 2px solid var(--accent-main); padding: 4px; 
+            border-radius: 4px; transform: scale(0.95) translateY(20px); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); scroll-behavior: smooth; 
+        }
+        .modal-overlay.active .modal-content { transform: scale(1) translateY(0); }
+        .modal-inner { background: transparent; border-radius: 2px; min-height: 100%; overflow: hidden; }
+
+        .close-btn {
+            position: absolute; top: 15px; right: 20px; color: var(--text-main); cursor: pointer; z-index: 10; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; 
+            transition: all 0.3s; background: rgba(3, 6, 36, 0.8); border-radius: 2px; border: 1px solid var(--accent-dark);
+        }
+        .close-btn:hover { color: var(--accent-main); background: rgba(3, 6, 36, 1); transform: rotate(90deg); border-color: var(--accent-main); box-shadow: 0 0 15px rgba(254,0,0,0.5); }
+
+        .modal-hero { 
+            width: 100%; height: 320px; background-color: var(--bg-deep); background-size: cover; background-position: top center; 
+            position: relative; z-index: 1; box-shadow: inset 0 -60px 60px -10px var(--bg-deep); border-bottom: 2px solid var(--accent-main); transition: background-image 0.3s ease;
+        }
+        .modal-hero::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to top, var(--bg-deep) 0%, transparent 100%); }
+
+        .modal-body { padding: 0 40px 40px 40px; position: relative; margin-top: -120px; z-index: 2; display: flex; gap: 35px; }
+        .modal-poster { width: 200px; border-radius: 4px; box-shadow: 0 20px 45px rgba(0,0,0,0.9); border: 2px solid var(--accent-main); align-self: flex-start; background: var(--bg-deep); }
+        
+        .modal-info-main { flex: 1; background: rgba(12, 30, 91, 0.85); padding: 25px; border-radius: 4px; border: 1px solid rgba(254, 0, 0, 0.3); backdrop-filter: blur(10px); overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.6); }
+        
+        .modal-title-wrapper { 
+            display: flex; align-items: flex-start; gap: 12px; margin-bottom: 12px; 
+            flex-wrap: nowrap; max-width: 100%; overflow: hidden; 
+        }
+        .modal-title { 
+            font-family: var(--font-title); font-size: 42px; font-weight: 700; margin: 0; color: #ffffff; letter-spacing: 2px;
+            text-shadow: 2px 2px 0 var(--accent-dark), 0 0 15px var(--accent-main);
+            flex-shrink: 1; min-width: 0; line-height: 1.1;
+        }
+        .modal-title-extras { display: flex; align-items: center; gap: 10px; flex-shrink: 0; margin-top: 4px; }
+        .modal-year { color: var(--text-main); font-family: var(--font-title); font-size: 28px; font-weight: 600; opacity: 0.9; } 
+
+        .modal-title-wrapper .copy-btn { opacity: 0.8; transform: scale(1); background: rgba(254, 0, 0, 0.15); border: 1px solid var(--accent-dark); color: var(--accent-main); padding: 6px; display: inline-flex; align-items: center; justify-content: center; transition: all 0.3s; cursor: pointer; border-radius: 2px; }
+        .modal-title-wrapper:hover .copy-btn { opacity: 1; }
+        .modal-title-wrapper .copy-btn:hover { background: var(--accent-main); color: var(--bg-deep); box-shadow: 0 0 20px rgba(254, 0, 0, 0.6); border-color: var(--accent-main); }
+
+        .modal-meta-wrapper { display: flex; align-items: center; gap: 4px; margin-bottom: 12px; border-bottom: 1px solid rgba(254, 0, 0, 0.3); padding-bottom: 15px; flex-wrap: wrap; }
+        
+        .steam-modal-badge { display: inline-flex; align-items: center; gap: 4px; text-decoration: none; cursor: pointer; transition: all 0.3s ease; color: #ffffff !important; }
+        .steam-modal-badge:hover { background: var(--accent-main); color: #ffffff !important; box-shadow: 0 0 15px rgba(254, 0, 0, 0.5); }
+
+        .modal-grid { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            background: rgba(3, 6, 36, 0.8); 
+            border-radius: 2px; 
+            border: 1px solid rgba(254, 0, 0, 0.3); 
+            overflow: hidden; 
+        }
+        
+        .modal-grid.has-tags { grid-template-columns: repeat(3, 1fr); }
+
+        .modal-grid-box { font-size: 13px; font-family: var(--font-title); color: var(--text-main); font-weight: 900; background: rgba(12, 30, 91, 0.9); border: 1px solid var(--accent-dark); padding: 8px 16px; border-radius: 2px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); display: inline-flex; justify-content: center; align-items: center; gap: 8px; width: fit-content; margin-top: 4px; letter-spacing: 1px; text-transform: uppercase;}
+        
+        .grid-item { font-size: 14px; display: flex; flex-direction: column; gap: 4px; padding: 20px 8px 20px 10px; box-sizing: border-box; }
+        
+        .grid-item.border-right { border-right: 1px solid rgba(254, 0, 0, 0.3); }
+        .grid-item.border-bottom { border-bottom: 1px solid rgba(254, 0, 0, 0.3); }
+        
+        .grid-item.full-width { grid-column: 1 / -1; } 
+        .grid-label { color: var(--accent-light); font-size: 14px; text-transform: uppercase; letter-spacing: 2px; font-family: var(--font-title); font-weight: 900; margin-bottom: 4px; }
+        .grid-value { color: var(--text-main); font-family: var(--font-title); font-weight: 700; font-size: 18px; letter-spacing: 1px; }
+
+        .modal-overview-container { padding: 25px 0 0 0; margin-top: 15px; margin-bottom: 10px; border-top: 1px solid rgba(254, 0, 0, 0.3); }
+        .modal-overview-label { color: var(--accent-light); font-size: 14px; text-transform: uppercase; letter-spacing: 2px; font-family: var(--font-title); font-weight: 900; margin-top: 0; margin-bottom: 10px; }
+        .modal-overview { color: var(--text-main); font-family: var(--font-text); font-size: 16px; line-height: 1.7; margin-top: 0; margin-bottom: 0; }
+        
+        .modal-requester-link { cursor: pointer; transition: transform 0.3s; display: inline-flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+        .modal-requester-link:hover { transform: translateX(5px); }
+        .modal-requester-link span.name-text { font-family: var(--font-title); font-size: 18px; color: var(--text-main); transition: color 0.3s; font-weight: 900; letter-spacing: 1px; }
+        .modal-requester-link:hover span.name-text { color: var(--accent-main); text-shadow: 0 0 15px rgba(254, 0, 0, 0.6); }
+
+        .footer-badge { display: flex; align-items: center; gap: 10px; justify-content: center; margin: 30px auto 20px auto; padding: 6px 16px 6px 6px; width: fit-content; background: rgba(12, 30, 91, 0.6); border: 1px solid rgba(254, 0, 0, 0.3); cursor: pointer; transition: all 0.3s ease; opacity: 0.9; }
+        .footer-badge:hover { opacity: 1; background: rgba(254, 0, 0, 0.1); border-color: var(--accent-main); box-shadow: 0 0 15px rgba(254, 0, 0, 0.3); }
+        .footer-badge img { width: 35px; height: 35px; object-fit: cover; border: 2px solid var(--accent-main); transition: all 0.3s ease; border-radius: 2px; }
+        .footer-badge:hover img { box-shadow: 0 0 15px rgba(254, 0, 0, 0.5); transform: scale(1.05); }
+        .footer-badge .creator-name { font-size: 20px; font-family: var(--font-title); transition: text-shadow 0.3s ease; letter-spacing: 1px; color: #fff; }
+        .footer-badge:hover .creator-name { text-shadow: 0 0 8px rgba(254, 0, 0, 0.8); color: var(--text-main); }
+        .footer-badge .creator-label { display:block; font-size:12px; font-family: var(--font-title); color: var(--text-main); text-transform: uppercase; letter-spacing: 2px; font-weight: 800; }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-deep); }
+        ::-webkit-scrollbar-thumb { background: var(--accent-dark); border-radius: 0; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--accent-main); }
+
+        @media (max-width: 1024px) {
+            .movies-grid { grid-template-columns: repeat(4, 1fr); }
+        }
+        @media (max-width: 768px) {
+            th:nth-child(4), td:nth-child(4) { display: none; }
+            .movies-grid { grid-template-columns: repeat(2, 1fr); padding: 10px; gap: 10px; }
+            .modal-body { flex-direction: column; margin-top: -60px; padding: 20px; }
+            .modal-poster { width: 140px; margin: 0 auto; }
             
-            box-shadow: 4px 4px 0px var(--accent-dark), 0 10px 25px rgba(0,0,0,0.8);
+            .modal-grid { grid-template-columns: 1fr !important; }
+            .grid-item.border-right { border-right: none !important; }
+            .grid-item { border-bottom: 1px solid rgba(254, 0, 0, 0.3); }
+            #modalTagsColumn { grid-row: auto !important; grid-column: 1 / -1 !important; border-bottom: 1px solid rgba(254, 0, 0, 0.3); padding-left: 25px !important;}
+            .grid-item.full-width { border-bottom: none; }
+
+            .header-top h1 { font-size: 38px; }
+            .header-top h1::before, .header-top h1::after { display: none; }
+        }
+        
+        .legendary-table-badge, .legendary-badge {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.9), inset 0 0 20px #ffd700, 0 0 30px rgba(255, 215, 0, 0.5) !important;
+            border-color: #ffd700 !important; color: #130f1c !important;
+            text-shadow: none !important; font-weight: 900 !important; background: #ffd700 !important;
+        }
+
+        /* Эффект 3D текста */
+        .text-3d-effect {
+            color: #ffffff;
             text-shadow: 2px 2px 0px var(--accent-dark), 0 0 10px rgba(254, 0, 0, 0.8);
         }
-        .back-btn svg { filter: drop-shadow(2px 2px 0px var(--accent-dark)) drop-shadow(0 0 10px rgba(254, 0, 0, 0.8)); transition: all 0.2s ease; }
 
-        .back-btn:hover {
-            background: var(--accent-main); color: #ffffff; border-color: var(--accent-main);
-            text-shadow: none; transform: translate(2px, 2px);
-            box-shadow: 2px 2px 0px var(--accent-dark), 0 0 20px rgba(254, 0, 0, 0.6);
-        }
-        .back-btn:hover svg { filter: none; }
-        .back-btn:active { transform: translate(4px, 4px); box-shadow: 0px 0px 0px var(--accent-dark), 0 0 10px rgba(254, 0, 0, 0.6); }
-
-
-        /* --- КОНТЕНТ БЛОКИ --- */
-        .section { margin-bottom: 30px; }
-
-        /* ОБНОВЛЕННЫЙ ЗАГОЛОВОК СЕКЦИИ (3D, ПО ЦЕНТРУ, БЕЗ КОРОНЫ) */
-        .section-title {
-            font-family: var(--font-title); font-size: 30px; font-weight: 900;
-            color: #ffffff; margin: 0 auto 35px auto; padding: 12px 40px;
-            background: rgba(3, 6, 36, 0.85);
-            border: 2px solid var(--accent-main); border-radius: 2px;
-            text-align: center; width: fit-content; display: block;
-            text-shadow: 2px 2px 0px var(--accent-dark), 0 0 15px rgba(254, 0, 0, 0.8); 
-            box-shadow: 4px 4px 0px var(--accent-dark), 0 10px 25px rgba(0,0,0,0.8);
-            letter-spacing: 2px; text-transform: uppercase;
-        }
-
-        .info-box {
-            background: rgba(12, 30, 91, 0.6); border: 1px solid rgba(254, 0, 0, 0.3);
-            color: var(--text-main); padding: 15px 25px; border-radius: 2px;
-            margin-bottom: 30px; font-size: 16px; font-weight: 700; line-height: 1.5;
-            display: flex; gap: 15px; align-items: center; letter-spacing: 0.5px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
-        }
-        .info-box code { background: rgba(254, 0, 0, 0.15); border: 1px solid var(--accent-main); color: #fff; padding: 2px 6px; border-radius: 2px; font-family: monospace; font-size: 16px; font-weight: 900; }
-
-        .command-grid { display: grid; grid-template-columns: 1fr; gap: 25px; }
-        @media (min-width: 768px) { .command-grid.two-cols { grid-template-columns: repeat(2, 1fr); } }
-
-        /* --- 3D КАРТОЧКИ КОМАНД --- */
-        .command-card {
-            background: var(--bg-velvet);
-            border: 2px solid var(--accent-dark); border-radius: 2px; padding: 25px;
-            transition: all 0.3s ease; position: relative;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.8), 6px 6px 0px rgba(0,0,0,0.5); /* 3D Тень */
-        }
-
-        .command-card::before {
-            content: ''; position: absolute;
-            top: 4px; left: 4px; right: 4px; bottom: 4px;
-            border: 1px solid rgba(254, 0, 0, 0.15); border-radius: 2px; pointer-events: none; z-index: 1; transition: all 0.3s ease;
-        }
-
-        .command-card:hover {
-            border-color: var(--accent-main); transform: translate(-3px, -3px);
-            box-shadow: 0 20px 45px rgba(0,0,0,0.9), 9px 9px 0px rgba(254, 0, 0, 0.3), 0 0 25px rgba(254, 0, 0, 0.2);
-        }
-        .command-card:hover::before { border-color: rgba(254, 0, 0, 0.4); }
-
-        .cmd-name {
-            font-family: var(--font-title); font-size: 22px; font-weight: 900; color: #fff; margin-bottom: 12px;
-            text-shadow: 2px 2px 0px rgba(0,0,0,0.9); letter-spacing: 1px; position: relative; z-index: 2;
-        }
-
-        .cmd-syntax {
-            background: var(--bg-deep); color: #fff; padding: 12px 18px; border-radius: 2px;
-            font-family: monospace; font-size: 16px; font-weight: 700; margin-bottom: 15px;
-            border-left: 4px solid var(--accent-main); word-wrap: break-word; position: relative; z-index: 2;
-            box-shadow: inset 0 0 15px rgba(0,0,0,0.8);
-        }
-
-        .cmd-desc { font-size: 16px; line-height: 1.6; color: #dbe4f9; font-weight: 600; position: relative; z-index: 2; }
-        .cmd-desc i { color: var(--text-muted); font-size: 14px; font-style: normal; font-weight: 400; display: block; margin-top: 6px;}
-        .cmd-desc b { color: #fff; font-weight: 900; }
-        .cmd-desc code { background: rgba(3, 6, 36, 0.8); border: 1px solid rgba(254, 0, 0, 0.4); padding: 2px 5px; border-radius: 2px; font-family: monospace; color: var(--accent-light); font-size: 14px; }
-
-        /* Аргументы команд */
-        .arg-nick { color: var(--warm-star); font-weight: 900; } 
-        .arg-text { color: #fff; font-weight: 900; } 
-        .arg-mod { color: var(--accent-light); font-weight: 900; } 
-
-        @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
-
-        @media (max-width: 900px) {
-            .header-title h1 { font-size: 38px; }
-            .header-title h1::before, .header-title h1::after { display: none; }
-            .content-wrapper { padding: 20px 15px; }
-            .command-card { padding: 15px; }
+        /* Эффект 3D для иконок */
+        .icon-3d-effect {
+            filter: drop-shadow(2px 2px 0px var(--accent-dark)) drop-shadow(0 0 10px rgba(254, 0, 0, 0.8));
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="content-wrapper">
-            
-            <div class="header-title">
-                <a href="https://cherteya.github.io/lists/" class="back-btn">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
-                    В портал
-                </a>
-
-                <h1>Книга Заклинаний</h1>
-                <p>Руководство по управлению Архивами</p>
-            </div>
-
-            <div class="section">
-                <!-- Обновленный заголовок: без короны, по центру, в 3D -->
-                <h2 class="section-title">Для Стримера и Модераторов</h2>
-                
-                <div class="info-box">
-                    <div>Главная команда в примерах: <code>!заказ</code> (подставьте свою из Streamer.bot: !filmzakaz, !fz, !gamezakaz, !gz и т.д.).</div>
-                </div>
-
-                <div class="command-grid two-cols">
-                    
-                    <div class="command-card">
-                        <div class="cmd-name">Ручное добавление (Без баллов)</div>
-                        <div class="cmd-syntax">!заказ <span class="arg-nick">@ник</span> <span class="arg-text">Название</span> <span class="arg-mod">(add)</span></div>
-                        <div class="cmd-desc">
-                            Добавляет заказ в очередь от имени указанного зрителя. 
-                            <i>Алиасы: (заказ), (order), (add)</i>
-                        </div>
-                    </div>
-
-                    <div class="command-card">
-                        <div class="cmd-name">Победа на аукционе</div>
-                        <div class="cmd-syntax">!заказ <span class="arg-nick">@ник</span> <span class="arg-text">Название</span> <span class="arg-mod">(аукцион)</span></div>
-                        <div class="cmd-desc">
-                            Добавляет заказ со статусом <b>✦ Аукцион ✦</b>.
-                            <i>Алиасы: (аукцион), (auction), (аук)</i>
-                        </div>
-                    </div>
-
-                    <div class="command-card">
-                        <div class="cmd-name">Пройдено / Смотрели с оценкой</div>
-                        <div class="cmd-syntax">!заказ <span class="arg-text">Название</span> <span class="arg-mod">(8.5)</span></div>
-                        <div class="cmd-desc">
-                            Закрывает заказ и выставляет вашу оценку (от <b>0</b> до <b>10</b>).
-          
-                        </div>
-                    </div>
-
-                    <div class="command-card">
-                        <div class="cmd-name">Пройдено / Смотрели (Без оценки)</div>
-                        <div class="cmd-syntax">!заказ <span class="arg-text">Название</span> <span class="arg-mod">(смотрели/прошли)</span></div>
-                        <div class="cmd-desc">
-                            Переводит из очереди в «Смотрели/Пройдено».
-                            <br><span style="color: var(--accent-light); font-size: 14px; font-weight: 700; margin-top: 4px; display: block;">⚠️ Повторный ввод вернет статус «В очереди»!</span>
-                            <i>Алиасы: (смотрели), (посмотрели), (watched)</i>
-                            <i>Алиасы: (пройдено), (complete), (прошли)</i>
-                        </div>
-                    </div>
-
-                    <div class="command-card">
-                        <div class="cmd-name">Добавить метку «Слёзы»</div>
-                        <div class="cmd-syntax">!заказ <span class="arg-text">Название</span> <span class="arg-mod">(слёзы)</span></div>
-                        <div class="cmd-desc">
-                            Добавляет метку 💧 для эмоциональных игр/фильмов. (Только для просмотренных/пройденных).
-                            <i>Алиасы: (слёзы), (плакал), (cry)</i>
-                            <br>Можно комбинировать: <code>(8.5) (слезы)</code>
-                        </div>
-                    </div>
-
-                    <div class="command-card">
-                        <div class="cmd-name">Удаление из базы</div>
-                        <div class="cmd-syntax">!заказ <span class="arg-text">Название</span> <span class="arg-mod">(удалить)</span></div>
-                        <div class="cmd-desc">
-                            Полностью стирает заказ зрителя из базы.
-                            <i>Алиасы: (удалить), (delete), (del), (убрать)</i>
-                            <br>Удаление по нику+ID: <code>!заказ @ник 12 (удалить)</code>
-                        </div>
-                    </div>
-
-                    <div class="command-card">
-                        <div class="cmd-name">Замена заказа</div>
-                        <div class="cmd-syntax">!заказ <span class="arg-text">Старое</span> <span class="arg-mod">[Новое]</span></div>
-                        <div class="cmd-desc">
-                            Заменяет текущий заказ на другой. Новое название нужно писать строго в квадратных <b>[ ]</b> или фигурных <b>{ }</b> скобках.
-                            <br>Пример: <code>!заказ Начало [Шрек 2]</code>
-                        </div>
-                    </div>
-
-                    <div class="command-card">
-                        <div class="cmd-name">Принудительное обновление</div>
-                        <div class="cmd-syntax">!заказ <span class="arg-mod">(обновить)</span></div>
-                        <div class="cmd-desc">
-                            Если сайт не обновился автоматически, эта команда заставит бота отправить базу данных еще раз.
-                            <i>Алиасы: (обновить), (update), (refresh)</i>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
+<div class="main-wrapper">
+    <div class="girl-col">
+        <div class="sticky-box">
+            <img src="girl-left.png" class="girl-img left-img" alt="">
         </div>
     </div>
 
+    <div class="container">
+        <div class="content-wrapper">
+            <div class="header">
+                <a href="https://sarachuma.github.io/links/" class="back-btn">
+                    <svg class="icon-3d-effect" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><line x1="19" y1="12" x2="5" y2="12"></line><polyline points="12 19 5 12 12 5"></polyline></svg>
+                    В Архивы
+                </a>
+
+                <div class="creator-badge" onclick="window.open('https://twitch.tv/sarachuma', '_blank')">
+                    <img src="https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png" id="sarachumaAvatar" alt="sarachuma">
+                    <div class="creator-info">
+                        <span class="creator-name text-3d-effect">sarachuma</span>
+                    </div>
+                </div>
+                
+                <div class="header-top">
+                    <h1>Игровая</h1>
+                </div>
+                
+                <div class="controls-panel">
+                    <input type="text" id="searchInput" class="search-box" placeholder="Поиск..." oninput="applyFilters()">
+                    <select id="userFilter" class="sort-select" onchange="applyFilters()">
+                        <option value="all">Все заказчики</option>
+                    </select>
+                    
+                    <select id="sortSelect" class="sort-select" onchange="applyFilters()">
+                        <option value="order">По порядку</option>
+                        <option value="date_asc">По дате заказов (Старые)</option>
+                        <option value="newest">По дате заказов (Новые)</option>
+                        <option value="waiting">В очереди / Играем</option>
+                        <option value="watched">Пройдено / Брошено</option>
+                        <option value="tried">Попробовала</option>
+                        <option value="cried">Слёзы</option>
+                        <option value="burned">Сгорела</option>
+                        <option value="auction">Аукцион</option>
+                    </select>
+
+                    <button class="view-toggle-btn" id="viewToggleBtn" onclick="toggleViewMode()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+                        Плиткой
+                    </button>
+                </div>
+            </div>
+            
+            <div id="render-area">
+                <table style="margin-top: 30px;">
+                    <tbody id="table-body">
+                        <tr><td style="text-align: center; padding: 60px; font-size: 24px; color: var(--accent-main); font-family: var(--font-title); font-weight: 700; text-transform: uppercase; border: none;">Раскрываем архивы... ✦</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="footer-badge" onclick="window.open('https://twitch.tv/MadMan1408', '_blank')">
+                <img src="https://static-cdn.jtvnw.net/user-default-pictures-uv/41780b5a-def8-11e9-94d9-784f43822e80-profile_image-70x70.png" id="madmanAvatar" alt="MadMan1408">
+                <div class="creator-info">
+                    <span class="creator-label">Created by</span>
+                    <span class="creator-name text-3d-effect">MadMan1408</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="girl-col">
+        <div class="sticky-box">
+            <img src="girl-right.png" class="girl-img right-img" alt="">
+        </div>
+    </div>
+</div>
+
+<div class="modal-overlay" id="movieModal" onclick="closeModal(event)">
+    <div class="main-wrapper" style="pointer-events: none; height: 100%;">
+        
+        <div class="modal-girl-col">
+            <img src="girl-left.png" class="modal-girl-img modal-left-img" alt="">
+        </div>
+
+        <div class="modal-content" style="pointer-events: auto; align-self: center;" onclick="event.stopPropagation()">
+            <div class="modal-inner">
+                <div class="close-btn" onclick="closeModal(true)">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                </div>
+                <div class="modal-hero" id="modalHero"></div>
+                <div class="modal-body">
+                    <div><img id="modalPoster" class="modal-poster" src="" alt="Постер"></div>
+                    <div class="modal-info-main">
+                        
+                        <div class="modal-title-wrapper">
+                            <h2 class="modal-title text-3d-effect" id="modalTitle">Название</h2>
+                            <div class="modal-title-extras">
+                                <span class="modal-year text-3d-effect" id="modalYear"></span>
+                                <button class="copy-btn" id="modalCopyBtn" onclick="copyMovieNameFromModal()" title="Скопировать имя">
+                                    <svg class="icon-3d-effect" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                                </button>
+                            </div>
+                        </div>
+                        
+                        <div class="modal-meta-wrapper" id="modalBadges"></div>
+                        
+                        <div id="modalGenres" style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;"></div>
+                        
+                        <div class="modal-grid" id="modalMainGrid" style="gap: 0; padding: 0;">
+                            
+                            <!-- ROW 1 -->
+                            <div class="grid-item border-bottom border-right" id="modalRequesterCol">
+                                <div class="grid-label">Заказал(а)</div>
+                                <div class="grid-value" id="modalRequesterBlock" style="display: flex; flex-direction: column; align-items: flex-start;"></div>
+                            </div>
+                            <div class="grid-item border-bottom" id="modalStatusCol">
+                                <div class="grid-label">Статус</div>
+                                <div id="modalStatusLabel"></div>
+                            </div>
+                            
+                            <!-- ОТМЕТКИ -->
+                            <div class="grid-item border-bottom" id="modalTagsColumn" style="grid-row: span 2; display: none; padding-left: 25px;">
+                                <div class="grid-label">Отметки</div>
+                                <div id="modalTagsBlock" style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px;"></div>
+                            </div>
+
+                            <!-- ROW 2 -->
+                            <div class="grid-item border-bottom border-right" id="modalDateReqCol">
+                                <div class="grid-label">День заказа</div>
+                                <div id="modalDateReq"></div>
+                            </div>
+                            <div class="grid-item border-bottom" id="modalDateWatchedCol">
+                                <div class="grid-label" id="modalWatchedLabel">День прохождения</div>
+                                <div id="modalDateWatched"></div>
+                            </div>
+
+                            <!-- ROW 3 -->
+                            <div class="grid-item full-width" style="border-bottom: none;">
+                                <div class="grid-label">Разработчик / Издатель</div>
+                                <div class="grid-value" id="modalStudios" style="color: var(--text-muted); font-weight: normal; margin-top: 4px;">Архив скрыт</div>
+                            </div>
+
+                        </div>
+
+                        <!-- КОНТЕЙНЕР ДЛЯ ОПИСАНИЯ -->
+                        <div class="modal-overview-container">
+                            <div class="modal-overview-label">Описание</div>
+                            <div class="modal-overview" id="modalOverview">Описание игры...</div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal-girl-col">
+            <img src="girl-right.png" class="modal-girl-img modal-right-img" alt="">
+        </div>
+
+    </div>
+</div>
+
+<script>
+    let rawMoviesData = []; 
+    let currentViewData = []; 
+    let currentModalMovie = null; 
+    let viewMode = localStorage.getItem('siteViewModeGames') || 'grid'; 
+
+    // Заменил цвета fallback-заглушек на сине-красную палитру
+    const fallbackPosterUrl = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='750' viewBox='0 0 500 750'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%230C1E5B'/%3E%3Cstop offset='100%25' stop-color='%23030624'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='750' fill='url(%23bg)'/%3E%3Cg transform='translate(0, -30)'%3E%3Cpath d='M150 400 c0-50 40-90 90-90 h20 c50 0 90 40 90 90 v20 c0 30 15 50 30 70 l10 15 c15 20 0 45-20 45 h-30 c-20 0-30-10-35-30 l-5-20 h-100 l-5 20 c-5 20-15 30-35 30 h-30 c-20 0-35-25-20-45 l10-15 c15-20 30-40 30-70 v-20 z' fill='%23030624' stroke='%23fe0000' stroke-width='6' stroke-linejoin='round'/%3E%3Cpath d='M180 390 h20 v-20 h20 v20 h20 v20 h-20 v20 h-20 v-20 h-20 z' fill='%230C1E5B'/%3E%3Ccircle cx='210' cy='400' r='3' fill='%23fe0000'/%3E%3Ccircle cx='330' cy='380' r='14' fill='%23ff4d4d'/%3E%3Ccircle cx='360' cy='410' r='14' fill='%23fce8a1'/%3E%3Crect x='235' y='395' width='30' height='10' rx='5' fill='%230C1E5B'/%3E%3C/g%3E%3C/svg%3E";
+    const fallbackBackdropUrl = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1000' height='320' viewBox='0 0 1000 320'%3E%3Cdefs%3E%3ClinearGradient id='bgH' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%230C1E5B'/%3E%3Cstop offset='100%25' stop-color='%23030624'/%3E%3C/linearGradient%3E%3Cpattern id='grid' width='60' height='60' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='%23fe0000' stroke-width='1' opacity='0.05'/%3E%3C/pattern%3E%3Cpattern id='dots' width='20' height='20' patternUnits='userSpaceOnUse'%3E%3Ccircle cx='2' cy='2' r='1' fill='%23fce8a1' opacity='0.1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='1000' height='320' fill='url(%23bgH)'/%3E%3Crect width='1000' height='320' fill='url(%23grid)'/%3E%3Crect width='1000' height='320' fill='url(%23dots)'/%3E%3Cg transform='translate(500, 160) scale(1.5)'%3E%3Cpath d='M-50,0 C-50,-20 -30,-40 0,-40 C30,-40 50,-20 50,0 C50,20 40,30 25,30 C15,30 10,20 0,20 C-10,20 -15,30 -25,30 C-40,30 -50,20 -50,0 Z' fill='%23741511' stroke='%23fe0000' stroke-width='3' opacity='0.8'/%3E%3Cpath d='M-30,-5 h5 v-5 h5 v5 h5 v5 h-5 v5 h-5 v-5 h-5 z' fill='%230C1E5B' opacity='0.9'/%3E%3Ccircle cx='20' cy='-5' r='3' fill='%23ff4d4d' opacity='0.9'/%3E%3Ccircle cx='30' cy='5' r='3' fill='%23fce8a1' opacity='0.9'/%3E%3C/g%3E%3C/svg%3E";
+
+    window.handlePosterError = function(img) {
+        img.onerror = null;
+        img.src = fallbackPosterUrl;
+    };
+
+    function escapeHTML(str) {
+        if (!str) return '';
+        return String(str).replace(/[&<>'"]/g, tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag]));
+    }
+
+    function formatDifficulty(diff) {
+        if (!diff) return '';
+        if (diff === 'Легкая') return 'На лёгком';
+        if (diff === 'Средняя') return 'На среднем';
+        if (diff === 'Сложная') return 'На сложном';
+        return escapeHTML(diff);
+    }
+
+    const savedSortMode = localStorage.getItem('gameSortMode');
+    if (savedSortMode) document.getElementById('sortSelect').value = savedSortMode;
+
+    function updateToggleButton() {
+        const btn = document.getElementById('viewToggleBtn');
+        if (viewMode === 'list') {
+            btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg> Плиткой`;
+        } else {
+            btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><line x1="8" y1="6" x2="21" y2="6"></line><line x1="8" y1="12" x2="21" y2="12"></line><line x1="8" y1="18" x2="21" y2="18"></line><line x1="3" y1="6" x2="3.01" y2="6"></line><line x1="3" y1="12" x2="3.01" y2="12"></line><line x1="3" y1="18" x2="3.01" y2="18"></line></svg> Списком`;
+        }
+    }
+
+    function toggleViewMode() {
+        viewMode = viewMode === 'list' ? 'grid' : 'list';
+        localStorage.setItem('siteViewModeGames', viewMode);
+        updateToggleButton();
+        renderView();
+    }
+
+    function getSafePoster(url) { return (!url || url.includes('via.placeholder.com')) ? fallbackPosterUrl : url; }
+
+    function copyTextToClipboard(text, btnElement) {
+        navigator.clipboard.writeText(text).then(() => {
+            if (btnElement) {
+                const originalHTML = btnElement.innerHTML;
+                btnElement.innerHTML = `<svg class="icon-3d-effect" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><polyline points="20 6 9 17 4 12"></polyline></svg>`;
+                btnElement.classList.add('copied');
+                setTimeout(() => { btnElement.innerHTML = originalHTML; btnElement.classList.remove('copied'); }, 1500);
+            }
+        });
+    }
+
+    function copyMovieNameFromTable(event, title, year, btnElement) {
+        event.stopPropagation();
+        copyTextToClipboard(`${title} ${year}`, btnElement);
+    }
+    function copyMovieNameFromModal() {
+        if (currentModalMovie) copyTextToClipboard(`${currentModalMovie.title || ''} ${currentModalMovie.year || ''}`, document.getElementById('modalCopyBtn'));
+    }
+
+    async function loadCreatorAvatars() {
+        try {
+            const res1 = await fetch('https://api.ivr.fi/v2/twitch/user?login=sarachuma');
+            const data1 = await res1.json();
+            if (data1 && data1.length > 0 && data1[0].logo) {
+                const pAv = document.getElementById('sarachumaAvatar');
+                if(pAv) pAv.src = data1[0].logo.replace('300x300', '150x150');
+            }
+            
+            const res2 = await fetch('https://api.ivr.fi/v2/twitch/user?login=madman1408');
+            const data2 = await res2.json();
+            if (data2 && data2.length > 0 && data2[0].logo) {
+                const mAv = document.getElementById('madmanAvatar');
+                if(mAv) mAv.src = data2[0].logo.replace('300x300', '150x150');
+            }
+        } catch (e) { }
+    }
+    loadCreatorAvatars();
+
+    function stringToColor(str) {
+        let hash = 0;
+        for (let i = 0; i < str.length; i++) hash = str.charCodeAt(i) + ((hash << 5) - hash);
+        return `hsl(${Math.abs(hash) % 360}, 70%, 75%)`;
+    }
+    
+    function getRatingColor(rating) {
+        if (!rating) return 'var(--accent-main)';
+        const r = parseFloat(rating);
+        if (isNaN(r)) return 'var(--accent-main)';
+        
+        // Округляем оценку, чтобы подобрать для неё конкретный цвет (например, 5.5 возьмет цвет шестерки)
+        const rounded = Math.round(r);
+
+        // Прописываем цвета для каждой оценки (меняй HEX-коды в кавычках на любые свои!)
+        if (rounded >= 10) return '#00d708'; // 10 - Ярко-зеленый (твой цвет)
+        if (rounded === 9) return '#32cd32'; // 9  - Лаймовый
+        if (rounded === 8) return '#80ff00'; // 8  - Салатовый
+        if (rounded === 7) return '#ccff00'; // 7  - Желто-зеленый
+        if (rounded === 6) return '#ffff00'; // 6  - Ярко-желтый
+        if (rounded === 5) return '#ffcc00'; // 5  - Желто-оранжевый
+        if (rounded === 4) return '#ffa500'; // 4  - Оранжевый
+        if (rounded === 3) return '#ff7300'; // 3  - Темно-оранжевый
+        if (rounded === 2) return '#ff4500'; // 2  - Красно-оранжевый
+        if (rounded <= 1)  return '#ff1f1f'; // 1  - Ярко-красный (твой цвет)
+        
+        return 'var(--accent-main)';
+    }
+
+    function getInitials(name) { return (name || '??').replace('@', '').trim().substring(0, 1).toUpperCase(); }
+
+    function parseDateObj(dateStr) {
+        if (!dateStr || typeof dateStr !== 'string') return 0;
+        const cleanDate = dateStr.split(' ')[0];
+        const dmy = cleanDate.split('.'); 
+        if (dmy.length !== 3) return 0;
+        return new Date(dmy[2], dmy[1]-1, dmy[0]).getTime();
+    }
+
+    async function loadMovies() {
+        const renderArea = document.getElementById('render-area');
+        try {
+            const response = await fetch('RequestedGames.json?t=' + new Date().getTime());
+            if (!response.ok) throw new Error();
+            const data = await response.json();
+            rawMoviesData = [];
+            
+            if (Array.isArray(data)) {
+                data.forEach(movie => {
+                    const cleanReq = movie.dateRequested ? movie.dateRequested.split(' ')[0] : '';
+                    const cleanWatch = movie.dateWatched ? movie.dateWatched.split(' ')[0] : '';
+                    rawMoviesData.push({ ...movie, requestedBy: movie.requestedBy || 'Аноним', dateRequested: cleanReq, dateWatched: cleanWatch, parsedDate: parseDateObj(movie.dateRequested) });
+                });
+            } else if (typeof data === 'object' && data !== null) {
+                for (const user in data) {
+                    if (user === "_metadata_") continue; 
+                    if (Array.isArray(data[user])) {
+                        data[user].forEach(movie => {
+                            const cleanReq = movie.dateRequested ? movie.dateRequested.split(' ')[0] : '';
+                            const cleanWatch = movie.dateWatched ? movie.dateWatched.split(' ')[0] : '';
+                            rawMoviesData.push({ ...movie, requestedBy: user, dateRequested: cleanReq, dateWatched: cleanWatch, parsedDate: parseDateObj(movie.dateRequested) });
+                        });
+                    }
+                }
+            }
+            populateUserFilter(); 
+            updateToggleButton();
+            applyFilters();
+        } catch (error) {
+            renderArea.innerHTML = `<div style="text-align: center; padding: 60px; color: var(--accent-main); font-family: var(--font-title); font-weight: 700; font-size: 24px; text-transform: uppercase;">Игровые архивы пока недоступны (Ошибка)</div>`;
+        }
+    }
+
+    function populateUserFilter() {
+        const filterEl = document.getElementById('userFilter');
+        if (!filterEl) return;
+        filterEl.innerHTML = '<option value="all">Все заказчики</option>';
+        const uniqueUsers = [...new Set(rawMoviesData.map(m => m.requestedBy))].sort((a, b) => a.localeCompare(b, undefined, {sensitivity: 'base'}));
+        uniqueUsers.forEach(u => {
+            const opt = document.createElement('option'); opt.value = u.toLowerCase(); opt.textContent = `✦ ${u.replace('@', '').trim()}`; filterEl.appendChild(opt);
+        });
+    }
+
+    function applyFilters() {
+        const searchQuery = document.getElementById('searchInput').value.toLowerCase();
+        let sortMode = document.getElementById('sortSelect').value;
+        const userFilterVal = document.getElementById('userFilter').value;
+        localStorage.setItem('gameSortMode', sortMode);
+        
+        if (sortMode === 'oldest') sortMode = 'order';
+
+        let filtered = [...rawMoviesData];
+        if (userFilterVal !== 'all') filtered = filtered.filter(m => m.requestedBy.toLowerCase() === userFilterVal);
+        if (searchQuery.trim() !== '') filtered = filtered.filter(m => (m.title && m.title.toLowerCase().includes(searchQuery)) || (m.requestedBy && m.requestedBy.toLowerCase().includes(searchQuery)));
+
+        const orderSortFn = (a, b) => {
+            const getPriority = (status) => {
+                if (status === 'Играем') return 1;
+                if (status === 'В очереди') return 2;
+                return 3; 
+            };
+            const priorityA = getPriority(a.status);
+            const priorityB = getPriority(b.status);
+            
+            if (priorityA !== priorityB) return priorityA - priorityB;
+            
+            if (priorityA === 1 || priorityA === 2) {
+                return a.parsedDate - b.parsedDate;
+            }
+            
+            if (priorityA === 3) {
+                const parsedWatchA = parseDateObj(a.dateWatched);
+                const parsedWatchB = parseDateObj(b.dateWatched);
+                if (parsedWatchA !== parsedWatchB) return parsedWatchB - parsedWatchA;
+                return b.parsedDate - a.parsedDate; 
+            }
+            return 0;
+        };
+
+        const watchedDescSortFn = (a, b) => {
+            const watchA = parseDateObj(a.dateWatched);
+            const watchB = parseDateObj(b.dateWatched);
+            if (watchA !== watchB) return watchB - watchA;
+            return b.parsedDate - a.parsedDate;
+        };
+
+        if (sortMode === 'waiting') { 
+            filtered = filtered.filter(m => m.status === 'В очереди' || m.status === 'Играем').sort(orderSortFn); 
+        } 
+        else if (sortMode === 'watched') { 
+            filtered = filtered.filter(m => m.status === 'Пройдено' || m.status === 'Брошено' || m.status === 'Бросила').sort(watchedDescSortFn); 
+        }
+        else if (sortMode === 'tried') { 
+            filtered = filtered.filter(m => m.status === 'Попробовала').sort(watchedDescSortFn); 
+        }
+        else if (sortMode === 'auction') { 
+            filtered = filtered.filter(m => m.isAuction === true).sort(orderSortFn); 
+        }
+        else if (sortMode === 'cried') { 
+            filtered = filtered.filter(m => m.cried === true).sort(watchedDescSortFn); 
+        }
+        else if (sortMode === 'burned') { 
+            filtered = filtered.filter(m => m.burned === true).sort(watchedDescSortFn); 
+        }
+        else if (sortMode === 'newest') { 
+            filtered.sort((a, b) => b.parsedDate - a.parsedDate); 
+        }
+        else if (sortMode === 'date_asc') { 
+            filtered.sort((a, b) => a.parsedDate - b.parsedDate); 
+        }
+        else { 
+            filtered.sort(orderSortFn);
+        }
+        
+        currentViewData = filtered; 
+        renderView();
+    }
+
+    function renderView() {
+        const renderArea = document.getElementById('render-area');
+        renderArea.innerHTML = '';
+        
+        if (currentViewData.length === 0) {
+            renderArea.innerHTML = '<div style="text-align: center; padding: 60px; font-size: 24px; font-family: var(--font-title); color: var(--text-muted); text-transform: uppercase;">В архивах пусто ✦</div>';
+            return;
+        }
+
+        if (viewMode === 'list') renderTableMode(renderArea);
+        else renderGridMode(renderArea);
+    }
+
+    // ==========================================
+    // ЛОГИКА РЕНДЕРА ТАБЛИЦЫ (СПИСКОМ)
+    // ==========================================
+    function renderTableMode(renderArea) {
+        let tableHTML = `
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 160px; min-width: 160px;">Постер</th>
+                        <th style="width: 100%;">Описание</th>
+                        <th style="width: 145px; min-width: 145px;">Заказал</th>
+                        <th style="width: 130px; min-width: 130px;">Ссылки</th>
+                        <th style="width: 135px; min-width: 135px;">Статус</th>
+                    </tr>
+                </thead>
+                <tbody id="table-body"></tbody>
+            </table>`;
+        renderArea.innerHTML = tableHTML;
+        const tbody = document.getElementById('table-body');
+        const sortMode = document.getElementById('sortSelect').value;
+
+        currentViewData.forEach((movie, index) => {
+            
+            if (sortMode === 'order' && index > 0) {
+                const prevStatus = currentViewData[index - 1].status;
+                const currStatus = movie.status;
+                const getGroup = (s) => (s === 'Играем' || s === 'В очереди' ? 1 : 2);
+                
+                if (getGroup(prevStatus) !== getGroup(currStatus)) {
+                    const dividerTr = document.createElement('tr');
+                    dividerTr.innerHTML = `
+                        <td colspan="5" style="padding: 30px 15px; cursor: default; border-bottom: 1px solid rgba(254, 0, 0, 0.3);">
+                            <div style="display: flex; align-items: center; justify-content: center;">
+                                <div style="flex-grow: 1; height: 2px; background: linear-gradient(to right, transparent, var(--accent-main)); opacity: 0.5;"></div>
+                                <span style="padding: 0 20px; font-family: var(--font-title); font-size: 24px; font-weight: 700; color: #ffffff; text-shadow: 0 0 15px rgba(254, 0, 0, 0.8); text-transform: uppercase; letter-spacing: 2px;">✦ Пройдено / Брошено ✦</span>
+                                <div style="flex-grow: 1; height: 2px; background: linear-gradient(to left, transparent, var(--accent-main)); opacity: 0.5;"></div>
+                            </div>
+                        </td>`;
+                    tbody.appendChild(dividerTr);
+                }
+            }
+
+            const cleanNick = movie.requestedBy.replace('@', '').trim();
+            const tr = document.createElement('tr');
+            tr.className = 'movie-row';
+            tr.onclick = () => openModal(index); 
+            
+            const posterUrl = getSafePoster(movie.poster);
+            const isWatched = movie.status === "Пройдено";
+            const isDropped = movie.status === "Бросила" || movie.status === "Брошено";
+            const isPlaying = movie.status === "Играем";
+            const isTried = movie.status === "Попробовала";
+
+            let statusText = '';
+            if (isWatched) statusText = `<span class="badge-status" style="background: var(--accent-main); color: #ffffff; border: 1px solid var(--accent-main); box-shadow: 0 0 10px rgba(254,0,0,0.3); text-transform: uppercase;">ПРОЙДЕНО</span>`;
+            else if (isDropped) statusText = `<span class="badge-status" style="background: var(--accent-dark); color: #fff; box-shadow: 0 4px 15px rgba(0,0,0,0.6);">БРОСИЛА</span>`;
+            else if (isTried) statusText = `<span class="badge-status" style="background: rgba(156, 39, 176, 0.9); color: #ffffff; border: 1px solid rgba(156, 39, 176, 0.5); box-shadow: 0 4px 15px rgba(0,0,0,0.6);">ПОПРОБОВАЛА</span>`;
+            else if (isPlaying) statusText = `<span class="badge-status" style="background: #ffd700; color: #130f1c; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);">ИГРАЕМ</span>`;
+            else statusText = `<span class="badge-status" style="background: rgba(41, 128, 185, 0.9); color: #ffffff; border: 1px solid rgba(254, 0, 0, 0.5); box-shadow: 0 4px 15px rgba(0,0,0,0.6);">В ОЧЕРЕДИ</span>`;
+            
+            let watchedDetails = '';
+            if ((isWatched || isDropped || isTried) && movie.dateWatched) {
+                watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content;"><span class="text-3d-effect">${movie.dateWatched.split(' ')[0]}</span></div>`;
+                if (movie.ourRating && movie.ourRating !== "Без оценки") {
+                    const parsedRating = parseFloat(movie.ourRating);
+                    if (parsedRating === 1000) watchedDetails += `<div class="date-badge legendary-table-badge" style="margin-top: 0; width: fit-content; flex-direction: column; gap: 2px; padding: 4px 14px; line-height: 1.1;"><span style="font-size: 9px; text-transform: uppercase; opacity: 0.9;">Наша Оценка:</span><span style="font-size: 14px; font-family: var(--font-title);">1000</span></div>`;
+                    else { const rColor = getRatingColor(movie.ourRating); watchedDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; color: ${rColor}; border-color: ${rColor}; box-shadow: 0 0 10px rgba(0,0,0,0.5);">Наша Оценка: ${movie.ourRating}</div>`; }
+                }
+            }
+            
+            let tagsDetails = '';
+            if (movie.cried) tagsDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; font-family: var(--font-text); font-size: 11px; color: var(--text-main); border-color: var(--accent-main);"><svg class="icon-3d-effect" width="18" height="18" viewBox="0 0 24 24" fill="var(--text-main)" stroke="var(--text-main)" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> <span class="text-3d-effect">Слёзы</span></div>`;
+            if (movie.burned) tagsDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; font-family: var(--font-text); font-size: 11px; color: var(--accent-light); border-color: var(--accent-light); box-shadow: 0 0 10px rgba(255,77,77,0.4);"><svg class="icon-3d-effect" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg> <span class="text-3d-effect">Сгорела</span></div>`;
+            if (movie.difficulty) tagsDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; font-family: var(--font-text); font-size: 11px; color: var(--text-main); border-color: var(--text-muted);"><span class="text-3d-effect">🟡 ${formatDifficulty(movie.difficulty)}</span></div>`;
+            
+            if (tagsDetails) watchedDetails += `<div style="display:flex; gap:6px; margin-top:4px; flex-wrap: wrap; justify-content: center;">${tagsDetails}</div>`;
+            const watchedDateHTML = watchedDetails ? `<div style="display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 8px;">${watchedDetails}</div>` : '';
+
+            const idBadge = `<span class="outline-badge text-3d-effect">ID №${movie.id || 0}</span>`;
+            const typeLabel = `<span class="content-type-badge text-3d-effect" style="background: var(--accent-main); color: #ffffff; border: 1px solid var(--accent-main);">${escapeHTML(movie.type || 'Игра')}</span>`;
+            const cleanTitle = escapeHTML(movie.title || 'Безымянный');
+            const cleanOverview = escapeHTML(movie.overview || '');
+            const safeTitle = (movie.title || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
+
+            let displayStudios = movie.studios && movie.studios !== "Нет данных" ? movie.studios : "";
+            const studiosHTML = displayStudios ? `<div class="movie-studios-list text-3d-effect">${escapeHTML(displayStudios)}</div>` : '';
+
+            let linksHTML = '<div style="display: flex; flex-direction: column; width: 100%; align-items: center;">';
+            if (movie.steamAppId && !movie.steamAppId.startsWith('IGDB_')) {
+                linksHTML += `<a href="https://store.steampowered.com/app/${movie.steamAppId}/" target="_blank" class="steam-link-btn" onclick="event.stopPropagation();"><svg class="icon-3d-effect" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M11.979 0C5.366 0 0 5.361 0 11.979c0 4.673 2.666 8.71 6.55 10.741l3.528-5.111a4.237 4.237 0 0 1-1.637-2.61l-3.666 1.055c-.012-.08-.02-.158-.02-.24 0-2.483 2.015-4.5 4.5-4.5 1.956 0 3.614 1.25 4.23 2.996l4.636-1.921c.026-.145.041-.295.041-.45 0-2.656-2.155-4.81-4.81-4.81-2.656 0-4.812 2.154-4.812 4.81 0 .226.02.446.052.661l-3.374.97a3.023 3.023 0 0 0 .153-1.042c0-1.688 1.37-3.056 3.056-3.056 1.687 0 3.057 1.368 3.057 3.056 0 1.62-1.265 2.946-2.857 3.045l-3.606 5.228C10.71 23.822 11.336 24 11.98 24 18.602 24 24 18.634 24 11.979 24 5.361 18.602 0 11.979 0z"/></svg> Steam </a>`;
+            } else { 
+                linksHTML += `<span style="color: var(--text-muted); font-size: 12px; font-weight: 700; font-family: var(--font-title); margin-bottom: 8px; display: block;">Нет в Steam</span>`; 
+            }
+
+            if (movie.tgPost) {
+                linksHTML += `<a href="${escapeHTML(movie.tgPost)}" target="_blank" class="steam-link-btn" style="background: rgba(41, 128, 185, 0.3); border-color: rgba(41, 128, 185, 0.6);" onclick="event.stopPropagation();"><svg class="icon-3d-effect" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"></path><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> ТГ ПОСТ </a>`;
+            }
+            linksHTML += '</div>';
+
+            const userColor = stringToColor(cleanNick);
+            let avatarMarkup = movie.userAvatar && movie.userAvatar.startsWith('http') 
+                ? `<img src="${movie.userAvatar}" class="req-avatar" alt="">` 
+                : `<div class="req-avatar" style="background-color: var(--bg-deep); border-color: var(--accent-main); color: var(--text-main);">${getInitials(cleanNick)}</div>`;
+
+            const auctionHTML = movie.isAuction ? `<div class="date-badge" style="margin-top: 8px; color: var(--warm-star); border-color: var(--warm-star); background: rgba(3, 6, 36, 0.9); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 900;">✦ Аукцион ✦</div>` : '';
+
+            tr.innerHTML = `
+                <td><div class="poster-wrapper"><img src="${posterUrl}" onerror="handlePosterError(this)" alt=""></div></td>
+                <td>
+                    <div class="movie-info">
+                        <div class="movie-header">
+                            <span class="movie-title">${cleanTitle}</span>
+                            <div class="movie-meta-box">
+                                <span class="movie-year text-3d-effect">${movie.year || '----'}</span>
+                                <button class="copy-btn" onclick="copyMovieNameFromTable(event, '${safeTitle}', '${movie.year || ''}', this)" title="Скопировать">
+                                    <svg class="icon-3d-effect" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="badges-container">${typeLabel} ${idBadge}</div>
+                        <div class="movie-genres">${escapeHTML(movie.genres || '')}</div>
+                        ${studiosHTML}
+                        <div class="movie-overview-wrapper"><div class="movie-overview-text">${cleanOverview}</div></div>
+                    </div>
+                </td>
+                <td style="vertical-align: top;"><div style="display: flex; flex-direction: column; align-items: center;"><div class="requester-badge" onclick="window.open('https://twitch.tv/${cleanNick}', '_blank'); event.stopPropagation();">${avatarMarkup}<span class="req-name resize-list-username text-3d-effect" style="display: block; max-width: 115px; white-space: nowrap; overflow: hidden; text-overflow: clip;">${cleanNick}</span></div>${movie.dateRequested ? `<div class="date-badge"><span class="text-3d-effect">${movie.dateRequested.split(' ')[0]}</span></div>` : ''}${auctionHTML}</div></td>
+                <td style="vertical-align: top;"><div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">${linksHTML}</div></td>
+                <td style="vertical-align: top;"><div style="display: flex; flex-direction: column; align-items: center;">${statusText}${watchedDateHTML}</div></td>
+            `;
+            tbody.appendChild(tr);
+        });
+        autoResizeTitles();
+    }
+
+    // ==========================================
+    // ЛОГИКА РЕНДЕРА КАРТОЧЕК (ПЛИТКОЙ)
+    // ==========================================
+    function renderGridMode(renderArea) {
+        const gridContainer = document.createElement('div');
+        gridContainer.className = 'movies-grid';
+        const sortMode = document.getElementById('sortSelect').value;
+        
+        const activeCount = currentViewData.filter(m => m.status === 'Играем' || m.status === 'В очереди').length;
+        const showDivider = activeCount >= 4;
+
+        currentViewData.forEach((movie, index) => {
+            
+            if (sortMode === 'order' && index > 0 && showDivider) {
+                const prevStatus = currentViewData[index - 1].status;
+                const currStatus = movie.status;
+                
+                const getGroup = (s) => (s === 'Играем' || s === 'В очереди' ? 1 : 2);
+                
+                if (getGroup(prevStatus) !== getGroup(currStatus)) {
+                    const dividerDiv = document.createElement('div');
+                    dividerDiv.style.gridColumn = '1 / -1';
+                    dividerDiv.innerHTML = `
+                        <div style="width: 100%; border-top: 2px solid rgba(254, 0, 0, 0.4); margin: 15px 0;"></div>
+                        <div style="display: flex; align-items: center; justify-content: center; margin: 10px 0;">
+                            <div style="flex-grow: 1; height: 2px; background: linear-gradient(to right, transparent, var(--accent-main)); opacity: 0.6;"></div>
+                            <span style="padding: 0 20px; font-family: var(--font-title); font-size: 24px; font-weight: 700; color: #ffffff; text-shadow: 0 0 20px rgba(254, 0, 0, 0.8); text-transform: uppercase; letter-spacing: 2px;">✦ Пройдено / Брошено ✦</span>
+                            <div style="flex-grow: 1; height: 2px; background: linear-gradient(to left, transparent, var(--accent-main)); opacity: 0.6;"></div>
+                        </div>
+                        <div style="width: 100%; border-bottom: 2px solid rgba(254, 0, 0, 0.4); margin: 15px 0 25px 0;"></div>`;
+                    gridContainer.appendChild(dividerDiv);
+                }
+            }
+
+            const cleanNick = movie.requestedBy.replace('@', '').trim();
+            const posterUrl = getSafePoster(movie.poster);
+            
+            const isWatched = movie.status === "Пройдено";
+            const isDropped = movie.status === "Бросила" || movie.status === "Брошено";
+            const isPlaying = movie.status === "Играем";
+            const isTried = movie.status === "Попробовала";
+            
+            const cleanTitle = escapeHTML(movie.title || 'Безымянный');
+            const safeTitle = (movie.title || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
+            const userColor = stringToColor(cleanNick);
+            
+            let statusMarkup = '';
+            if (isWatched) statusMarkup = `<div class="card-status" style="background: var(--accent-main); color: #ffffff; border: 1px solid rgb(189 195 255 / 95%); box-shadow: 0 0 10px rgba(254,0,0,0.3); text-transform: uppercase;">Пройдено</div>`;
+            else if (isDropped) statusMarkup = `<div class="card-status" style="background: var(--accent-dark); color: #fff; text-transform: uppercase;">Бросила</div>`;
+            else if (isTried) statusMarkup = `<div class="card-status" style="background: rgba(156, 39, 176, 0.9); color: #ffffff; border: 1px solid rgb(189 195 255 / 95%); text-transform: uppercase; box-shadow: 0 5px 15px rgba(0,0,0,0.8); max-width: 55%;">Попробовала</div>`;
+            else if (isPlaying) statusMarkup = `<div class="card-status" style="background: #ffd700; color: #130f1c; text-transform: uppercase;">Играем</div>`;
+            else statusMarkup = `<div class="card-status" style="background: rgba(41, 128, 185, 0.9); color: #ffffff; border: 1px solid rgb(189 195 255 / 95%); text-transform: uppercase;">В очереди</div>`;
+            
+            let bottomBadges = '';
+            if (movie.isAuction) bottomBadges += `<div class="card-mini-badge auction">✦ Аук ✦</div>`;
+            if (movie.cried) bottomBadges += `<div class="card-mini-badge cried"><svg class="icon-3d-effect" width="12" height="12" viewBox="0 0 24 24" fill="var(--text-main)" stroke="var(--text-main)" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> Слёзы</div>`;
+            if (movie.burned) bottomBadges += `<div class="card-mini-badge burned"><svg class="icon-3d-effect" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg> Сгорела</div>`;
+            if (movie.difficulty) bottomBadges += `<div class="card-mini-badge" style="color: var(--text-main); border-color: rgba(255,255,255,0.3); font-size: 8px;">🟡 ${formatDifficulty(movie.difficulty)}</div>`;
+            
+            if ((isWatched || isDropped || isTried) && movie.ourRating && movie.ourRating !== "Без оценки") {
+                const rColor = getRatingColor(movie.ourRating);
+                bottomBadges += parseFloat(movie.ourRating) === 1000 
+                    ? `<div class="card-mini-badge rating legendary-badge">Оценка: 1000</div>` 
+                    : `<div class="card-mini-badge rating" style="color: ${rColor}; border-color: ${rColor}; font-size: 10px;">Оценка: ${movie.ourRating}</div>`;
+            }
+
+            let avatarMarkup = movie.userAvatar && movie.userAvatar.startsWith('http') ? `<img src="${movie.userAvatar}" class="card-user-avatar" alt="">` : `<div class="card-user-avatar" style="background-color: var(--bg-deep); color: var(--text-main);">${getInitials(cleanNick)}</div>`;
+
+            let rightStackHTML = '';
+            let currentBottomOffset = 8;
+            
+            if (movie.tgPost) {
+                rightStackHTML += `<a href="${escapeHTML(movie.tgPost)}" target="_blank" class="card-tg-btn" style="bottom: ${currentBottomOffset}px;" title="Telegram Пост" onclick="event.stopPropagation();">
+                    <svg class="icon-3d-effect" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"></path><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </a>`;
+                currentBottomOffset += 36;
+            }
+            
+            const hasBannedStudios = movie.studios && movie.studios.includes('🔴');
+            if (hasBannedStudios) {
+                rightStackHTML += `<div class="banned-dot" style="bottom: ${currentBottomOffset + 2}px; right: 13px;" title="Запрещенная студия!"></div>`;
+                currentBottomOffset += 24;
+            }
+
+            rightStackHTML += `<button class="card-copy-btn" style="bottom: ${currentBottomOffset}px;" onclick="copyMovieNameFromTable(event, '${safeTitle}', '${movie.year || ''}', this)" title="Скопировать название">
+                <svg class="icon-3d-effect" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
+            </button>`;
+
+            let gridSteamBtn = '';
+            if (movie.steamAppId && !movie.steamAppId.startsWith('IGDB_')) {
+                gridSteamBtn = `
+                <a href="https://store.steampowered.com/app/${movie.steamAppId}/" target="_blank" class="grid-steam-link" onclick="event.stopPropagation();" title="Открыть в Steam">
+                    <svg class="icon-3d-effect" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M11.979 0C5.366 0 0 5.361 0 11.979c0 4.673 2.666 8.71 6.55 10.741l3.528-5.111a4.237 4.237 0 0 1-1.637-2.61l-3.666 1.055c-.012-.08-.02-.158-.02-.24 0-2.483 2.015-4.5 4.5-4.5 1.956 0 3.614 1.25 4.23 2.996l4.636-1.921c.026-.145.041-.295.041-.45 0-2.656-2.155-4.81-4.81-4.81-2.656 0-4.812 2.154-4.812 4.81 0 .226.02.446.052.661l-3.374.97a3.023 3.023 0 0 0 .153-1.042c0-1.688 1.37-3.056 3.056-3.056 1.687 0 3.057 1.368 3.057 3.056 0 1.62-1.265 2.946-2.857 3.045l-3.606 5.228C10.71 23.822 11.336 24 11.98 24 18.602 24 24 18.634 24 11.979 24 5.361 18.602 0 11.979 0z"/></svg> Steam
+                </a>`;
+            }
+
+            const card = document.createElement('div');
+            card.className = 'card-view-item';
+            card.onclick = () => openModal(index);
+            
+            card.innerHTML = `
+                <div class="card-top">
+                    <img src="${posterUrl}" class="card-poster" onerror="handlePosterError(this)" alt="">
+                    ${rightStackHTML}
+                    <div class="card-overlay">
+                        <div class="card-badges-top">
+                            <div class="card-type-badge">${escapeHTML(movie.type || 'Игра')}</div>
+                            ${statusMarkup}
+                        </div>
+                        <div class="card-bottom-badges">${bottomBadges}</div>
+                    </div>
+                </div>
+                <div class="card-content">
+                    <div class="card-title-container" style="margin-bottom: 4px;">
+                        <h3 class="card-title-text resize-title" style="word-break: normal; overflow-wrap: normal; text-align: center; margin: 0; width: 100%;">${cleanTitle}</h3>
+                    </div>
+                    
+                    <div style="width: 100%; border-bottom: 1px solid rgba(254, 0, 0, 0.25); margin: 3px 0 5px 0;"></div>
+                    <div style="font-family: var(--font-title); font-size: 11px; font-weight: 700; color: var(--text-muted); width: 100%; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: center; text-transform: capitalize; letter-spacing: 1px;" title="${escapeHTML(movie.genres || 'Нет жанра')}">${escapeHTML(movie.genres || 'Нет жанра')}</div>
+                    <div style="width: 100%; border-bottom: 1px solid rgba(254, 0, 0, 0.25); margin: 5px 0 8px 0;"></div>
+
+                    <div style="margin-top: auto; width: 100%;">
+                        <div class="card-date-meta" style="display: flex; align-items: center; justify-content: center; gap: 6px;">
+                            <span>${movie.year || '----'}</span>
+                            ${gridSteamBtn ? `<span style="color: var(--accent-main);">♦</span> ${gridSteamBtn}` : ''}
+                        </div>
+                        <div class="card-queue-box">
+                            <span class="card-queue-label">Заказ от</span>
+                            <div class="card-user-info-row">
+                                ${avatarMarkup}
+                                <span class="card-queue-name resize-username text-3d-effect" style="display: block; max-width: calc(100% - 28px); font-size: 15px; font-family: var(--font-title); font-weight: 700; color: var(--text-main); letter-spacing: 1px; white-space: nowrap; overflow: hidden; text-overflow: clip;">${cleanNick}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            gridContainer.appendChild(card);
+        });
+        
+        renderArea.appendChild(gridContainer);
+        autoResizeTitles(); 
+    }
+
+    // ==========================================
+    // УМНАЯ АВТО-ПОДСТРОЙКА ШРИФТОВ
+    // ==========================================
+    function autoResizeTitles() {
+        setTimeout(() => {
+            // Для списка
+            document.querySelectorAll('.movie-row .movie-title').forEach(titleEl => {
+                let currentSize = 28; 
+                titleEl.style.fontSize = currentSize + "px"; 
+                titleEl.style.whiteSpace = 'nowrap'; 
+                let minSize = 16;
+                
+                while (titleEl.scrollWidth > titleEl.clientWidth && currentSize > minSize) { 
+                    currentSize -= 1; 
+                    titleEl.style.fontSize = currentSize + "px"; 
+                }
+
+                if (titleEl.scrollWidth > titleEl.clientWidth) { 
+                    titleEl.style.whiteSpace = 'normal'; 
+                    titleEl.style.display = '-webkit-box'; 
+                    titleEl.style.webkitLineClamp = '2'; 
+                    titleEl.style.webkitBoxOrient = 'vertical'; 
+                    titleEl.style.overflow = 'hidden';
+                } else {
+                    titleEl.style.whiteSpace = 'nowrap';
+                    titleEl.style.textOverflow = 'ellipsis';
+                    titleEl.style.overflow = 'hidden';
+                }
+            });
+
+            // Для карточек
+            document.querySelectorAll('.card-title-container').forEach(container => {
+                let titleEl = container.querySelector('.resize-title');
+                if (!titleEl) return;
+                
+                titleEl.style.display = 'block';
+                titleEl.style.webkitLineClamp = 'unset';
+                titleEl.style.overflow = 'visible';
+                
+                let currentSize = 20;
+                titleEl.style.fontSize = currentSize + "px";
+                
+                while ((titleEl.scrollHeight > container.clientHeight || titleEl.scrollWidth > container.clientWidth) && currentSize > 9) {
+                    currentSize -= 0.5;
+                    titleEl.style.fontSize = currentSize + "px";
+                }
+
+                if (titleEl.scrollHeight > container.clientHeight) {
+                    titleEl.style.display = '-webkit-box';
+                    titleEl.style.webkitLineClamp = '3'; 
+                    titleEl.style.webkitBoxOrient = 'vertical';
+                    titleEl.style.overflow = 'hidden';
+                }
+            });
+
+            // Для ников заказчиков
+            document.querySelectorAll('.resize-username').forEach(nameEl => {
+                let currentSize = 15;
+                nameEl.style.fontSize = currentSize + "px";
+                while (nameEl.scrollWidth > nameEl.parentElement.clientWidth - 30 && currentSize > 8) {
+                    currentSize -= 0.5;
+                    nameEl.style.fontSize = currentSize + "px";
+                }
+            });
+            
+            document.querySelectorAll('.resize-list-username').forEach(nameEl => {
+                let currentSize = 16;
+                nameEl.style.fontSize = currentSize + "px";
+                while (nameEl.scrollWidth > 115 && currentSize > 8) {
+                    currentSize -= 0.5;
+                    nameEl.style.fontSize = currentSize + "px";
+                }
+            });
+            
+        }, 10);
+    }
+
+    window.addEventListener('resize', autoResizeTitles);
+
+    // ==========================================
+    // ЛОГИКА МОДАЛЬНОГО ОКНА 
+    // ==========================================
+    function openModal(index) {
+        const movie = currentViewData[index]; currentModalMovie = movie; 
+        const modal = document.getElementById('movieModal');
+        
+        const modalContent = modal.querySelector('.modal-content');
+        if(modalContent) { setTimeout(() => { modalContent.scrollTop = 0; }, 10); }
+        
+        const heroEl = document.getElementById('modalHero');
+        heroEl.style.display = 'block'; 
+        
+        if (movie.backdrop && !movie.backdrop.includes('via.placeholder.com')) {
+            const img = new Image();
+            img.src = movie.backdrop;
+            img.onload = () => { heroEl.style.backgroundImage = `url('${movie.backdrop}')`; };
+            img.onerror = () => { heroEl.style.backgroundImage = `url("${fallbackBackdropUrl}")`; };
+            heroEl.style.backgroundImage = `url("${fallbackBackdropUrl}")`;
+        } else {
+            heroEl.style.backgroundImage = `url("${fallbackBackdropUrl}")`;
+        }
+
+        const posterEl = document.getElementById('modalPoster');
+        posterEl.src = getSafePoster(movie.poster);
+        posterEl.onerror = function() { handlePosterError(this); };
+        
+        // 1. ЗАГОЛОВОК И ГОД
+        const titleEl = document.getElementById('modalTitle');
+        titleEl.textContent = movie.title || 'Безымянный';
+        document.getElementById('modalYear').textContent = movie.year || '----';
+        
+        titleEl.style.fontSize = "42px"; 
+        titleEl.style.whiteSpace = 'nowrap';
+        titleEl.style.display = 'block';
+
+        setTimeout(() => {
+            let currentSize = 42;
+            while (titleEl.scrollWidth > titleEl.clientWidth && currentSize > 24) {
+                currentSize -= 1;
+                titleEl.style.fontSize = currentSize + "px";
+            }
+            if (titleEl.scrollWidth > titleEl.clientWidth) {
+                titleEl.style.whiteSpace = 'normal';
+                titleEl.style.display = '-webkit-box';
+                titleEl.style.webkitLineClamp = '2';
+                titleEl.style.webkitBoxOrient = 'vertical';
+                titleEl.style.overflow = 'hidden';
+            } else {
+                titleEl.style.whiteSpace = 'nowrap';
+                titleEl.style.textOverflow = 'ellipsis';
+                titleEl.style.overflow = 'hidden';
+            }
+        }, 10);
+        
+        // 2. ВЕРХНИЕ ПЛАШКИ
+        let badgesHtml = '';
+        let displayType = escapeHTML(movie.type || 'Игра');
+        badgesHtml += `<span class="content-type-badge" style="background: var(--accent-main); color: #ffffff; border: none; box-shadow: 0 0 10px rgba(254,0,0,0.5); text-transform: uppercase;">${displayType}</span>`;
+
+        badgesHtml += `<span class="outline-badge">ID №${movie.id || 0}</span>`;
+        
+        if (movie.steamAppId && !movie.steamAppId.startsWith('IGDB_')) {
+            badgesHtml += `
+            <a href="https://store.steampowered.com/app/${movie.steamAppId}/" target="_blank" class="outline-badge steam-modal-badge">
+                <svg class="icon-3d-effect" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M11.979 0C5.366 0 0 5.361 0 11.979c0 4.673 2.666 8.71 6.55 10.741l3.528-5.111a4.237 4.237 0 0 1-1.637-2.61l-3.666 1.055c-.012-.08-.02-.158-.02-.24 0-2.483 2.015-4.5 4.5-4.5 1.956 0 3.614 1.25 4.23 2.996l4.636-1.921c.026-.145.041-.295.041-.45 0-2.656-2.155-4.81-4.81-4.81-2.656 0-4.812 2.154-4.812 4.81 0 .226.02.446.052.661l-3.374.97a3.023 3.023 0 0 0 .153-1.042c0-1.688 1.37-3.056 3.056-3.056 1.687 0 3.057 1.368 3.057 3.056 0 1.62-1.265 2.946-2.857 3.045l-3.606 5.228C10.71 23.822 11.336 24 11.98 24 18.602 24 24 18.634 24 11.979 24 5.361 18.602 0 11.979 0z"/></svg>
+                Steam
+            </a>`;
+        }
+
+        if (movie.tgPost) {
+            badgesHtml += `
+            <a href="${escapeHTML(movie.tgPost)}" target="_blank" class="outline-badge steam-modal-badge" style="background: rgba(41, 128, 185, 0.3); border-color: rgba(41, 128, 185, 0.6); color: #ffffff !important;">
+                <svg class="icon-3d-effect" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:2px;"><path d="M22 2L11 13"></path><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                ТГ ПОСТ
+            </a>`;
+        }
+
+        document.getElementById('modalBadges').innerHTML = badgesHtml;
+        
+        // 3. ЖАНРЫ
+        let genresHtml = '';
+        if (movie.genres && movie.genres !== "Нет данных") {
+            const genresList = movie.genres.split(',').map(g => g.trim()).filter(g => g);
+            genresList.forEach(g => {
+                genresHtml += `<span class="outline-badge">${escapeHTML(g)}</span>`;
+            });
+        } else {
+            genresHtml = `<span class="outline-badge">Нет жанра</span>`;
+        }
+        document.getElementById('modalGenres').innerHTML = genresHtml;
+
+        document.getElementById('modalOverview').textContent = movie.detailedDesc || movie.overview || 'Данные об игре утеряны...';
+        
+        const dateReqEl = document.getElementById('modalDateReq');
+        if (movie.dateRequested) {
+             dateReqEl.innerHTML = `<div class="modal-grid-box">${movie.dateRequested.split(' ')[0]}</div>`;
+        } else {
+             dateReqEl.innerHTML = `<div class="grid-value" style="color: var(--text-muted); font-weight: normal;">Нет данных</div>`;
+        }
+        
+        const dateWatchedEl = document.getElementById('modalDateWatched');
+        
+        const isWatched = movie.status === "Пройдено";
+        const isDropped = movie.status === "Бросила" || movie.status === "Брошено";
+        const isPlaying = movie.status === "Играем";
+        const isTried = movie.status === "Попробовала";
+        
+        if (isDropped) {
+            document.getElementById('modalWatchedLabel').innerText = 'День когда бросила';
+        } else if (isTried) {
+            document.getElementById('modalWatchedLabel').innerText = 'День когда попробовала';
+        } else {
+            document.getElementById('modalWatchedLabel').innerText = 'День прохождения';
+        }
+        
+        let statusTextHTML = '';
+        if (isWatched) {
+            statusTextHTML = `<span class="badge-status" style="margin:0; padding:6px 12px; font-size: 14px; background: var(--accent-main); color: #ffffff; border: 1px solid var(--accent-main); box-shadow: 0 0 10px rgba(254,0,0,0.5); text-transform: uppercase;">ПРОЙДЕНО</span>`;
+        } else if (isDropped) {
+            statusTextHTML = `<span class="badge-status" style="background: var(--accent-dark); color: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.6); margin:0; padding:6px 12px; font-size: 14px; border: 1px solid var(--accent-dark);">БРОСИЛА</span>`;
+        } else if (isTried) {
+            statusTextHTML = `<span class="badge-status" style="background: rgba(156, 39, 176, 0.9); color: #ffffff; border: 1px solid rgba(156, 39, 176, 0.5); box-shadow: 0 4px 15px rgba(0,0,0,0.6); margin:0; padding:6px 12px; font-size: 14px; text-transform: uppercase;">ПОПРОБОВАЛА</span>`;
+        } else if (isPlaying) {
+            statusTextHTML = `<span class="badge-status" style="background: #ffd700; color: #130f1c; box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4); margin:0; padding:6px 12px; font-size: 14px; text-transform: uppercase;">ИГРАЕМ</span>`;
+        } else {
+            statusTextHTML = `<span class="badge-status" style="background: rgba(12, 30, 91, 0.9); color: #ffffff; border: 1px solid rgba(254, 0, 0, 0.5); box-shadow: 0 4px 15px rgba(0,0,0,0.6); margin:0; padding:6px 12px; font-size: 14px; text-transform: uppercase;">В ОЧЕРЕДИ</span>`;
+        }
+        document.getElementById('modalStatusLabel').innerHTML = statusTextHTML;
+        
+        let watchedHtml = '';
+        if (isPlaying) {
+            watchedHtml = `<div class="modal-grid-box" style="margin-top: 0; background: rgba(3, 6, 36, 0.9); border-color: rgba(254, 0, 0, 0.3); color: #ffd700;">В процессе...</div>`;
+        } else if ((isWatched || isDropped || isTried) && movie.dateWatched) {
+            watchedHtml = `<div class="modal-grid-box" style="margin-top: 0;">${movie.dateWatched.split(' ')[0]}</div>`;
+        } else {
+            watchedHtml = `<div class="modal-grid-box" style="background: rgba(254,0,0,0.1); border-color: transparent; margin-top: 0;">Еще в очереди</div>`;
+        }
+        dateWatchedEl.innerHTML = `<div style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px;">${watchedHtml}</div>`;
+        
+        // --- ОТМЕТКИ В ОТДЕЛЬНОЙ КОЛОНКЕ ---
+        const tagsBlock = document.getElementById('modalTagsBlock');
+        const modalMainGrid = document.getElementById('modalMainGrid');
+        const statusCol = document.getElementById('modalStatusCol');
+        const dateWatchedCol = document.getElementById('modalDateWatchedCol');
+        let tagsHtml = '';
+
+        if ((isWatched || isDropped || isTried) && movie.ourRating && movie.ourRating !== "Без оценки") {
+             const parsedRating = parseFloat(movie.ourRating);
+             if (parsedRating === 1000) {
+                 tagsHtml += `<div class="modal-grid-box legendary-badge" style="margin-top: 0; flex-direction: column; gap: 2px; padding: 4px 16px; line-height: 1.1;"><span style="font-size: 10px; text-transform: uppercase; opacity: 0.9;">Наша Оценка:</span><span style="font-size: 16px; font-family: var(--font-title);">1000</span></div>`;
+             } else {
+                 const rColor = getRatingColor(movie.ourRating);
+                 tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: ${rColor}; border-color: ${rColor}; padding: 6px 8px; ">Наша Оценка: ${movie.ourRating}</div>`;
+             }
+        }
+        if (movie.cried) {
+            tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: var(--text-main); border-color: var(--accent-main); padding: 5px 11px;"><svg class="icon-3d-effect" width="16" height="16" viewBox="0 0 24 24" fill="var(--text-main)" stroke="var(--text-main)" stroke-width="1" style="margin-right: 4px;"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> СЛЁЗЫ</div>`;
+        }
+        if (movie.burned) {
+            tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: var(--accent-light); border-color: var(--accent-light); padding: 5px 11px;"><svg class="icon-3d-effect" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" style="margin-right:4px;"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg> СГОРЕЛА</div>`;
+        }
+        if (movie.difficulty) {
+            tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: var(--text-main); border-color: rgba(255,255,255,0.3); padding: 5px 11px;"><span class="text-3d-effect">🟡 ${formatDifficulty(movie.difficulty)}</span></div>`;
+        }
+        
+        const tagsCol = document.getElementById('modalTagsColumn');
+        if (tagsHtml === '') {
+            tagsCol.style.display = 'none';
+            modalMainGrid.classList.remove('has-tags');
+            statusCol.classList.remove('border-right');
+            dateWatchedCol.classList.remove('border-right');
+        } else {
+            tagsCol.style.display = 'flex';
+            tagsBlock.innerHTML = tagsHtml;
+            modalMainGrid.classList.add('has-tags');
+            statusCol.classList.add('border-right');
+            dateWatchedCol.classList.add('border-right');
+        }
+
+        const cleanNick = movie.requestedBy.replace('@', '').trim();
+        const userColor = stringToColor(cleanNick);
+        let avatarMarkup = movie.userAvatar && movie.userAvatar.startsWith('http') 
+            ? `<img src="${movie.userAvatar}" class="req-avatar" style="width:32px; height:32px; border-width:2px; border-radius:2px; object-fit:cover; margin-right:10px;" alt="">` 
+            : `<div class="req-avatar" style="width:32px; height:32px; font-size:16px; font-family: var(--font-title); border-width:2px; background-color: var(--bg-deep); border-color: var(--accent-main); border-radius:2px; display:flex; align-items:center; justify-content:center; margin-right:10px; color:var(--text-main); font-weight:800;">${getInitials(cleanNick)}</div>`;
+            
+        let reqInner = `<div class="modal-requester-link hover-active" onclick="window.open('https://twitch.tv/${cleanNick}', '_blank')" style="display:flex; align-items:center; margin-bottom: 8px;">${avatarMarkup}<span class="name-text">${cleanNick}</span></div>`;
+        if (movie.isAuction) {
+            reqInner += `<div class="modal-grid-box" style="margin-top: 0; margin-bottom: 6px; color: var(--warm-star); border-color: var(--warm-star); background: rgba(3, 6, 36, 0.9); font-size: 13px; text-transform: uppercase; letter-spacing: 2px; font-weight: 900;">✦ Аукцион ✦</div>`;
+        }
+        
+        document.getElementById('modalRequesterBlock').innerHTML = reqInner;
+
+        document.getElementById('modalStudios').textContent = movie.studios === "Нет данных" || !movie.studios ? "Архив скрыт" : movie.studios;
+
+        modal.classList.add('active'); document.body.style.overflow = 'hidden'; 
+    }
+
+    function closeModal(arg) {
+        if (arg === true || (arg && arg.target && arg.target.id === 'movieModal')) {
+            document.getElementById('movieModal').classList.remove('active'); 
+            document.body.style.overflow = ''; 
+        }
+    }
+    
+    loadMovies();
+</script>
 </body>
 </html>
