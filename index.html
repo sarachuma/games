@@ -1321,7 +1321,7 @@
         }
         document.getElementById('modalGenres').innerHTML = genresHtml;
 
-        document.getElementById('modalOverview').textContent = movie.detailedDesc || movie.overview || 'Данные об игре утеряны...';
+        document.getElementById('modalOverview').textContent = movie.overview || 'Данные об игре утеряны...';
         
         const dateReqEl = document.getElementById('modalDateReq');
         if (movie.dateRequested) {
