@@ -1,37 +1,9 @@
 {
   "_metadata_": {
-    "streamer": "sarachuma",
-    "lastUpdated": "16.08.2026"
+    "streamer": "",
+    "lastUpdated": "20.08.2026"
   },
   "Neputeviy": [
-    {
-      "title": "ELDEN RING",
-      "year": "2022",
-      "type": "Игра",
-      "platforms": "Windows",
-      "genres": "Экшены, Ролевые игры",
-      "studios": "FromSoftware, Inc. (Изд: FromSoftware, Inc., Bandai Namco Entertainment)",
-      "overview": "НОВЫЙ ФЭНТЕЗИЙНЫЙ РОЛЕВОЙ БОЕВИК. Восстань, погасшая душа! Междуземье ждёт своего повелителя. Пусть благодать приведёт тебя к Кольцу Элден.",
-      "detailedDesc": "ELDEN RING Shadow of the Erdtree EditionКупите прямо сейчас и получите уникальный бонус:– Особый жест из дополнения ELDEN RING — Shadow of the ErdtreeЭтот жест можно будет использовать в игре после выхода дополнения Shadow of the Erdtree.*Бонусный материал будет доступен в игре после выхода дополнения.*Игроки также смогут открыть его во время прохождения дополнения.ELDEN RING Shadow of the Erdtree Deluxe EditionELDEN RING Shadow of the Erdtree Deluxe Edition включает:• игру ELDEN RING;• дополнение ELDEN RING — Shadow of the Erdtree.• цифровой артбук и оригинальный саундтрек ELDEN RING;• артбук и саундтрек ELDEN RING — Shadow of the Erdtree.Об игреНОВЫЙ ФЭНТЕЗИЙНЫЙ РОЛЕВОЙ БОЕВИК.Восстань, погасшая душа! Междуземье ждёт своего повелителя. Пусть благодать приведёт тебя к Кольцу Элден.• Огромный захватывающий мирОгромный мир с открытыми полями, множеством ситуаций и гигантскими подземельями, где сложные трёхмерные конструкции сочетаются воедино. Путешествуйте, преодолевайте смертельные опасности и радуйтесь успехам.• Создайте своего персонажаВы можете не только изменить внешность персонажа, но также комбинировать оружие, броню и предметы. Развивайте персонажа по своему вкусу. Наращивайте мышцы или постигайте таинства магии.• Эпическая драма, выросшая из мифаМногослойная история, разбитая на фрагменты. Эпическая драма, в которой мысли персонажей пересекаются в Междуземье.• Уникальный сетевой режим, приближающий вас к другим игрокамПомимо многопользовательского режима, в котором вы напрямую подключаетесь к другим игрокам и путешествуете вместе, есть асинхронный сетевой режим, позволяющий ощутить присутствие других игроков.",
-      "poster": "https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/library_600x900_2x.jpg",
-      "backdrop": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/page_bg_raw.jpg?t=1784684281",
-      "steamAppId": "1245620",
-      "price": "$39,99 / 3 599 ₽ / 1 799 ₴ / 17 999 ₸",
-      "isFree": "false",
-      "metacriticScore": "94",
-      "metacriticUrl": "https://www.metacritic.com/game/pc/elden-ring?ftag=MCD-06-10aaa1f",
-      "website": "",
-      "dlcCount": "0",
-      "userAvatar": "https://static-cdn.jtvnw.net/user-default-pictures-uv/ce57700a-def9-11e9-842d-784f43822e80-profile_image-600x600.png",
-      "id": 9,
-      "dateRequested": "10.08.2026",
-      "status": "В очереди",
-      "ourRating": "Без оценки",
-      "cried": false,
-      "burned": false,
-      "isAuction": false,
-      "difficulty": ""
-    },
     {
       "title": "REMNANT II®",
       "year": "2023",
@@ -59,7 +31,8 @@
       "burned": false,
       "isAuction": false,
       "difficulty": "",
-      "dateWatched": "02.09.2025"
+      "dateWatched": "02.09.2025",
+      "datePriceUpdated": "20.08.2026"
     },
     {
       "title": "Borderlands 4",
@@ -73,7 +46,7 @@
       "poster": "https://cdn.cloudflare.steamstatic.com/steam/apps/1285190/library_600x900_2x.jpg",
       "backdrop": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1285190/320c111cf2d556f5716da12c251f6ca8ffd3d1ef/page_bg_raw.jpg?t=1786637663",
       "steamAppId": "1285190",
-      "price": "$69,99 / ~5 849 ₽ / 2 999 ₴ / 25 999 ₸",
+      "price": "$69,99 / ~5 950 ₽ / 2 999 ₴ / 25 999 ₸",
       "isFree": "false",
       "metacriticScore": "81",
       "metacriticUrl": "https://www.metacritic.com/game/pc/borderlands-4?ftag=MCD-06-10aaa1f",
@@ -88,7 +61,8 @@
       "burned": false,
       "isAuction": false,
       "difficulty": "Средняя",
-      "dateWatched": "11.02.2026"
+      "dateWatched": "11.02.2026",
+      "datePriceUpdated": "20.08.2026"
     },
     {
       "title": "Devil May Cry 5",
@@ -102,7 +76,7 @@
       "poster": "https://cdn.cloudflare.steamstatic.com/steam/apps/601150/library_600x900_2x.jpg",
       "backdrop": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/601150/page_bg_raw.jpg?t=1768869803",
       "steamAppId": "601150",
-      "price": "$22,49 / ~1 880 ₽ / 949 ₴ / 10 911 ₸",
+      "price": "$22,49 / ~1 912 ₽ / 949 ₴ / 10 911 ₸",
       "isFree": "false",
       "metacriticScore": "89",
       "metacriticUrl": "https://www.metacritic.com/game/pc/devil-may-cry-5?ftag=MCD-06-10aaa1f",
@@ -118,7 +92,37 @@
       "isAuction": false,
       "difficulty": "Легкая",
       "dateWatched": "23.07.2026",
-      "tgPost": "https://t.me/sarachuma/1302"
+      "tgPost": "https://t.me/sarachuma/1302",
+      "datePriceUpdated": "20.08.2026"
+    },
+    {
+      "title": "ELDEN RING",
+      "year": "2022",
+      "type": "Игра",
+      "platforms": "Windows",
+      "genres": "Экшены, Ролевые игры",
+      "studios": "FromSoftware, Inc. (Изд: FromSoftware, Inc., Bandai Namco Entertainment)",
+      "overview": "НОВЫЙ ФЭНТЕЗИЙНЫЙ РОЛЕВОЙ БОЕВИК. Восстань, погасшая душа! Междуземье ждёт своего повелителя. Пусть благодать приведёт тебя к Кольцу Элден.",
+      "detailedDesc": "ELDEN RING Shadow of the Erdtree EditionКупите прямо сейчас и получите уникальный бонус:– Особый жест из дополнения ELDEN RING — Shadow of the ErdtreeЭтот жест можно будет использовать в игре после выхода дополнения Shadow of the Erdtree.*Бонусный материал будет доступен в игре после выхода дополнения.*Игроки также смогут открыть его во время прохождения дополнения.ELDEN RING Shadow of the Erdtree Deluxe EditionELDEN RING Shadow of the Erdtree Deluxe Edition включает:• игру ELDEN RING;• дополнение ELDEN RING — Shadow of the Erdtree.• цифровой артбук и оригинальный саундтрек ELDEN RING;• артбук и саундтрек ELDEN RING — Shadow of the Erdtree.Об игреНОВЫЙ ФЭНТЕЗИЙНЫЙ РОЛЕВОЙ БОЕВИК.Восстань, погасшая душа! Междуземье ждёт своего повелителя. Пусть благодать приведёт тебя к Кольцу Элден.• Огромный захватывающий мирОгромный мир с открытыми полями, множеством ситуаций и гигантскими подземельями, где сложные трёхмерные конструкции сочетаются воедино. Путешествуйте, преодолевайте смертельные опасности и радуйтесь успехам.• Создайте своего персонажаВы можете не только изменить внешность персонажа, но также комбинировать оружие, броню и предметы. Развивайте персонажа по своему вкусу. Наращивайте мышцы или постигайте таинства магии.• Эпическая драма, выросшая из мифаМногослойная история, разбитая на фрагменты. Эпическая драма, в которой мысли персонажей пересекаются в Междуземье.• Уникальный сетевой режим, приближающий вас к другим игрокамПомимо многопользовательского режима, в котором вы напрямую подключаетесь к другим игрокам и путешествуете вместе, есть асинхронный сетевой режим, позволяющий ощутить присутствие других игроков.",
+      "poster": "https://cdn.cloudflare.steamstatic.com/steam/apps/1245620/library_600x900_2x.jpg",
+      "backdrop": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1245620/page_bg_raw.jpg?t=1784684281",
+      "steamAppId": "1245620",
+      "price": "$39,99 / 3 599 ₽ / 1 799 ₴ / 17 999 ₸",
+      "isFree": "false",
+      "metacriticScore": "94",
+      "metacriticUrl": "https://www.metacritic.com/game/pc/elden-ring?ftag=MCD-06-10aaa1f",
+      "website": "",
+      "dlcCount": "0",
+      "userAvatar": "https://static-cdn.jtvnw.net/user-default-pictures-uv/ce57700a-def9-11e9-842d-784f43822e80-profile_image-600x600.png",
+      "id": 9,
+      "dateRequested": "10.08.2026",
+      "status": "Играем",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "burned": false,
+      "isAuction": false,
+      "difficulty": "",
+      "datePriceUpdated": "20.08.2026"
     }
   ],
   "MadMan1408": [],
@@ -136,7 +140,7 @@
       "poster": "https://cdn.cloudflare.steamstatic.com/steam/apps/1222140/library_600x900_2x.jpg",
       "backdrop": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1222140/page_bg_raw.jpg?t=1667468479",
       "steamAppId": "1222140",
-      "price": "$6,39 / 599 ₽ / 259 ₴ / 3 959 ₸",
+      "price": "$31,99 / 2 999 ₽ / 1 299 ₴ / 19 799 ₸",
       "isFree": "false",
       "metacriticScore": "80",
       "metacriticUrl": "https://www.metacritic.com/game/pc/detroit-become-human?ftag=MCD-06-10aaa1f",
@@ -151,7 +155,8 @@
       "burned": false,
       "isAuction": false,
       "difficulty": "",
-      "dateWatched": "02.08.2025"
+      "dateWatched": "02.08.2025",
+      "datePriceUpdated": "20.08.2026"
     },
     {
       "title": "MiSide",
@@ -180,7 +185,8 @@
       "burned": false,
       "isAuction": false,
       "difficulty": "",
-      "dateWatched": "02.10.2025"
+      "dateWatched": "02.10.2025",
+      "datePriceUpdated": "20.08.2026"
     },
     {
       "title": "Хогвартс. Наследие",
@@ -194,7 +200,7 @@
       "poster": "https://cdn.cloudflare.steamstatic.com/steam/apps/990080/library_600x900_2x.jpg",
       "backdrop": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/990080/1adb0f634bdabb53eb3df99ca727d41d5d965a7d/page_bg_raw.jpg?t=1778797474",
       "steamAppId": "990080",
-      "price": "$49,99 / ~4 178 ₽ / 1 599 ₴ / 22 999 ₸",
+      "price": "$49,99 / ~4 250 ₽ / 1 599 ₴ / 22 999 ₸",
       "isFree": "false",
       "metacriticScore": "83",
       "metacriticUrl": "https://www.metacritic.com/game/pc/hogwarts-legacy?ftag=MCD-06-10aaa1f",
@@ -209,7 +215,8 @@
       "burned": false,
       "isAuction": false,
       "difficulty": "Сложная",
-      "dateWatched": "10.01.2026"
+      "dateWatched": "10.01.2026",
+      "datePriceUpdated": "20.08.2026"
     },
     {
       "title": "Clair Obscur: Expedition 33",
@@ -239,7 +246,8 @@
       "isAuction": false,
       "difficulty": "Сложная",
       "dateWatched": "01.02.2026",
-      "tgPost": "https://t.me/sarachuma/937"
+      "tgPost": "https://t.me/sarachuma/937",
+      "datePriceUpdated": "20.08.2026"
     },
     {
       "title": "Cyberpunk 2077",
@@ -253,7 +261,7 @@
       "poster": "https://cdn.cloudflare.steamstatic.com/steam/apps/1091500/library_600x900_2x.jpg",
       "backdrop": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/1091500/644eb087007768417a847e52c38eeaf34b57fd12/page_bg_raw.jpg?t=1784714077",
       "steamAppId": "1091500",
-      "price": "$29,99 / ~2 506 ₽ / 1 399 ₴ / 17 999 ₸",
+      "price": "$29,99 / ~2 549 ₽ / 1 399 ₴ / 17 999 ₸",
       "isFree": "false",
       "metacriticScore": "86",
       "metacriticUrl": "https://www.metacritic.com/game/pc/cyberpunk-2077?ftag=MCD-06-10aaa1f",
@@ -268,7 +276,8 @@
       "burned": false,
       "isAuction": false,
       "difficulty": "Сложная",
-      "dateWatched": "23.03.2026"
+      "dateWatched": "23.03.2026",
+      "datePriceUpdated": "20.08.2026"
     }
   ]
 }
