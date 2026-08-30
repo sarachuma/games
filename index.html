@@ -668,24 +668,24 @@
 
 
 
-							<!-- БЛОК ЦЕН С ДИНАМИЧЕСКИМ ПОКАЗОМ ПОДСКАЗКИ -->
+							
                             <div class="grid-item full-width border-bottom" id="modalPriceCol">
                                 <div style="display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; width: 100%;">
                                     
-                                    <!-- Верхняя часть: Цены и динамическая подсказка -->
+                                    
                                     <div style="display: flex; flex-direction: column; align-items: center;">
                                         <div class="grid-label" style="margin-bottom: 6px;">
                                             Цены <span style="text-transform: none; opacity: 0.6; font-size: 10px; font-weight: 600;">(обновлено <span id="modalDatePrice"></span>)</span>
                                         </div>
                                         <div class="grid-value" id="modalPrice" style="color: var(--mint-light); font-size: 16px; font-weight: 900; letter-spacing: 0.5px;"></div>
                                         
-                                        <!-- Подсказка видна только если есть знак ~ -->
+                                        
                                         <div id="priceNotice" style="font-size: 11px; color: var(--text-muted); margin-top: 6px; font-weight: 600; display: none;">
                                             <span style="color: var(--cute-pink);">*</span> Знак <span style="color: var(--accent-main); font-weight: 900; font-size: 13px;">~</span> означает, что товара в этом регионе нет (конвертация по курсу)
                                         </div>
                                     </div>
 
-                                    <!-- Нижняя часть: Блок копирования команды -->
+                                    
                                     <div style="display: flex; align-items: center; justify-content: center; gap: 12px; background: rgba(19, 15, 28, 0.6); border: 1px dashed rgba(92, 242, 138, 0.3); padding: 8px 16px; border-radius: 12px; width: fit-content; max-width: 100%;">
                                         <div style="display: flex; flex-direction: column; align-items: center; text-align: center;">
                                             <span style="font-size: 9px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 4px;">
@@ -1241,7 +1241,7 @@
 
             let avatarMarkup = movie.userAvatar && movie.userAvatar.startsWith('http') ? `<img src="${movie.userAvatar}" class="card-user-avatar" alt="">` : `<div class="card-user-avatar" style="background-color: var(--bg-deep); color: var(--text-main);">${getInitials(cleanNick)}</div>`;
 
-            // === ФЛЕКС СТЕК ДЛЯ ИКОНОК СПРАВА ВНИЗУ ===
+            
             let rightStackHTML = '<div class="card-action-stack">';
             
             const hasBannedStudios = movie.studios && movie.studios.includes('🔴');
@@ -1261,7 +1261,7 @@
             }
             
             rightStackHTML += '</div>';
-            // ==========================================
+            
 
             let gridSteamBtn = '';
             if (movie.steamAppId && !movie.steamAppId.startsWith('IGDB_')) {
@@ -1428,7 +1428,7 @@
         
         posterEl.onerror = function() { handlePosterError(this); };
         
-        // 1. ЗАГОЛОВОК И ГОД
+        
         const titleEl = document.getElementById('modalTitle');
         titleEl.textContent = movie.title || 'Безымянный';
         document.getElementById('modalYear').textContent = movie.year || '----';
@@ -1613,7 +1613,7 @@
         document.getElementById('modalRequesterBlock').innerHTML = reqInner;
         
         
-        // ЗАПОЛНЯЕМ БЛОК С ЦЕНАМИ И КОМАНДОЙ
+        
         const datePriceEl = document.getElementById('modalDatePrice');
         const priceEl = document.getElementById('modalPrice');
         const updateCmdEl = document.getElementById('modalUpdateCmd');
@@ -1624,7 +1624,7 @@
         const priceText = movie.price && movie.price !== "Неизвестно" ? movie.price : "Цена не найдена / Скрыта";
         priceEl.textContent = priceText;
 
-        // ПРОВЕРКА НА ЗНАК ~ (если есть, показываем подсказку, если нет — скрываем)
+        
         if (priceText.includes('~')) {
             priceNoticeEl.style.display = 'block';
         } else {
