@@ -1,7 +1,8 @@
 {
   "_metadata_": {
     "streamer": "sarachuma",
-    "lastUpdated": "21.08.2026"
+    "lastUpdated": "30.08.2026 11:42",
+    "isOnlineBtnVisible": true
   },
   "Neputeviy": [
     {
@@ -270,13 +271,12 @@
       "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/d53bb5aa-a7ce-42e0-bc1a-5b9321a8f7ca-profile_image-600x600.png",
       "id": 7,
       "dateRequested": "20.03.2026",
-      "status": "Пройдено",
-      "ourRating": "10",
+      "status": "Играем",
+      "ourRating": "Без оценки",
       "cried": false,
       "burned": false,
       "isAuction": false,
       "difficulty": "Сложная",
-      "dateWatched": "23.03.2026",
       "datePriceUpdated": "20.08.2026"
     }
   ]
