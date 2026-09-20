@@ -1,7 +1,7 @@
 {
   "_metadata_": {
     "streamer": "sarachuma",
-    "lastUpdated": "30.08.2026 11:42",
+    "lastUpdated": "20.09.2026 17:44",
     "isOnlineBtnVisible": true
   },
   "Neputeviy": [
@@ -278,6 +278,68 @@
       "isAuction": false,
       "difficulty": "Сложная",
       "datePriceUpdated": "20.08.2026"
+    }
+  ],
+  "fall3n_ang3I": [
+    {
+      "id": 10,
+      "title": "Ведьмак 3: Дикая Охота — Полное издание",
+      "year": "2015",
+      "type": "Игра",
+      "platforms": "Windows",
+      "genres": "Ролевые игры",
+      "studios": "CD PROJEKT RED (Изд: CD PROJEKT RED)",
+      "overview": "Вы — Геральт из Ривии, наемный убийца чудовищ. Вы путешествуете по миру, в котором бушует война и на каждом шагу подстерегают чудовища. Вам предстоит выполнить заказ и найти Цири — Дитя Предназначения, живое оружие, способное изменить облик этого мира.",
+      "detailedDesc": "ЕЩЁ ОДНА ВЕДЬМАЧЬЯ ИСТОРИЯ, В КОТОРОЙ ВСЯКИЙ ВЫБОР ОБЯЗАТЕЛЬНО ПОВЛЕЧЁТ ЗА СОБОЙ ПОСЛЕДСТВИЯУЛУЧШЕННАЯ КЛАССИКАЛюбимая многими ролевая игра вместе с двумя дополнениями («Каменные сердца» и «Кровь и вино») получила обновление. Оцените многочисленные изменения, улучшающие графику, боевую систему, систему развития персонажа и многое другое. Для тех, у кого уже есть игра, обновление будет бесплатным.Игра «Ведьмак 3: Дикая Охота» будет бесплатно улучшена до обновлённого издания 29 сентября.Об игре",
+      "poster": "https://cdn.cloudflare.steamstatic.com/steam/apps/292030/library_600x900_2x.jpg",
+      "backdrop": "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/94a3c7f9db82538b752312f6e17f912f0899ca30/page_bg_raw.jpg?t=1788333513",
+      "steamAppId": "292030",
+      "price": "$34,99 / ~2 951 ₽ / 1 349 ₴ / 15 999 ₸",
+      "datePriceUpdated": "20.09.2026",
+      "isFree": "false",
+      "metacriticScore": "93",
+      "metacriticUrl": "https://www.metacritic.com/game/pc/the-witcher-3-wild-hunt?ftag=MCD-06-10aaa1f",
+      "website": "https://www.thewitcher.com/witcher3",
+      "dlcCount": "0",
+      "screenshots": [
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_5710298af2318afd9aa72449ef29ac4a2ef64d8e.1920x1080.jpg?t=1788333513",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_0901e64e9d4b8ebaea8348c194e7a3644d2d832d.1920x1080.jpg?t=1788333513",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_112b1e176c1bd271d8a565eacb6feaf90f240bb2.1920x1080.jpg?t=1788333513",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_d1b73b18cbcd5e9e412c7a1dead3c5cd7303d2ad.1920x1080.jpg?t=1788333513",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_107600c1337accc09104f7a8aa7f275f23cad096.1920x1080.jpg?t=1788333513",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_64eb760f9a2b67f6731a71cce3a8fb684b9af267.1920x1080.jpg?t=1788333513",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_eda99e7f705a113d04ab2a7a36068f3e7b343d17.1920x1080.jpg?t=1788333513",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_d5b80eb63c12a6484f26796f3e34410651bba068.1920x1080.jpg?t=1788333513",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_b74d60ee215337d765e4d20c8ca6710ae2362cc2.1920x1080.jpg?t=1788333513",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_dc55eeb409d6e187456a8e159018e8da098fa468.1920x1080.jpg?t=1788333513",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_849ec8dcc6f8df1c0b2c509584c9fc9e51f88cfa.1920x1080.jpg?t=1788333513",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_90a33d7764a2d23306091bfcb52265c3506b4fdb.1920x1080.jpg?t=1788333513",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_07812c174bb6b96c29895ddc27404143df7aba6d.1920x1080.jpg?t=1788333513",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_ed23139c916fdb9f6dd23b2a6a01d0fbd2dd1a4f.1920x1080.jpg?t=1788333513",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_dc33eb233555c13fce939ccaac667bc54e3c4a27.1920x1080.jpg?t=1788333513",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_908485cbb1401b1ebf42e3d21a860ddc53517b08.1920x1080.jpg?t=1788333513",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_608af6cfe0eab3f37265550b391732a3e88d1a4f.1920x1080.jpg?t=1788333513",
+        "https://shared.akamai.steamstatic.com/store_item_assets/steam/apps/292030/ss_8ac1dc847388e59b1be1c5ea5ca592d5861756cc.1920x1080.jpg?t=1788333513"
+      ],
+      "trailers": [
+        "https://video.akamai.steamstatic.com/store_trailers/292030/310673952/562f7c0883ece6c47561c488b63074df382dedd7/1787921963/hls_264_master.m3u8?t=1788333496",
+        "https://video.akamai.steamstatic.com/store_trailers/292030/533363/f3f32404cd2382da7d05b8b64d3e6e261afca6d3/1750502468/hls_264_master.m3u8?t=1674829926",
+        "https://video.akamai.steamstatic.com/store_trailers/292030/521328/21b3a3a877824d8ec1ca29fd55a5254e005d6c4c/1750502271/hls_264_master.m3u8?t=1670976352",
+        "https://video.akamai.steamstatic.com/store_trailers/292030/36174/94b7acf6e7aeba94d9c7d05de1897ecafb97d1c0/1750502205/hls_264_master.m3u8?t=1528288460"
+      ],
+      "userAvatar": "https://static-cdn.jtvnw.net/jtv_user_pictures/90d1f00a-32a5-443d-85c7-befb7a521968-profile_image-600x600.png",
+      "dateRequested": "20.09.2026",
+      "status": "В очереди",
+      "ourRating": "Без оценки",
+      "cried": false,
+      "burned": false,
+      "isAuction": true,
+      "difficulty": "",
+      "postUrl": "",
+      "tgRecordUrl": "",
+      "boostyUrl": "",
+      "youtubeUrl": "",
+      "reviewUrl": ""
     }
   ]
 }
