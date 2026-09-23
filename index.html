@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Игровая</title>
     
-    
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Geologica:wght@400;600;700;900&display=swap" rel="stylesheet">
     
     <style>
@@ -27,11 +26,9 @@
         }
 
         :root {
-            
             --bg-deep: #030624;         
             --bg-velvet: #0C1E5B;       
             --bg-sunset: #002daa;       
-            
             
             --accent-light: #ff4d4d;      
             --accent-main: #fe0000;       
@@ -43,12 +40,10 @@
             --text-main: #f0edf5;       
             --text-muted: #8b9dc3;      
             
-            
             --font-title: 'Geologica Local', 'Geologica', sans-serif;
             --font-text: 'Geologica Local', 'Geologica', sans-serif;
         }
 
-        
         body::before {
             content: "";
             position: fixed;
@@ -80,8 +75,6 @@
         .left-img { right: -210px; }
         .right-img { left: -77px; }
 
-        @media (max-width: 1550px) { .girl-col { display: none; } }
-
         .container {
             width: 100%; max-width: 1150px; min-height: 80vh; 
             background: rgba(3, 6, 36, 0.88); backdrop-filter: blur(20px); 
@@ -100,11 +93,13 @@
             padding: 35px 30px 25px; text-align: center; position: relative;
             border-bottom: 2px solid rgba(254, 0, 0, 0.3); 
             background: radial-gradient(circle at 50% 0%, rgba(254, 0, 0, 0.15) 0%, transparent 80%);
+            z-index: 30; 
         }
         .header::after {
             content: '✦'; position: absolute; bottom: -14px; left: 50%; transform: translateX(-50%);
             color: var(--accent-main); font-size: 20px; background: var(--bg-deep); padding: 0 15px;
             border: 1px solid rgba(254, 0, 0, 0.4); text-shadow: 0 0 10px var(--accent-main);
+            z-index: 31; 
         }
 
         .header-top h1 { 
@@ -117,7 +112,6 @@
             color: var(--accent-main); filter: drop-shadow(0 0 8px rgba(254, 0, 0, 0.6)); 
         }
 
-        
         .back-btn {
             position: absolute; top: 20px; left: 30px; display: inline-flex; align-items: center; gap: 10px;
             background: rgba(254, 0, 0, 0.1); color: #ffffff; text-shadow: 2px 2px 0px var(--accent-dark), 0 0 15px var(--accent-main);
@@ -127,7 +121,6 @@
         }
         .back-btn:hover { background: var(--accent-main); color: #ffffff; box-shadow: 0 0 20px rgba(254, 0, 0, 0.6); text-shadow: none; }
 
-        
         .creator-badge {
             position: absolute; top: 20px; right: 30px; display: flex; align-items: center; gap: 10px;
             background: rgba(12, 30, 91, 0.6); padding: 6px 16px 6px 6px; cursor: pointer;
@@ -157,30 +150,26 @@
         }
         .sort-select option { background: var(--bg-deep); color: var(--text-main); font-family: var(--font-text); font-size: 14px;}
 
-        .view-toggle-btn {
-            background: rgba(254, 0, 0, 0.1); border: 1px solid var(--accent-main); border-radius: 2px;
-            padding: 0 20px; color: #ffffff; text-shadow: 2px 2px 0px var(--accent-dark), 0 0 15px var(--accent-main); font-size: 17px; font-family: var(--font-title); font-weight: 700;
-            cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px;
-            box-sizing: border-box; height: 40px; letter-spacing: 1px;
-        }
-        .view-toggle-btn:hover { background: var(--accent-main); color: #ffffff; box-shadow: 0 0 20px rgba(254, 0, 0, 0.5); text-shadow: none; }
-
-        .wishlist-link-btn {
+        .view-toggle-btn, .wishlist-link-btn {
             background: rgba(254, 0, 0, 0.1); border: 1px solid var(--accent-main); border-radius: 2px;
             padding: 0 20px; color: #ffffff; text-shadow: 2px 2px 0px var(--accent-dark), 0 0 15px var(--accent-main); 
             font-size: 17px; font-family: var(--font-title); font-weight: 700;
             cursor: pointer; transition: all 0.3s ease; display: flex; align-items: center; justify-content: center; gap: 8px;
             box-sizing: border-box; height: 40px; letter-spacing: 1px; text-decoration: none;
         }
-        .wishlist-link-btn:hover { background: var(--accent-main); color: #ffffff; box-shadow: 0 0 20px rgba(254, 0, 0, 0.5); text-shadow: none; }
+        .view-toggle-btn:hover, .wishlist-link-btn:hover { background: var(--accent-main); color: #ffffff; box-shadow: 0 0 20px rgba(254, 0, 0, 0.5); text-shadow: none; }
 
-
-        
         table { width: 100%; border-collapse: separate; border-spacing: 0; text-align: left; table-layout: fixed; }
-        th { text-align: center; color: #ffffff; text-shadow: 2px 2px 0px var(--accent-dark), 0 0 15px var(--accent-main); font-weight: 700; font-size: 18px; text-transform: uppercase; padding: 25px 12px 15px; border-bottom: 2px solid rgba(254, 0, 0, 0.3); font-family: var(--font-title); letter-spacing: 2px; }
+        th { 
+            text-align: center; color: #ffffff; text-shadow: 2px 2px 0px var(--accent-dark), 0 0 15px var(--accent-main); 
+            font-weight: 700; font-size: 18px; text-transform: uppercase; padding: 25px 12px 15px; 
+            border-bottom: 2px solid rgba(254, 0, 0, 0.3); font-family: var(--font-title); letter-spacing: 2px;
+            position: sticky; top: 0; z-index: 20; background: var(--bg-deep);
+        }
+        
         td { padding: 20px 15px; vertical-align: top; border-bottom: 1px solid rgba(254, 0, 0, 0.15); }
         tr:last-child td { border-bottom: none; }
-        td:nth-child(1), td:nth-child(3), td:nth-child(4), td:nth-child(5) { text-align: center; }
+        td:nth-child(1), td:nth-child(3), td:nth-child(4), td:nth-child(5), td:nth-child(6) { text-align: center; }
         tr.movie-row { cursor: pointer; transition: all 0.3s ease; position: relative; }
         tr.movie-row:hover { background-color: rgba(254, 0, 0, 0.05); } 
         td:nth-child(2) { text-align: left; position: relative; z-index: 1; overflow: hidden; }
@@ -199,19 +188,32 @@
         
         .copy-btn { background: rgba(254, 0, 0, 0.1); border: 1px solid transparent; color: var(--accent-main); cursor: pointer; padding: 4px; border-radius: 2px; display: flex; align-items: center; justify-content: center; transition: all 0.3s; opacity: 0; transform: scale(0.8); position: relative; top: 2px; flex-shrink: 0; }
         tr.movie-row:hover .copy-btn { opacity: 1; transform: scale(1); }
-        .copy-btn:hover { background: var(--accent-main); color: var(--bg-deep); box-shadow: 0 0 15px rgba(254, 0, 0, 0.5); } 
+        .copy-btn:hover { background: var(--accent-main); color: #ffffff; box-shadow: 0 0 15px rgba(254, 0, 0, 0.5); } 
 
         .badges-container { display: flex; align-items: center; gap: 8px; margin: 2px 0; flex-wrap: wrap; }
         .content-type-badge { background: var(--bg-deep); color: #ffffff; padding: 3px 10px; font-size: 12px; font-weight: 900; text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-title); border-radius: 2px; box-shadow: 0 2px 8px rgba(254, 0, 0, 0.5); border: 1px solid var(--accent-main); }
         .outline-badge { border: 1px solid rgba(254, 0, 0, 0.5); color: var(--text-main); padding: 3px 10px; font-size: 11px; font-weight: 700; background: rgba(254, 0, 0, 0.05); border-radius: 2px; font-family: var(--font-title); letter-spacing: 1px; text-transform: uppercase; }
 
         .movie-genres { font-size: 12px; color: var(--text-main); font-weight: 600; opacity: 0.9; text-transform: uppercase; letter-spacing: 1px; font-family: var(--font-title); }
-        .movie-studios-list { font-size: 14px; color: var(--accent-light); font-weight: 600; letter-spacing: 1px; margin-top: 2px; font-family: var(--font-title); }
 
-        .movie-overview-wrapper { margin-top: 8px; max-height: 48px; overflow: hidden; transition: max-height 0.4s ease; }
-        .movie-overview-text { font-size: 15px; line-height: 1.6; color: var(--text-muted); font-family: var(--font-text); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+        .movie-overview-wrapper { margin-top: 8px; max-height: 48px; overflow: hidden; transition: max-height 0.4s ease; cursor: pointer; user-select: none; -webkit-user-select: none; }
+        .movie-overview-wrapper.expanded { max-height: 1500px !important; }
+        .movie-overview-text { font-size: 15px; line-height: 1.6; color: var(--text-muted); font-family: var(--font-text); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; transition: color 0.3s; }
         tr.movie-row:has(.poster-wrapper:hover) .movie-overview-wrapper { max-height: 250px; }
         tr.movie-row:has(.poster-wrapper:hover) .movie-overview-text { -webkit-line-clamp: 20; color: var(--text-main); }
+        .movie-overview-wrapper.expanded .movie-overview-text { -webkit-line-clamp: unset !important; color: var(--text-main); }
+
+        .list-tabs-container { display: flex; gap: 8px; margin-top: 8px; margin-bottom: 4px; }
+		.list-tab-btn { background: rgba(3, 6, 36, 0.6); border: 1px dashed rgba(254, 0, 0, 0.3); color: var(--text-muted); padding: 2px 10px 2px 8px; border-radius: 2px; font-size: 10px; font-family: var(--font-title); font-weight: 700; text-transform: uppercase; cursor: pointer; transition: all 0.3s ease; }
+		.list-tab-btn:hover { border-color: var(--accent-main); color: var(--accent-light); }
+		.list-tab-btn.active { background: rgba(254, 0, 0, 0.15); border-color: var(--accent-main); border-style: solid; color: #ffffff; box-shadow: 0 0 10px rgba(254, 0, 0, 0.3); }
+
+        .movie-review-wrapper { margin-top: 4px; max-height: 50px; overflow: hidden; transition: max-height 0.3s ease; cursor: pointer; user-select: none; -webkit-user-select: none; }
+        .movie-review-text { font-size: 14px; line-height: 1.5; color: var(--text-main); font-style: italic; border-left: 2px solid var(--accent-main); padding: 6px 10px; background: rgba(254, 0, 0, 0.05); border-radius: 0 2px 2px 0; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; transition: color 0.3s, background-color 0.3s; }
+        tr.movie-row:has(.poster-wrapper:hover) .movie-review-wrapper { max-height: 250px; }
+        tr.movie-row:has(.poster-wrapper:hover) .movie-review-text { -webkit-line-clamp: 20; color: #fff; background: rgba(254, 0, 0, 0.1); }
+        .movie-review-wrapper.expanded { max-height: 1500px !important; }
+        .movie-review-wrapper.expanded .movie-review-text { -webkit-line-clamp: unset !important; color: #fff; background: rgba(254, 0, 0, 0.15); }
 
         .requester-badge { display: flex; flex-direction: column; align-items: center; gap: 8px; cursor: pointer; transition: transform 0.3s; margin: 0 auto; }
         .requester-badge:hover .req-avatar { border-color: var(--text-main); box-shadow: 0 0 20px rgba(254, 0, 0, 0.6); }
@@ -225,11 +227,34 @@
         .badge-status { font-size: 12px; font-weight: 900; text-align: center; display: inline-flex; justify-content: center; align-items: center; text-transform: uppercase; letter-spacing: 2px; font-family: var(--font-title); color: var(--bg-deep); border-radius: 2px; padding: 4px 12px; margin-bottom: 8px; box-shadow: 0 4px 15px rgba(254, 0, 0, 0.5); min-width: 85px; }
 
         
+        .play-link-btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 3px 12px 2px 10px; border-radius: 2px; text-decoration: none; font-family: var(--font-title); font-size: 13px; font-weight: 700; transition: all 0.3s ease; box-shadow: 0 2px 6px rgba(0,0,0,0.5); width: 100%; max-width: 140px !important; box-sizing: border-box; margin-top: 4px; }
+        .play-link-btn.tg-rec { background: rgba(56, 189, 248, 0.1); color: #38bdf8; border: 1px solid rgba(56, 189, 248, 0.3); }
+        .play-link-btn.tg-rec:hover { background: #38bdf8; color: var(--bg-deep); box-shadow: 0 0 12px rgba(56, 189, 248, 0.5); transform: translateY(-2px); }
+        .play-link-btn.boosty { background: rgba(245, 130, 32, 0.1); color: #f58220; border: 1px solid rgba(245, 130, 32, 0.3); }
+        .play-link-btn.boosty:hover { background: #f58220; color: var(--bg-deep); box-shadow: 0 0 12px rgba(245, 130, 32, 0.5); transform: translateY(-2px); }
+        .play-link-btn.yt { background: rgba(255, 74, 74, 0.1); color: #ff4a4a; border: 1px solid rgba(255, 74, 74, 0.3); }
+        .play-link-btn.yt:hover { background: #ff4a4a; color: var(--bg-deep); box-shadow: 0 0 12px rgba(255, 74, 74, 0.5); transform: translateY(-2px); }
+
         .steam-link-btn { display: flex; align-items: center; justify-content: center; gap: 6px; background: rgba(254, 0, 0, 0.1); color: #ffffff !important; border: 1px solid rgba(254, 0, 0, 0.3); padding: 6px 12px; border-radius: 2px; text-decoration: none; font-family: var(--font-title); font-size: 13px; font-weight: 700; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(0,0,0,0.5); text-transform: uppercase; letter-spacing: 1px; width: 100%; box-sizing: border-box; margin-bottom: 8px;}
         .steam-link-btn:last-child { margin-bottom: 0; }
         .steam-link-btn:hover { background: var(--accent-main); color: #ffffff !important; box-shadow: 0 0 15px rgba(254, 0, 0, 0.6); transform: translateY(-2px); }
 
-        
+        .play-modal-badge { display: inline-flex; align-items: center; gap: 4px; text-decoration: none; cursor: pointer; transition: all 0.3s ease; }
+        .play-modal-badge.tg-rec { color: #38bdf8 !important; border-color: rgba(56, 189, 248, 0.5); background: rgba(56, 189, 248, 0.05); }
+        .play-modal-badge.tg-rec:hover { background: #38bdf8; color: var(--bg-deep) !important; box-shadow: 0 0 15px rgba(56, 189, 248, 0.6); }
+        .play-modal-badge.boosty { color: #f58220 !important; border-color: rgba(245, 130, 32, 0.5); background: rgba(245, 130, 32, 0.05); }
+        .play-modal-badge.boosty:hover { background: #f58220; color: var(--bg-deep) !important; box-shadow: 0 0 15px rgba(245, 130, 32, 0.6); }
+        .play-modal-badge.yt { color: #ff4a4a !important; border-color: rgba(255, 74, 74, 0.5); background: rgba(255, 74, 74, 0.05); }
+        .play-modal-badge.yt:hover { background: #ff4a4a; color: var(--bg-deep) !important; box-shadow: 0 0 15px rgba(255, 74, 74, 0.6); }
+
+        .card-play-btn { background: rgba(3, 6, 36, 0.9); cursor: pointer; padding: 6px; border-radius: 2px; display: flex; align-items: center; justify-content: center; transition: all 0.3s; text-decoration: none; position: relative; width: 30px; height: 30px; box-sizing: border-box; }
+        .card-play-btn.yt { border: 1px solid rgba(255, 74, 74, 0.5); color: #ff4a4a; }
+        .card-play-btn.yt:hover { background: #ff4a4a; color: var(--bg-deep); box-shadow: 0 0 15px rgba(255, 74, 74, 0.6); }
+        .card-play-btn.boosty { border: 1px solid rgba(245, 130, 32, 0.5); color: #f58220; }
+        .card-play-btn.boosty:hover { background: #f58220; color: var(--bg-deep); box-shadow: 0 0 15px rgba(245, 130, 32, 0.6); }
+        .card-play-btn.tg-rec, .card-play-btn.tg { border: 1px solid rgba(56, 189, 248, 0.5); color: #38bdf8; }
+        .card-play-btn.tg-rec:hover, .card-play-btn.tg:hover { background: #38bdf8; color: var(--bg-deep); box-shadow: 0 0 15px rgba(56, 189, 248, 0.6); }
+
         .movies-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 15px; padding: 20px; }
         
         .card-view-item {
@@ -267,22 +292,14 @@
         .card-mini-badge { font-size: 8px; font-family: var(--font-title); font-weight: 800; text-transform: uppercase; background: rgba(3, 6, 36, 0.9); border: 1px solid rgba(254, 0, 0, 0.4); padding: 4px 8px; border-radius: 2px; display: flex; align-items: center; gap: 4px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); backdrop-filter: blur(4px); letter-spacing: 1px; }
         .card-mini-badge.auction { color: var(--warm-star); border-color: var(--warm-star); }
         .card-mini-badge.cried { color: var(--text-main); border-color: var(--accent-main); }
-		
-		
-		
-		
         .card-mini-badge.burned { color: var(--accent-light); border-color: var(--accent-light); }
         .card-mini-badge.rating { color: var(--accent-light); border-color: var(--accent-main); font-size: 12px; }
-
-        
         .card-mini-badge.diff-easy { color: var(--text-main); border-color: var(--text-main); }
         .card-mini-badge.diff-med { color: var(--warm-star); border-color: var(--warm-star); }
         .card-mini-badge.diff-hard { color: var(--accent-light); border-color: var(--accent-light); }
 
         .card-content { padding: 15px 10px; display: flex; flex-direction: column; align-items: center; text-align: center; z-index: 11; position: relative; flex-grow: 1; box-sizing: border-box; width: 100%; }
-		
-		
-		
+        
         .card-title-container { height: 55px; display: flex; align-items: center; justify-content: center; width: 100%; margin-bottom: 6px; overflow: hidden; }
         .card-title-text { 
             font-family: var(--font-title); font-size: 20px; font-weight: 700; color: #fff; letter-spacing: 1px;
@@ -316,7 +333,6 @@
         
         .card-queue-name { font-family: var(--font-title); font-weight: 700; color: var(--text-main); font-size: 15px; letter-spacing: 1px; white-space: nowrap; display: block; max-width: calc(100% - 28px); overflow: hidden; text-overflow: clip; }
 
-        
         .card-action-stack {
             position: absolute;
             right: 8px;
@@ -349,9 +365,7 @@
             width: 30px; height: 30px; box-sizing: border-box; padding: 0;
         }
         .card-view-item:hover .card-copy-btn { opacity: 1; transform: scale(1); }
-        .card-copy-btn:hover { background: var(--accent-main); color: var(--bg-deep); box-shadow: 0 0 15px rgba(254, 0, 0, 0.6); }
-        
-
+        .card-copy-btn:hover { background: var(--accent-main); color: #ffffff; box-shadow: 0 0 15px rgba(254, 0, 0, 0.6); transform: scale(1.05); }
         
         .modal-overlay {
             display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
@@ -403,9 +417,9 @@
         .modal-title-extras { display: flex; align-items: center; gap: 10px; flex-shrink: 0; margin-top: 4px; }
         .modal-year { color: var(--text-main); font-family: var(--font-title); font-size: 28px; font-weight: 600; opacity: 0.9; } 
 
-        .modal-title-wrapper .copy-btn { opacity: 0.8; transform: scale(1); background: rgba(254, 0, 0, 0.15); border: 1px solid var(--accent-dark); color: var(--accent-main); padding: 6px; display: inline-flex; align-items: center; justify-content: center; transition: all 0.3s; cursor: pointer; border-radius: 2px; }
-        .modal-title-wrapper:hover .copy-btn { opacity: 1; }
-        .modal-title-wrapper .copy-btn:hover { background: var(--accent-main); color: var(--bg-deep); box-shadow: 0 0 20px rgba(254, 0, 0, 0.6); border-color: var(--accent-main); }
+        .modal-title-wrapper .copy-btn { opacity: 0.8; transform: scale(1); background: rgba(254, 0, 0, 0.15); border: 1px solid var(--accent-dark); color: var(--accent-main); padding: 6px; display: inline-flex; align-items: center; justify-content: center; transition: all 0.3s; cursor: pointer; border-radius: 2px; position: static; }
+		.modal-title-wrapper:hover .copy-btn { opacity: 1; }
+		.modal-title-wrapper .copy-btn:hover { background: var(--accent-main); color: #ffffff; box-shadow: 0 0 20px rgba(254, 0, 0, 0.6); border-color: var(--accent-main); }
 
         .modal-meta-wrapper { display: flex; align-items: center; gap: 4px; margin-bottom: 12px; border-bottom: 1px solid rgba(254, 0, 0, 0.3); padding-bottom: 15px; flex-wrap: wrap; }
         
@@ -434,9 +448,7 @@
         .grid-label { color: var(--accent-light); font-size: 14px; text-transform: uppercase; letter-spacing: 2px; font-family: var(--font-title); font-weight: 900; margin-bottom: 4px; }
         .grid-value { color: var(--text-main); font-family: var(--font-title); font-weight: 700; font-size: 18px; letter-spacing: 1px; }
 
-        .modal-overview-container { padding: 25px 0 0 0; margin-top: 15px; margin-bottom: 10px; border-top: 1px solid rgba(254, 0, 0, 0.3); }
-        .modal-overview-label { color: var(--accent-light); font-size: 14px; text-transform: uppercase; letter-spacing: 2px; font-family: var(--font-title); font-weight: 900; margin-top: 0; margin-bottom: 10px; }
-        .modal-overview { color: var(--text-main); font-family: var(--font-text); font-size: 16px; line-height: 1.7; margin-top: 0; margin-bottom: 0; }
+        .modal-overview { color: var(--text-main); font-family: var(--font-text); font-size: 16px; line-height: 1.7; margin-bottom: 30px; }
         
         .modal-requester-link { cursor: pointer; transition: transform 0.3s; display: inline-flex; align-items: center; gap: 10px; margin-bottom: 8px; }
         .modal-requester-link:hover { transform: translateX(5px); }
@@ -456,8 +468,7 @@
         ::-webkit-scrollbar-thumb { background: var(--accent-dark); border-radius: 0; }
         ::-webkit-scrollbar-thumb:hover { background: var(--accent-main); }
 
-
-		.price-badge {
+        .price-badge {
             background: rgba(254, 0, 0, 0.05);
             border: 1px solid rgba(254, 0, 0, 0.3);
             color: var(--text-main);
@@ -480,52 +491,222 @@
             transform: translateY(-1px);
         }
 
+        .media-grid { display: flex; flex-wrap: wrap; gap: 10px; padding-bottom: 5px; }
+        .media-thumb {
+            width: 110px; height: 65px; border-radius: 2px; object-fit: cover;
+            border: 1px solid rgba(254, 0, 0, 0.4); cursor: pointer;
+            transition: all 0.3s; background: var(--bg-velvet);
+            background-size: cover; background-position: center; position: relative;
+        }
+        .media-thumb:hover { border-color: var(--accent-main); transform: scale(1.05); box-shadow: 0 5px 15px rgba(0,0,0,0.5); z-index: 2; }
+        
+        .video-thumb::after {
+            content: '▶'; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+            font-size: 14px; color: var(--bg-deep); background: rgba(254, 0, 0, 0.9); 
+            width: 28px; height: 28px; border-radius: 50%; display: flex; align-items: center; justify-content: center; padding-left: 2px; box-sizing: border-box; box-shadow: 0 2px 8px rgba(0,0,0,0.6); transition: all 0.3s;
+        }
+        .video-thumb:hover::after { background: #fff; transform: translate(-50%, -50%) scale(1.15); box-shadow: 0 0 15px rgba(254, 0, 0, 0.8); }
 
+        .lightbox-overlay {
+            display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(3, 6, 36, 0.95); backdrop-filter: blur(10px); z-index: 2000; 
+            justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease;
+        }
+        .lightbox-overlay.active { display: flex; opacity: 1; }
+        .lightbox-content { position: relative; max-width: 90vw; max-height: 90vh; display: flex; justify-content: center; align-items: center; }
+        .lightbox-img { max-width: 100%; max-height: 90vh; border-radius: 2px; border: 2px solid var(--accent-main); box-shadow: 0 15px 40px rgba(0,0,0,0.8); display: none; }
+        .lightbox-video { width: 80vw; max-width: 1200px; aspect-ratio: 16/9; border-radius: 2px; border: 2px solid var(--accent-main); box-shadow: 0 15px 40px rgba(0,0,0,0.8); display: none; outline: none; background: #000; }
+        
+        .lightbox-close {
+            position: absolute; top: -45px; right: 0px; color: var(--text-main); cursor: pointer;
+            background: rgba(3, 6, 36, 0.8); border: 1px solid var(--accent-main); width: 36px; height: 36px; border-radius: 2px;
+            display: flex; justify-content: center; align-items: center; transition: all 0.3s; z-index: 2005;
+        }
+        .lightbox-close:hover { color: var(--bg-deep); background: var(--accent-main); transform: rotate(90deg); box-shadow: 0 0 15px rgba(254, 0, 0, 0.5); }
+        
+        .lightbox-nav {
+            position: absolute; top: 50%; transform: translateY(-50%); color: var(--accent-main); font-size: 30px; cursor: pointer;
+            background: rgba(3, 6, 36, 0.8); border: 1px solid var(--accent-main); width: 50px; height: 50px; border-radius: 2px;
+            display: flex; justify-content: center; align-items: center; transition: all 0.3s; z-index: 2001; user-select: none; -webkit-user-select: none;
+        }
+        .lightbox-nav:hover { background: var(--accent-main); color: var(--bg-deep); box-shadow: 0 0 15px rgba(254, 0, 0, 0.5); }
+        .lightbox-prev { left: 20px; }
+        .lightbox-next { right: 20px; }
+        @media (max-width: 768px) { .lightbox-nav { display: none; } }
+        
+        #partsModalOverlay { z-index: 3000; }
+        .parts-modal-content {
+            background: var(--bg-deep); padding: 25px 20px 20px; border-radius: 4px;
+            border: 2px solid var(--accent-main); box-shadow: 0 15px 50px rgba(0,0,0,0.9);
+            width: 320px; max-width: 90vw; position: relative;
+        }
+        .part-item-btn {
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 12px 15px; background: rgba(254, 0, 0, 0.05);
+            border: 1px solid rgba(254, 0, 0, 0.3); border-radius: 2px;
+            color: var(--text-main); text-decoration: none; font-family: var(--font-title);
+            font-weight: 800; font-size: 15px; transition: all 0.3s; letter-spacing: 1px;
+        }
+        .part-item-btn:hover {
+            background: var(--accent-main); color: var(--bg-deep);
+            box-shadow: 0 0 15px rgba(254, 0, 0, 0.4); transform: translateX(4px); border-color: transparent;
+        }
+        #partsContainer::-webkit-scrollbar { width: 6px; }
+        #partsContainer::-webkit-scrollbar-track { background: rgba(3, 6, 36, 0.5); border-radius: 0; }
+        #partsContainer::-webkit-scrollbar-thumb { background: var(--accent-dark); border-radius: 0; }
 
-        @media (max-width: 1024px) {
+        
+        #starsCanvas { display: none !important; }
+
+        @media (min-width: 1920px) {
+            .container { max-width: 1450px; }
+            .movies-grid { grid-template-columns: repeat(7, 1fr); gap: 20px; }
+            .modal-content { max-width: 1150px; }
+            .modal-poster { width: 250px; }
+            .header-top h1 { font-size: 54px; }
+        }
+
+        @media (min-width: 2560px) {
+            .container { max-width: 1900px; }
+            .movies-grid { grid-template-columns: repeat(9, 1fr); }
+            .modal-content { max-width: 1500px; }
+            .modal-poster { width: 300px; }
+            
+            
+            body::after {
+                content: ''; position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+                background: rgba(3, 6, 36, 0); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); z-index: -2; pointer-events: none;
+            }
+
+            
+            #starsCanvas { display: block !important; }
+            
+            
+            th { background: rgba(3, 6, 36, 0.85) !important; backdrop-filter: blur(10px); }
+            
+            th:nth-child(1), td:nth-child(1) { width: 200px !important; min-width: 200px !important; }
+            .poster-wrapper { width: 170px !important; height: 255px !important; } 
+            
+            th:nth-child(3), td:nth-child(3) { width: 220px !important; min-width: 220px !important; } 
+            th:nth-child(4), td:nth-child(4) { width: 220px !important; min-width: 220px !important; } 
+            th:nth-child(5), td:nth-child(5) { width: 220px !important; min-width: 220px !important; } 
+            th:nth-child(6), td:nth-child(6) { width: 220px !important; min-width: 220px !important; } 
+            
+            .movie-overview-text { font-size: 16px; line-height: 1.6; }
+            
+            .steam-link-btn, .play-link-btn { 
+                width: 140px !important; 
+            }
+            
+            .date-badge { 
+                white-space: nowrap !important; 
+            }
+        }
+
+        @media (max-width: 1550px) { .girl-col, .modal-girl-col { display: none; } }
+
+        @media (max-width: 1400px) {
+            th:nth-child(1), td:nth-child(1) { width: 120px !important; min-width: 120px !important; padding-left: 5px !important; padding-right: 5px !important; }
+            .poster-wrapper { width: 105px !important; height: 160px !important; } 
+            
+            th:nth-child(3), td:nth-child(3) { width: 110px !important; min-width: 110px !important; padding-left: 5px !important; padding-right: 5px !important; } 
+            th:nth-child(4), td:nth-child(4) { width: 120px !important; min-width: 120px !important; padding-left: 5px !important; padding-right: 5px !important; } 
+            th:nth-child(5), td:nth-child(5) { width: 140px !important; min-width: 140px !important; padding-left: 5px !important; padding-right: 5px !important; } 
+            th:nth-child(6), td:nth-child(6) { width: 135px !important; min-width: 135px !important; padding-left: 5px !important; padding-right: 5px !important; } 
+            
+            .steam-link-btn, .play-link-btn { 
+                width: 90% !important; 
+                font-size: 11px !important; 
+                padding: 4px !important; 
+                box-sizing: border-box !important; 
+            }
+            
+            .date-badge { 
+                width: 100% !important; 
+                max-width: 125px !important; 
+                font-size: 11px !important; 
+                padding: 4px 6px !important; 
+                box-sizing: border-box !important; 
+                white-space: normal !important; 
+                text-align: center !important; 
+                line-height: 1.1 !important; 
+            }
+            
+            .badge-status { 
+                font-size: 11px !important; 
+                padding: 4px 10px !important; 
+                width: 100% !important; 
+                max-width: 125px !important; 
+                box-sizing: border-box !important; 
+            }
+        }
+
+        @media (max-width: 1150px) {
+            #viewToggleBtn { display: none !important; }
             .movies-grid { grid-template-columns: repeat(4, 1fr); }
         }
+
+        @media (max-width: 1024px) {
+            .header { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; padding: 25px 20px 20px; }
+            .back-btn, .creator-badge { position: relative; top: auto; left: auto; right: auto; order: 1; }
+            .header-top { width: 100%; order: 2; margin-top: 15px; }
+            .header-top h1 { font-size: 38px; }
+            .controls-panel { width: 100%; order: 3; margin-top: 10px; }
+            .modal-body { padding: 0 20px 30px 20px; gap: 20px; }
+            .modal-poster { width: 180px; }
+        }
+
+        @media (max-width: 1023px) {
+            .modal-body { flex-direction: column; margin-top: -80px; padding: 20px; }
+            .modal-poster { display: block; width: 160px; margin: 0 auto; }
+            #modalTagsColumn { padding-left: 25px !important; }
+        }
+
         @media (max-width: 768px) {
-			#viewToggleBtn { display: none !important; }
-		
             th:nth-child(4), td:nth-child(4) { display: none; }
             .movies-grid { grid-template-columns: repeat(2, 1fr); padding: 10px; gap: 10px; }
-            .modal-body { flex-direction: column; margin-top: -60px; padding: 20px; }
             .modal-poster { width: 140px; margin: 0 auto; }
             
+            .header { flex-direction: column; justify-content: center; align-items: center; gap: 15px; padding: 20px 15px; box-sizing: border-box; }
+            .back-btn { width: auto; margin: 0; order: 1; justify-content: center; position: relative; top: 0; left: 0;}
+            .creator-badge { order: 2; margin: 0; position: relative; top: 0; right: 0;}
+            .header-top { order: 3; width: 100%; margin-top: 5px; text-align: center;}
+            .header-top h1 { font-size: 28px; margin: 0 0 10px 0; text-align: center; }
+            .header-top h1::before, .header-top h1::after { display: none; }
+            .controls-panel { order: 4; flex-direction: column; align-items: center; width: 100%; gap: 10px; margin-top: 0; box-sizing: border-box; }
+            .search-box, .sort-select { width: 100%; max-width: 100%; margin: 0; box-sizing: border-box; }
+        }
+
+        @media (max-width: 767px) {
             .modal-grid { grid-template-columns: 1fr !important; }
             .grid-item.border-right { border-right: none !important; }
             .grid-item { border-bottom: 1px solid rgba(254, 0, 0, 0.3); }
-            #modalTagsColumn { grid-row: auto !important; grid-column: 1 / -1 !important; border-bottom: 1px solid rgba(254, 0, 0, 0.3); padding-left: 25px !important;}
+            #modalTagsColumn { grid-row: auto !important; grid-column: 1 / -1 !important; border-bottom: 1px solid rgba(254, 0, 0, 0.3); padding: 20px 25px !important;}
             .grid-item.full-width { border-bottom: none; }
+            .grid-item { align-items: center !important; text-align: center; }
+            
+            #modalRequesterBlock, #modalTagsBlock, #modalDateWatched > div, #modalPriceCol > div > div { 
+                align-items: center !important; justify-content: center !important; width: 100% !important; 
+            }
+            #modalTagsBlock .modal-grid-box, #modalRequesterBlock .modal-requester-link { 
+                align-self: center !important; margin-left: auto !important; margin-right: auto !important; 
+            }
+            .modal-title-wrapper { flex-direction: column; align-items: center; text-align: center; }
+            .modal-title { font-size: 26px !important; white-space: normal !important; text-align: center; }
+            .modal-title-extras { justify-content: center; margin-top: 8px; }
+            .modal-meta-wrapper { justify-content: center; }
+            #modalGenres { justify-content: center !important; }
+            #modalScreenshotsWrapper .grid-label, #modalTrailersWrapper .grid-label { text-align: center !important; margin-bottom: 12px !important; }
+            .media-grid { justify-content: center !important; }
+            .modal-prices-wrapper { display: flex !important; flex-direction: column !important; align-items: center !important; }
+            .modal-prices-wrapper .price-badge { width: 100% !important; max-width: 250px !important; margin: 0 0 6px 0 !important; }
+        }
 
-            .header {
-				display: flex;
-				flex-direction: column;
-				align-items: center;
-				gap: 15px; 
-				padding: 20px 10px; 
-			}
-
-			.back-btn {
-				position: relative;
-				top: 0;
-				left: 0;
-			}
-
-			.creator-badge {
-				position: relative;
-				top: 0;
-				right: 0;
-			}
-
-			.header-top h1 { 
-				font-size: 28px; 
-				margin: 5px 0 10px 0;
-			}
-			.header-top h1::before, .header-top h1::after { 
-				display: none; 
-			}
+        @media (max-width: 480px) {
+            .movies-grid { grid-template-columns: 1fr; } 
+            .header-top h1 { font-size: 24px; line-height: 1.2; }
+            .modal-title { font-size: 24px !important; }
+            .modal-poster { width: 120px; }
         }
         
         .legendary-table-badge, .legendary-badge {
@@ -534,17 +715,19 @@
             text-shadow: none !important; font-weight: 900 !important; background: #ffd700 !important;
         }
 
-        
         .text-3d-effect {
             color: #ffffff;
             text-shadow: 2px 2px 0px var(--accent-dark), 0 0 10px rgba(254, 0, 0, 0.8);
         }
 
-        
         .icon-3d-effect {
             filter: drop-shadow(2px 2px 0px var(--accent-dark)) drop-shadow(0 0 10px rgba(254, 0, 0, 0.8));
         }
     </style>
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@1"></script>
+
 </head>
 <body>
 
@@ -575,17 +758,12 @@
                 </div>
                 
                 <div class="controls-panel">
-					
-					
-					
-					<a href="https://sarachuma.github.io/wishlist/" class="wishlist-link-btn">
+                    
+                    <a href="https://sarachuma.github.io/wishlist/" class="wishlist-link-btn">
                         <svg class="icon-3d-effect" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"></path></svg>
                         WishLIST
                     </a>
-					
-					
-				
-				
+                
                     <input type="text" id="searchInput" class="search-box" placeholder="Поиск..." oninput="applyFilters()">
                     <select id="userFilter" class="sort-select" onchange="applyFilters()">
                         <option value="all">Все заказчики</option>
@@ -655,17 +833,32 @@
                             <div class="modal-title-extras">
                                 <span class="modal-year text-3d-effect" id="modalYear"></span>
                                 <button class="copy-btn" id="modalCopyBtn" onclick="copyMovieNameFromModal()" title="Скопировать название">
-                                    <svg class="icon-3d-effect" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
-                                </button>
+									<svg class="icon-3d-effect" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 12.9V17.1C16 20.6 14.6 22 11.1 22H6.9C3.4 22 2 20.6 2 17.1V12.9C2 9.4 3.4 8 6.9 8H11.1C14.6 8 16 9.4 16 12.9Z"/><path d="M22 6.9V11.1C22 14.6 20.6 16 17.1 16H16V12.9C16 9.4 14.6 8 11.1 8H8V6.9C8 3.4 9.4 2 12.9 2H17.1C20.6 2 22 3.4 22 6.9Z"/></svg>
+								</button>
                             </div>
                         </div>
                         
                         <div class="modal-meta-wrapper" id="modalBadges"></div>
                         
+						
+						
+						
+						
+						
+						
+						
+						
                         <div id="modalGenres" style="display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px;"></div>
-                        
+
+                        <div id="modalReviewBlock" style="display: none; margin-bottom: 25px;">
+                            <div class="text-3d-effect" style="font-size: 11px; color: #ffffff; text-transform: uppercase; font-family: var(--font-title); font-weight: 800; letter-spacing: 1px; margin-bottom: 8px;">✦ Отзыв от стримера</div>
+                            <div class="modal-review-text" style="font-size: 15px; line-height: 1.6; color: #fff; font-style: italic; font-family: var(--font-text); border-left: 3px solid var(--accent-main); padding: 12px 16px; background: rgba(254, 0, 0, 0.05); border-radius: 0 4px 4px 0;"></div>
+                        </div>
+
+                        <div class="text-3d-effect" style="font-size: 11px; color: #ffffff; text-transform: uppercase; font-family: var(--font-title); font-weight: 800; letter-spacing: 1px; margin-bottom: 8px;" id="modalOverviewLabel">♦ Описание</div>
+                        <div class="modal-overview" id="modalOverview" style="margin-bottom: 30px;"></div>
+
                         <div class="modal-grid" id="modalMainGrid" style="gap: 0; padding: 0;">
-                            
                             
                             <div class="grid-item border-bottom border-right" id="modalRequesterCol">
                                 <div class="grid-label">Заказал(а)</div>
@@ -676,13 +869,11 @@
                                 <div id="modalStatusLabel"></div>
                             </div>
                             
-                           
                             <div class="grid-item border-bottom" id="modalTagsColumn" style="grid-row: span 2; display: none; padding-left: 25px;">
                                 <div class="grid-label">Отметки</div>
                                 <div id="modalTagsBlock" style="display: flex; flex-direction: column; align-items: flex-start; gap: 8px;"></div>
                             </div>
 
-                            
                             <div class="grid-item border-bottom border-right" id="modalDateReqCol">
                                 <div class="grid-label">День заказа</div>
                                 <div id="modalDateReq"></div>
@@ -692,9 +883,6 @@
                                 <div id="modalDateWatched"></div>
                             </div>
 
-
-
-							
                             <div class="grid-item full-width border-bottom" id="modalPriceCol">
                                 <div style="display: flex; flex-direction: column; align-items: center; gap: 14px; text-align: center; width: 100%;">
                                     
@@ -704,7 +892,7 @@
                                         </div>
                                         <div class="grid-value" id="modalPrice" style="width: 100%;"></div>
                                         
-                                        <div id="priceNotice" style="font-size: 11px; color: var(--text-muted); margin-top: 6px; font-weight: 600; display: none;">
+                                        <div id="priceNotice" style="font-size: 11px; font-family: var(--font-text); color: var(--text-muted); margin-top: 6px; font-weight: 600; display: none;">
                                             <span style="color: var(--accent-light);">*</span> Знак <span style="color: var(--accent-main); font-weight: 900; font-size: 13px;">~</span> означает, что товара в этом регионе нет (конвертация по курсу)
                                         </div>
                                     </div>
@@ -717,14 +905,22 @@
                                             <code id="modalUpdateCmd" style="font-family: monospace; font-size: 13px; color: var(--accent-main); font-weight: bold;"></code>
                                         </div>
                                         <button class="copy-btn" id="modalPriceCopyBtn" onclick="copyUpdateCmdFromModal(this)" style="padding: 8px; margin: 0; position: static; opacity: 1; transform: scale(1); border-radius: 2px;" title="Скопировать команду">
-                                            <svg class="icon-3d-effect" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
+                                            <svg class="icon-3d-effect" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 12.9V17.1C16 20.6 14.6 22 11.1 22H6.9C3.4 22 2 20.6 2 17.1V12.9C2 9.4 3.4 8 6.9 8H11.1C14.6 8 16 9.4 16 12.9Z"/><path d="M22 6.9V11.1C22 14.6 20.6 16 17.1 16H16V12.9C16 9.4 14.6 8 11.1 8H8V6.9C8 3.4 9.4 2 12.9 2H17.1C20.6 2 22 3.4 22 6.9Z"/></svg>
                                         </button>
                                     </div>
                                 </div>
                             </div>
 
-
-
+                            <div class="grid-item full-width border-bottom" id="modalMediaCol" style="display: none; padding: 20px 25px;">
+                                <div id="modalScreenshotsWrapper" style="display: none; margin-bottom: 20px;">
+                                    <div class="grid-label" style="margin-bottom: 12px;">Скриншоты</div>
+                                    <div id="modalScreenshots" class="media-grid"></div>
+                                </div>
+                                <div id="modalTrailersWrapper" style="display: none;">
+                                    <div class="grid-label" style="margin-bottom: 12px;">Видео / Трейлеры</div>
+                                    <div id="modalTrailers" class="media-grid"></div>
+                                </div>
+                            </div>
                             
                             <div class="grid-item full-width" style="border-bottom: none;">
                                 <div class="grid-label">Разработчик / Издатель</div>
@@ -732,13 +928,14 @@
                             </div>
 
                         </div>
-
                         
-                        <div class="modal-overview-container">
-                            <div class="modal-overview-label">Описание</div>
-                            <div class="modal-overview" id="modalOverview">Описание игры...</div>
-                        </div>
-                        
+						
+						
+						
+						
+						
+						
+						
                     </div>
                 </div>
             </div>
@@ -751,15 +948,171 @@
     </div>
 </div>
 
+<div class="lightbox-overlay" id="lightboxModal" onclick="closeLightbox(event)">
+    <div class="lightbox-nav lightbox-prev" onclick="changeLightboxMedia(-1, event)">&#10094;</div>
+    <div class="lightbox-content" onclick="event.stopPropagation()">
+        <div class="lightbox-close" onclick="closeLightbox(event)">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </div>
+        <img id="lightboxImg" class="lightbox-img" src="" alt="">
+        <video id="lightboxVideo" class="lightbox-video" controls playsinline preload="metadata"></video>
+    </div>
+    <div class="lightbox-nav lightbox-next" onclick="changeLightboxMedia(1, event)">&#10095;</div>
+</div>
+
+<div class="lightbox-overlay" id="partsModalOverlay" onclick="closePartsModal(event)">
+    <div class="parts-modal-content" onclick="event.stopPropagation()">
+        <div class="close-btn" onclick="closePartsModal(event)" style="top: -15px; right: -15px; width: 34px; height: 34px; background: var(--accent-main); color: #fff; border-color: transparent;">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </div>
+        <div style="font-family: var(--font-title); font-size: 20px; font-weight: 900; color: #fff; text-align: center; margin-bottom: 5px; line-height: 1.2; letter-spacing: 1px;" id="partsModalTitle">Название</div>
+        <div style="font-size: 11px; font-family: var(--font-title); color: var(--text-muted); text-align: center; margin-bottom: 15px; text-transform: uppercase; font-weight: 800; letter-spacing: 2px;" id="partsModalPlatform">ПЛАТФОРМА</div>
+        
+        <div id="partsContainer" style="display: flex; flex-direction: column; gap: 8px; max-height: 50vh; overflow-y: auto; padding-right: 5px;"></div>
+    </div>
+</div>
+
 <script>
     let rawMoviesData = []; 
     let currentViewData = []; 
     let currentModalMovie = null; 
-    let viewMode = localStorage.getItem('siteViewModeGames') || 'grid'; 
+    let viewMode = localStorage.getItem('siteViewModeGames') || 'list'; 
+    let modalMediaItems = []; 
+    let currentLightboxIndex = 0; 
+    let hlsInstance = null; 
 
-    
     const fallbackPosterUrl = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='500' height='750' viewBox='0 0 500 750'%3E%3Cdefs%3E%3ClinearGradient id='bg' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%230C1E5B'/%3E%3Cstop offset='100%25' stop-color='%23030624'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='500' height='750' fill='url(%23bg)'/%3E%3Cg transform='translate(0, -30)'%3E%3Cpath d='M150 400 c0-50 40-90 90-90 h20 c50 0 90 40 90 90 v20 c0 30 15 50 30 70 l10 15 c15 20 0 45-20 45 h-30 c-20 0-30-10-35-30 l-5-20 h-100 l-5 20 c-5 20-15 30-35 30 h-30 c-20 0-35-25-20-45 l10-15 c15-20 30-40 30-70 v-20 z' fill='%23030624' stroke='%23fe0000' stroke-width='6' stroke-linejoin='round'/%3E%3Cpath d='M180 390 h20 v-20 h20 v20 h20 v20 h-20 v20 h-20 v-20 h-20 z' fill='%230C1E5B'/%3E%3Ccircle cx='210' cy='400' r='3' fill='%23fe0000'/%3E%3Ccircle cx='330' cy='380' r='14' fill='%23ff4d4d'/%3E%3Ccircle cx='360' cy='410' r='14' fill='%23fce8a1'/%3E%3Crect x='235' y='395' width='30' height='10' rx='5' fill='%230C1E5B'/%3E%3C/g%3E%3C/svg%3E";
     const fallbackBackdropUrl = "data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='1000' height='320' viewBox='0 0 1000 320'%3E%3Cdefs%3E%3ClinearGradient id='bgH' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%230C1E5B'/%3E%3Cstop offset='100%25' stop-color='%23030624'/%3E%3C/linearGradient%3E%3Cpattern id='grid' width='60' height='60' patternUnits='userSpaceOnUse'%3E%3Cpath d='M 60 0 L 0 0 0 60' fill='none' stroke='%23fe0000' stroke-width='1' opacity='0.05'/%3E%3C/pattern%3E%3Cpattern id='dots' width='20' height='20' patternUnits='userSpaceOnUse'%3E%3Ccircle cx='2' cy='2' r='1' fill='%23fce8a1' opacity='0.1'/%3E%3C/pattern%3E%3C/defs%3E%3Crect width='1000' height='320' fill='url(%23bgH)'/%3E%3Crect width='1000' height='320' fill='url(%23grid)'/%3E%3Crect width='1000' height='320' fill='url(%23dots)'/%3E%3Cg transform='translate(500, 160) scale(1.5)'%3E%3Cpath d='M-50,0 C-50,-20 -30,-40 0,-40 C30,-40 50,-20 50,0 C50,20 40,30 25,30 C15,30 10,20 0,20 C-10,20 -15,30 -25,30 C-40,30 -50,20 -50,0 Z' fill='%23741511' stroke='%23fe0000' stroke-width='3' opacity='0.8'/%3E%3Cpath d='M-30,-5 h5 v-5 h5 v5 h5 v5 h-5 v5 h-5 v-5 h-5 z' fill='%230C1E5B' opacity='0.9'/%3E%3Ccircle cx='20' cy='-5' r='3' fill='%23ff4d4d' opacity='0.9'/%3E%3Ccircle cx='30' cy='5' r='3' fill='%23fce8a1' opacity='0.9'/%3E%3C/g%3E%3C/svg%3E";
+
+    window.switchListTab = function(event, btn, tabName) {
+        event.stopPropagation(); 
+        const container = btn.closest('.movie-info');
+        
+        container.querySelectorAll('.list-tab-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        
+        container.querySelectorAll('.movie-content-block').forEach(c => c.style.display = 'none');
+        container.querySelector(`.content-${tabName}`).style.display = 'block';
+    };
+
+    window.toggleTextExpand = function(event, element) {
+        event.stopPropagation(); 
+        element.classList.toggle('expanded'); 
+    };
+
+    window.getMediaButtonHtml = function(movie, baseKey, label, cssClass, svgIcon, styleType) {
+        let parts = [];
+        if (movie[baseKey]) parts.push({ part: 1, url: movie[baseKey] });
+        let i = 2;
+        while (movie[baseKey + i]) { parts.push({ part: i, url: movie[baseKey + i] }); i++; }
+        
+        if (parts.length === 0) return '';
+        
+        const safeTitle = escapeHTML(movie.title || 'Игра').replace(/'/g, "\\'").replace(/"/g, '&quot;');
+        const partsJson = encodeURIComponent(JSON.stringify(parts));
+        
+        if (styleType === 'table') {
+            if (parts.length === 1) return `<a href="${parts[0].url}" target="_blank" class="play-link-btn ${cssClass}" onclick="event.stopPropagation();">${svgIcon} ${label}</a>`;
+            return `<div class="play-link-btn ${cssClass}" onclick="openPartsModal(event, '${label}', '${safeTitle}', '${partsJson}', '${cssClass}')" style="border-style: dashed; cursor: pointer;">${svgIcon} ${label}</div>`;
+        }
+        if (styleType === 'grid') {
+            if (parts.length === 1) return `<a href="${parts[0].url}" target="_blank" class="card-play-btn ${cssClass}" onclick="event.stopPropagation();" title="${label}">${svgIcon}</a>`;
+            return `<div class="card-play-btn ${cssClass}" onclick="openPartsModal(event, '${label}', '${safeTitle}', '${partsJson}', '${cssClass}')" title="${label} (Несколько частей)" style="cursor: pointer; border-style: dashed;">${svgIcon}</div>`;
+        }
+        if (styleType === 'modal') {
+            if (parts.length === 1) return `<a href="${parts[0].url}" target="_blank" class="outline-badge play-modal-badge ${cssClass}" onclick="event.stopPropagation();">${svgIcon} ${label}</a>`;
+            return `<div class="outline-badge play-modal-badge ${cssClass}" onclick="openPartsModal(event, '${label}', '${safeTitle}', '${partsJson}', '${cssClass}')" style="cursor: pointer; border-style: dashed;">${svgIcon} ${label}</div>`;
+        }
+        return '';
+    };
+
+    window.openPartsModal = function(event, platform, title, partsJson, cssClass) {
+        event.stopPropagation();
+        const parts = JSON.parse(decodeURIComponent(partsJson));
+        
+        let color = 'var(--accent-main)';
+        let beautifulPlatformName = 'ЗАПИСИ ПРОХОЖДЕНИЯ'; 
+        
+        if (cssClass === 'yt') {
+            color = '#ff4a4a';
+            beautifulPlatformName = 'ЗАПИСИ НА YOUTUBE';
+        } else if (cssClass === 'boosty') {
+            color = '#f58220';
+            beautifulPlatformName = 'ЗАПИСИ НА BOOSTY';
+        } else if (cssClass === 'tg' || cssClass === 'tg-rec') {
+            color = '#38bdf8';
+            beautifulPlatformName = 'ЗАПИСИ В TELEGRAM';
+        }
+        
+        document.getElementById('partsModalTitle').textContent = title;
+        document.getElementById('partsModalPlatform').textContent = beautifulPlatformName;
+        document.getElementById('partsModalPlatform').style.color = color;
+        
+        document.getElementById('partsContainer').innerHTML = parts.map(p => `
+            <a href="${p.url}" target="_blank" class="part-item-btn" onclick="event.stopPropagation()">
+                <span style="color: ${color};">ЧАСТЬ ${p.part}</span>
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter"><path d="M5 12h14"></path><path d="M12 5l7 7-7 7"></path></svg>
+            </a>
+        `).join('');
+        
+        document.getElementById('partsModalOverlay').classList.add('active');
+    };
+
+    window.closePartsModal = function(event) {
+        if (event && event.stopPropagation) event.stopPropagation();
+        document.getElementById('partsModalOverlay').classList.remove('active');
+    };
+    
+    window.openLightbox = function(index) {
+        currentLightboxIndex = index;
+        const item = modalMediaItems[index];
+        const lightbox = document.getElementById('lightboxModal');
+        const imgEl = document.getElementById('lightboxImg');
+        const videoEl = document.getElementById('lightboxVideo');
+
+        imgEl.style.display = 'none';
+        videoEl.style.display = 'none';
+        videoEl.pause();
+        if (hlsInstance) { hlsInstance.destroy(); hlsInstance = null; }
+
+        if (item.type === 'image') {
+            imgEl.src = item.src;
+            imgEl.style.display = 'block';
+        } else if (item.type === 'video') {
+            videoEl.style.display = 'block';
+            if (item.src.includes('.m3u8')) {
+                if (typeof Hls !== 'undefined' && Hls.isSupported()) {
+                    hlsInstance = new Hls();
+                    hlsInstance.loadSource(item.src);
+                    hlsInstance.attachMedia(videoEl);
+                    hlsInstance.on(Hls.Events.MANIFEST_PARSED, function() { videoEl.play().catch(e => console.log(e)); });
+                } else if (videoEl.canPlayType('application/vnd.apple.mpegurl')) {
+                    videoEl.src = item.src;
+                    videoEl.play().catch(e => console.log(e));
+                }
+            } else {
+                videoEl.src = item.src;
+                videoEl.play().catch(e => console.log(e));
+            }
+        }
+        lightbox.classList.add('active');
+    };
+
+    window.closeLightbox = function(event) {
+        if (event && event.stopPropagation) event.stopPropagation();
+        document.getElementById('lightboxModal').classList.remove('active');
+        const videoEl = document.getElementById('lightboxVideo');
+        videoEl.pause(); videoEl.removeAttribute('src'); videoEl.load();
+        if (hlsInstance) { hlsInstance.destroy(); hlsInstance = null; }
+    };
+
+    window.changeLightboxMedia = function(dir, event) {
+        if (event && event.stopPropagation) event.stopPropagation();
+        let newIndex = currentLightboxIndex + dir;
+        if (newIndex < 0) newIndex = modalMediaItems.length - 1;
+        if (newIndex >= modalMediaItems.length) newIndex = 0;
+        openLightbox(newIndex);
+    };
 
     window.handlePosterError = function(img) {
         img.onerror = null;
@@ -810,18 +1163,16 @@
             }
         });
     }
-	
-	function copyMovieNameFromTable(event, title, year, btnElement) {
+    
+    function copyMovieNameFromTable(event, title, year, btnElement) {
         event.stopPropagation();
         copyTextToClipboard(title, btnElement);
     }
-	
+    
     function copyMovieNameFromModal() {
         if (currentModalMovie) copyTextToClipboard(currentModalMovie.title || '', document.getElementById('modalCopyBtn'));
     }
 
-    
-    
     function copyUpdateCmdFromModal(btnElement) {
         if (currentModalMovie) {
             const title = (currentModalMovie.title || '').trim();
@@ -829,8 +1180,6 @@
             copyTextToClipboard(cmd, btnElement);
         }
     }
-	
-	
 
     async function loadCreatorAvatars() {
         try {
@@ -862,10 +1211,7 @@
         const r = parseFloat(rating);
         if (isNaN(r)) return 'var(--accent-main)';
         
-        
         const rounded = Math.round(r);
-
-        
         if (rounded >= 10) return '#00d708'; 
         if (rounded === 9) return '#32cd32'; 
         if (rounded === 8) return '#80ff00'; 
@@ -1009,29 +1355,23 @@
         renderView();
     }
 
-    	
-	function renderView() {
-		const renderArea = document.getElementById('render-area');
-		renderArea.innerHTML = '';
+    function renderView() {
+        const renderArea = document.getElementById('render-area');
+        renderArea.innerHTML = '';
     
-		if (currentViewData.length === 0) {
-			renderArea.innerHTML = '<div style="text-align: center; padding: 60px; font-size: 24px; font-family: var(--font-title); color: var(--text-muted); text-transform: uppercase;">✦ Архив пуст ✦</div>';
-			return;
-		}
+        if (currentViewData.length === 0) {
+            renderArea.innerHTML = '<div style="text-align: center; padding: 60px; font-size: 24px; font-family: var(--font-title); color: var(--text-muted); text-transform: uppercase;">✦ Архив пуст ✦</div>';
+            return;
+        }
+        
+        if (window.innerWidth <= 768) {
+            renderGridMode(renderArea);
+        } else {
+            if (viewMode === 'list') renderTableMode(renderArea);
+            else renderGridMode(renderArea);
+        }
+    }
 
-		
-		if (window.innerWidth <= 768) {
-			renderGridMode(renderArea);
-		} else {
-			
-			if (viewMode === 'list') renderTableMode(renderArea);
-			else renderGridMode(renderArea);
-		}
-	}
-	
-	
-
-    
     function renderTableMode(renderArea) {
         let tableHTML = `
             <table>
@@ -1040,6 +1380,7 @@
                         <th style="width: 160px; min-width: 160px;">Постер</th>
                         <th style="width: 100%;">Описание</th>
                         <th style="width: 145px; min-width: 145px;">Заказал</th>
+                        <th style="width: 160px; min-width: 160px;">Цена</th>
                         <th style="width: 130px; min-width: 130px;">Ссылки</th>
                         <th style="width: 135px; min-width: 135px;">Статус</th>
                     </tr>
@@ -1060,7 +1401,7 @@
                 if (getGroup(prevStatus) !== getGroup(currStatus)) {
                     const dividerTr = document.createElement('tr');
                     dividerTr.innerHTML = `
-                        <td colspan="5" style="padding: 30px 15px; cursor: default; border-bottom: 1px solid rgba(254, 0, 0, 0.3);">
+                        <td colspan="6" style="padding: 30px 15px; cursor: default; border-bottom: 1px solid rgba(254, 0, 0, 0.3);">
                             <div style="display: flex; align-items: center; justify-content: center;">
                                 <div style="flex-grow: 1; height: 2px; background: linear-gradient(to right, transparent, var(--accent-main)); opacity: 0.5;"></div>
                                 <span style="padding: 0 20px; font-family: var(--font-title); font-size: 24px; font-weight: 700; color: #ffffff; text-shadow: 0 0 15px rgba(254, 0, 0, 0.8); text-transform: uppercase; letter-spacing: 2px;">✦ Пройдено / Брошено ✦</span>
@@ -1078,8 +1419,7 @@
             
             const validAltPoster = (movie.altPoster && typeof movie.altPoster === 'string' && movie.altPoster.trim() !== '') ? movie.altPoster : null;
             const posterUrl = getSafePoster(validAltPoster || movie.poster);
-			
-			
+            
             const isWatched = movie.status === "Пройдено";
             const isDropped = movie.status === "Бросила" || movie.status === "Брошено";
             const isPlaying = movie.status === "Играем";
@@ -1105,9 +1445,7 @@
             let tagsDetails = '';
             if (movie.cried) tagsDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; font-family: var(--font-text); font-size: 11px; color: var(--text-main); border-color: var(--accent-main);"><svg class="icon-3d-effect" width="18" height="18" viewBox="0 0 24 24" fill="var(--text-main)" stroke="var(--text-main)" stroke-width="1"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> <span class="text-3d-effect">Слёзы</span></div>`;
             
-			
-			
-			if (movie.burned) tagsDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; font-family: var(--font-text); font-size: 11px; color: var(--accent-light); border-color: var(--accent-light); box-shadow: 0 0 10px rgba(255,77,77,0.4);"><svg class="icon-3d-effect" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg> <span class="text-3d-effect">Сгорела</span></div>`;
+            if (movie.burned) tagsDetails += `<div class="date-badge" style="margin-top: 0; width: fit-content; font-family: var(--font-text); font-size: 11px; color: var(--accent-light); border-color: var(--accent-light); box-shadow: 0 0 10px rgba(255,77,77,0.4);"><svg class="icon-3d-effect" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg> <span class="text-3d-effect">Сгорела</span></div>`;
             
             if (movie.difficulty) {
                 let diffColor = ''; let diffIcon = '<circle cx="12" cy="12" r="8" fill="currentColor"/>';
@@ -1123,18 +1461,33 @@
             
             if (tagsDetails) watchedDetails += `<div style="display:flex; gap:6px; margin-top:4px; flex-wrap: wrap; justify-content: center;">${tagsDetails}</div>`;
             
-			
-			
-			const watchedDateHTML = watchedDetails ? `<div style="display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 8px;">${watchedDetails}</div>` : '';
+            const watchedDateHTML = watchedDetails ? `<div style="display: flex; flex-direction: column; align-items: center; gap: 8px; margin-top: 8px;">${watchedDetails}</div>` : '';
 
-            const idBadge = `<span class="outline-badge text-3d-effect">ID №${movie.id || 0}</span>`;
-            const typeLabel = `<span class="content-type-badge text-3d-effect" style="background: var(--accent-main); color: #ffffff; border: 1px solid var(--accent-main);">${escapeHTML(movie.type || 'Игра')}</span>`;
+            const idBadge = (movie.steamAppId && !movie.steamAppId.startsWith('IGDB_')) ? `<span class="outline-badge text-3d-effect">ID: ${movie.steamAppId}</span>` : '';
             const cleanTitle = escapeHTML(movie.title || 'Безымянный');
             const cleanOverview = escapeHTML(movie.overview || '');
             const safeTitle = (movie.title || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
+            
+            const hasReview = movie.reviewText && movie.reviewText.trim() !== ""; 
+            const cleanReview = hasReview ? escapeHTML(movie.reviewText).replace(/\n/g, '<br>') : "";
 
-            let displayStudios = movie.studios && movie.studios !== "Нет данных" ? movie.studios : "";
-            const studiosHTML = displayStudios ? `<div class="movie-studios-list text-3d-effect">${escapeHTML(displayStudios)}</div>` : '';
+            let tabsHTML = '<div class="list-tabs-container">';
+            if (hasReview) tabsHTML += `<button class="list-tab-btn text-3d-effect active" onclick="switchListTab(event, this, 'review')">✦ Отзыв</button>`;
+            tabsHTML += `<button class="list-tab-btn text-3d-effect ${!hasReview ? 'active' : ''}" onclick="switchListTab(event, this, 'overview')">♦ Описание</button></div>`;
+
+            let reviewBlock = hasReview ? `
+                <div class="movie-content-block content-review" style="display: block;">
+                    <div class="movie-review-wrapper" onclick="toggleTextExpand(event, this)" title="Нажмите, чтобы развернуть/свернуть">
+                        <div class="movie-review-text">«${cleanReview}»</div>
+                    </div>
+                </div>` : '';
+
+            let overviewBlock = `
+                <div class="movie-content-block content-overview" style="display: ${hasReview ? 'none' : 'block'};">
+                    <div class="movie-overview-wrapper" style="margin-top: 4px;" onclick="toggleTextExpand(event, this)" title="Нажмите, чтобы развернуть/свернуть">
+                        <div class="movie-overview-text">${cleanOverview}</div>
+                    </div>
+                </div>`;
 
             const telegramLink = movie.postUrl || movie.tgPost;
             let linksHTML = '<div style="display: flex; flex-direction: column; width: 100%; align-items: center;">';
@@ -1144,9 +1497,25 @@
                 linksHTML += `<span style="color: var(--text-muted); font-size: 12px; font-weight: 700; font-family: var(--font-title); margin-bottom: 8px; display: block;">Нет в Steam</span>`; 
             }
 
+            const playIcon = `<svg class="icon-3d-effect" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>`;
+            let tgRecButtonHTML = getMediaButtonHtml(movie, 'tgRecordUrl', 'ТГ ЗАПИСЬ', 'tg-rec', playIcon, 'table');
+            let boostyButtonHTML = getMediaButtonHtml(movie, 'boostyUrl', 'BOOSTY', 'boosty', playIcon, 'table');
+            let ytButtonHTML = getMediaButtonHtml(movie, 'youtubeUrl', 'YOUTUBE', 'yt', playIcon, 'table');
+
+            let allLinksHTML = '';
+            if (tgRecButtonHTML) allLinksHTML += tgRecButtonHTML;
+            if (boostyButtonHTML) allLinksHTML += boostyButtonHTML;
+            if (ytButtonHTML) allLinksHTML += ytButtonHTML;
+            
             if (telegramLink) {
-                linksHTML += `<a href="${escapeHTML(telegramLink)}" target="_blank" class="steam-link-btn" style="background: rgba(41, 128, 185, 0.3); border-color: rgba(41, 128, 185, 0.6);" onclick="event.stopPropagation();"><svg class="icon-3d-effect" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"></path><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> ТГ ПОСТ </a>`;
+                allLinksHTML += `<a href="${escapeHTML(telegramLink)}" target="_blank" class="play-link-btn tg-rec" onclick="event.stopPropagation();"><svg class="icon-3d-effect" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> ТГ ПОСТ </a>`;
             }
+
+            if (movie.reviewUrl) {
+                allLinksHTML += `<a href="${escapeHTML(movie.reviewUrl)}" target="_blank" class="play-link-btn tg-rec" onclick="event.stopPropagation();" title="Читать отзыв"><svg class="icon-3d-effect" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg> ТГ ПОСТ </a>`;
+            }
+            
+            if (allLinksHTML) linksHTML += allLinksHTML;
             linksHTML += '</div>';
 
             const userColor = stringToColor(cleanNick);
@@ -1155,6 +1524,26 @@
                 : `<div class="req-avatar" style="background-color: var(--bg-deep); border-color: var(--accent-main); color: var(--text-main);">${getInitials(cleanNick)}</div>`;
 
             const auctionHTML = movie.isAuction ? `<div class="date-badge" style="margin-top: 8px; color: var(--warm-star); border-color: var(--warm-star); background: rgba(3, 6, 36, 0.9); font-size: 11px; text-transform: uppercase; letter-spacing: 2px; font-weight: 900;">✦ Аукцион ✦</div>` : '';
+
+            const datePriceText = movie.datePriceUpdated ? movie.datePriceUpdated.split(' ')[0] : 'неизвестно';
+            const priceText = movie.price && movie.price !== "Неизвестно" ? movie.price : "Цена скрыта";
+            
+            let tablePriceBadgesMarkup = '';
+            if (priceText !== "Цена скрыта") {
+                const prices = priceText.split('/').map(p => p.trim());
+                tablePriceBadgesMarkup = prices.map(p => `<span class="price-badge text-3d-effect" style="display: block; width: 75%; max-width: 120px; margin: 0 auto 4px auto; padding: 6px 4px; font-size: 15px; cursor: default; box-sizing: border-box;">${escapeHTML(p)}</span>`).join('');
+            } else {
+                tablePriceBadgesMarkup = `<span class="price-badge text-3d-effect" style="display: block; width: 75%; max-width: 120px; margin: 0 auto 4px auto; opacity: 0.6; padding: 6px 4px; font-size: 14px; cursor: default; box-sizing: border-box;">Нет цены</span>`;
+            }
+            
+            const priceColumnHTML = `
+                <div style="display: flex; flex-direction: column; align-items: center; justify-content: flex-start; width: 100%;">
+                    <div style="font-size: 10px; color: var(--text-muted); text-transform: uppercase; font-family: var(--font-title); font-weight: 800; letter-spacing: 1px; margin-bottom: 8px; text-align: center;">Обновлено:<br><span style="color: var(--text-main); font-size: 13px;">${datePriceText}</span></div>
+                    <div style="width: 100%;">
+                        ${tablePriceBadgesMarkup}
+                    </div>
+                </div>
+            `;
 
             tr.innerHTML = `
                 <td><div class="poster-wrapper"><img src="${posterUrl}" onerror="handlePosterError(this)" alt=""></div></td>
@@ -1165,17 +1554,19 @@
                             <div class="movie-meta-box">
                                 <span class="movie-year text-3d-effect">${movie.year || '----'}</span>
                                 <button class="copy-btn" onclick="copyMovieNameFromTable(event, '${safeTitle}', '${movie.year || ''}', this)" title="Скопировать">
-                                    <svg class="icon-3d-effect" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="3" stroke-linecap="square" stroke-linejoin="miter"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
-                                </button>
+									<svg class="icon-3d-effect" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 12.9V17.1C16 20.6 14.6 22 11.1 22H6.9C3.4 22 2 20.6 2 17.1V12.9C2 9.4 3.4 8 6.9 8H11.1C14.6 8 16 9.4 16 12.9Z"/><path d="M22 6.9V11.1C22 14.6 20.6 16 17.1 16H16V12.9C16 9.4 14.6 8 11.1 8H8V6.9C8 3.4 9.4 2 12.9 2H17.1C20.6 2 22 3.4 22 6.9Z"/></svg>
+								</button>
                             </div>
                         </div>
-                        <div class="badges-container">${typeLabel} ${idBadge}</div>
+                        <div class="badges-container" style="${idBadge ? '' : 'display: none;'}">${idBadge}</div>
                         <div class="movie-genres">${escapeHTML(movie.genres || '')}</div>
-                        ${studiosHTML}
-                        <div class="movie-overview-wrapper"><div class="movie-overview-text">${cleanOverview}</div></div>
+                        ${tabsHTML}
+                        ${reviewBlock}
+                        ${overviewBlock}
                     </div>
                 </td>
                 <td style="vertical-align: top;"><div style="display: flex; flex-direction: column; align-items: center;"><div class="requester-badge" onclick="window.open('https://twitch.tv/${cleanNick}', '_blank'); event.stopPropagation();">${avatarMarkup}<span class="req-name resize-list-username text-3d-effect" style="display: block; max-width: 115px; white-space: nowrap; overflow: hidden; text-overflow: clip;">${cleanNick}</span></div>${movie.dateRequested ? `<div class="date-badge"><span class="text-3d-effect">${movie.dateRequested.split(' ')[0]}</span></div>` : ''}${auctionHTML}</div></td>
+                <td style="vertical-align: top;">${priceColumnHTML}</td>
                 <td style="vertical-align: top;"><div style="display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%;">${linksHTML}</div></td>
                 <td style="vertical-align: top;"><div style="display: flex; flex-direction: column; align-items: center;">${statusText}${watchedDateHTML}</div></td>
             `;
@@ -1184,7 +1575,6 @@
         autoResizeTitles();
     }
 
-    
     function renderGridMode(renderArea) {
         const gridContainer = document.createElement('div');
         gridContainer.className = 'movies-grid';
@@ -1236,7 +1626,6 @@
             else if (isPlaying) statusMarkup = `<div class="card-status" style="background: #ffd700; color: #130f1c; text-transform: uppercase;">Играем</div>`;
             else statusMarkup = `<div class="card-status" style="background: rgba(41, 128, 185, 0.9); color: #ffffff; border: 1px solid rgb(189 195 255 / 95%); text-transform: uppercase;">В очереди</div>`;
             
-			
             let bottomBadges = '';
             
             if (movie.difficulty) {
@@ -1255,7 +1644,6 @@
             if (movie.burned) bottomBadges += `<div class="card-mini-badge burned"><svg class="icon-3d-effect" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg> Сгорела</div>`;
             
             if ((isWatched || isDropped || isTried) && movie.ourRating && movie.ourRating !== "Без оценки") {
-			
                 const rColor = getRatingColor(movie.ourRating);
                 bottomBadges += parseFloat(movie.ourRating) === 1000 
                     ? `<div class="card-mini-badge rating legendary-badge">Оценка: 1000</div>` 
@@ -1264,7 +1652,6 @@
 
             let avatarMarkup = movie.userAvatar && movie.userAvatar.startsWith('http') ? `<img src="${movie.userAvatar}" class="card-user-avatar" alt="">` : `<div class="card-user-avatar" style="background-color: var(--bg-deep); color: var(--text-main);">${getInitials(cleanNick)}</div>`;
 
-            
             let rightStackHTML = '<div class="card-action-stack">';
             
             const hasBannedStudios = movie.studios && movie.studios.includes('🔴');
@@ -1272,20 +1659,35 @@
                 rightStackHTML += `<div class="banned-dot" title="Запрещенная студия!" style="position: relative; right: auto; bottom: auto; align-self: flex-end; margin-right: 8px;"></div>`;
             }
 
-            rightStackHTML += `<button class="card-copy-btn" onclick="copyMovieNameFromTable(event, '${safeTitle}', '${movie.year || ''}', this)" title="Скопировать название">
-                <svg class="icon-3d-effect" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2.5" stroke-linecap="square" stroke-linejoin="miter"><path d="M12 19l7-7 3 3-7 7-3-3z"></path><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"></path><path d="M2 2l7.586 7.586"></path><circle cx="11" cy="11" r="2"></circle></svg>
-            </button>`;
+            rightStackHTML += `
+			<button class="card-copy-btn" onclick="copyMovieNameFromTable(event, '${safeTitle}', '${movie.year || ''}', this)" title="Скопировать название">
+				<svg class="icon-3d-effect" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 12.9V17.1C16 20.6 14.6 22 11.1 22H6.9C3.4 22 2 20.6 2 17.1V12.9C2 9.4 3.4 8 6.9 8H11.1C14.6 8 16 9.4 16 12.9Z"/><path d="M22 6.9V11.1C22 14.6 20.6 16 17.1 16H16V12.9C16 9.4 14.6 8 11.1 8H8V6.9C8 3.4 9.4 2 12.9 2H17.1C20.6 2 22 3.4 22 6.9Z"/></svg>
+			</button>`;
+
+            const playIconGrid = `<svg class="icon-3d-effect" width="14" height="14" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>`;
+            let ytGridBtn = getMediaButtonHtml(movie, 'youtubeUrl', 'YOUTUBE', 'yt', playIconGrid, 'grid');
+            let boostyGridBtn = getMediaButtonHtml(movie, 'boostyUrl', 'BOOSTY', 'boosty', playIconGrid, 'grid');
+            let tgRecGridBtn = getMediaButtonHtml(movie, 'tgRecordUrl', 'ТГ ЗАПИСЬ', 'tg', playIconGrid, 'grid');
+
+            if (ytGridBtn) rightStackHTML += ytGridBtn;
+            if (boostyGridBtn) rightStackHTML += boostyGridBtn;
+            if (tgRecGridBtn) rightStackHTML += tgRecGridBtn;
 
             const telegramLink = movie.postUrl || movie.tgPost;
             if (telegramLink) {
                 rightStackHTML += `<a href="${escapeHTML(telegramLink)}" target="_blank" class="card-tg-btn" title="Telegram Пост" onclick="event.stopPropagation();">
-                    <svg class="icon-3d-effect" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"></path><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    <svg class="icon-3d-effect" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                 </a>`;
             }
-            
+
+            if (movie.reviewUrl) {
+                rightStackHTML += `<a href="${escapeHTML(movie.reviewUrl)}" target="_blank" class="card-tg-btn" title="Читать отзыв" onclick="event.stopPropagation();">
+                    <svg class="icon-3d-effect" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                </a>`;
+            }
+
             rightStackHTML += '</div>';
             
-
             let gridSteamBtn = '';
             if (movie.steamAppId && !movie.steamAppId.startsWith('IGDB_')) {
                 gridSteamBtn = `
@@ -1303,8 +1705,7 @@
                     <img src="${posterUrl}" class="card-poster" onerror="handlePosterError(this)" alt="">
                     ${rightStackHTML}
                     <div class="card-overlay">
-                        <div class="card-badges-top">
-                            <div class="card-type-badge">${escapeHTML(movie.type || 'Игра')}</div>
+                        <div class="card-badges-top" style="justify-content: flex-end;">
                             ${statusMarkup}
                         </div>
                         <div class="card-bottom-badges">${bottomBadges}</div>
@@ -1341,7 +1742,6 @@
         autoResizeTitles(); 
     }
 
-    
     function autoResizeTitles() {
         setTimeout(() => {
             
@@ -1416,8 +1816,6 @@
         }, 10);
     }
 
-    
-    
     window.addEventListener('resize', () => {
         autoResizeTitles();
         renderView(); 
@@ -1444,13 +1842,11 @@
             heroEl.style.backgroundImage = `url("${fallbackBackdropUrl}")`;
         }
 
-        
         const posterEl = document.getElementById('modalPoster');
         const validAltPoster = (movie.altPoster && typeof movie.altPoster === 'string' && movie.altPoster.trim() !== '') ? movie.altPoster : null;
         posterEl.src = getSafePoster(validAltPoster || movie.poster);
         
         posterEl.onerror = function() { handlePosterError(this); };
-        
         
         const titleEl = document.getElementById('modalTitle');
         titleEl.textContent = movie.title || 'Безымянный';
@@ -1479,32 +1875,42 @@
             }
         }, 10);
         
+        const safeTitle = (movie.title || '').replace(/'/g, "\\'").replace(/"/g, '&quot;');
         
         let badgesHtml = '';
-        let displayType = escapeHTML(movie.type || 'Игра');
-        badgesHtml += `<span class="content-type-badge" style="background: var(--accent-main); color: #ffffff; border: none; box-shadow: 0 0 10px rgba(254,0,0,0.5); text-transform: uppercase;">${displayType}</span>`;
 
-        badgesHtml += `<span class="outline-badge">ID №${movie.id || 0}</span>`;
-        
         if (movie.steamAppId && !movie.steamAppId.startsWith('IGDB_')) {
+            badgesHtml += `<span class="outline-badge">ID: ${movie.steamAppId}</span>`;
             badgesHtml += `
-            <a href="https://store.steampowered.com/app/${movie.steamAppId}/" target="_blank" class="outline-badge steam-modal-badge">
+            <a href="https://store.steampowered.com/app/${movie.steamAppId}/" target="_blank" class="outline-badge steam-modal-badge" title="Открыть в Steam">
                 <svg class="icon-3d-effect steam-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 496 512" fill="currentColor" aria-hidden="true"><path d="M496 256c0 137-111 248-248 248-113.8 0-209.6-76.6-239-180.8l95.2 39.3c6.4 32.1 34.9 56.4 68.9 56.4 39.2 0 71.9-32.4 70.2-73.5l84.5-60.2c52.1 1.3 95.8-40.9 95.8-93.5 0-51.6-42-93.5-93.7-93.5s-93.7 42-93.7 93.5v1.2L176.6 279c-15.5-.9-30.7 3.4-43.5 12.1L0 236.1C10.2 108.4 117.1 8 247.6 8 384.8 8 496 119 496 256zM155.7 384.3l-30.5-12.6a52.79 52.79 0 0 0 27.2 25.8c26.9 11.2 57.8-1.6 69-28.4 5.4-13 5.5-27.3.1-40.3-5.4-13-15.5-23.2-28.5-28.6-12.9-5.4-26.7-5.2-38.9-.6l31.5 13c19.8 8.2 29.2 30.9 20.9 50.7-8.3 19.9-31 29.2-50.8 21zm173.8-129.9c-34.4 0-62.4-28-62.4-62.3s28-62.3 62.4-62.3 62.4 28 62.4 62.3-27.9 62.3-62.4 62.3zm.1-15.6c25.9 0 46.9-21 46.9-46.8 0-25.9-21-46.8-46.9-46.8s-46.9 21-46.9 46.8c.1 25.8 21.1 46.8 46.9 46.8z"/></svg>
                 Steam
             </a>`;
         }
 
+        const playIconModal = `<svg class="icon-3d-effect" width="12" height="12" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>`;
+        badgesHtml += getMediaButtonHtml(movie, 'youtubeUrl', 'YOUTUBE', 'yt', playIconModal, 'modal');
+        badgesHtml += getMediaButtonHtml(movie, 'boostyUrl', 'BOOSTY', 'boosty', playIconModal, 'modal');
+        badgesHtml += getMediaButtonHtml(movie, 'tgRecordUrl', 'ТГ ЗАПИСЬ', 'tg-rec', playIconModal, 'modal');
+
         const telegramLink = movie.postUrl || movie.tgPost;
         if (telegramLink) {
             badgesHtml += `
-            <a href="${escapeHTML(telegramLink)}" target="_blank" class="outline-badge steam-modal-badge" style="background: rgba(41, 128, 185, 0.3); border-color: rgba(41, 128, 185, 0.6); color: #ffffff !important;">
-                <svg class="icon-3d-effect" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right:2px;"><path d="M22 2L11 13"></path><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+            <a href="${escapeHTML(telegramLink)}" target="_blank" class="outline-badge play-modal-badge tg-rec" onclick="event.stopPropagation();" title="Перейти к посту">
+                <svg class="icon-3d-effect" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                ТГ ПОСТ
+            </a>`;
+        }
+
+        if (movie.reviewUrl) {
+            badgesHtml += `
+            <a href="${escapeHTML(movie.reviewUrl)}" target="_blank" class="outline-badge play-modal-badge tg-rec" onclick="event.stopPropagation();" title="Читать отзыв">
+                <svg class="icon-3d-effect" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 4px;"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
                 ТГ ПОСТ
             </a>`;
         }
 
         document.getElementById('modalBadges').innerHTML = badgesHtml;
-        
         
         let genresHtml = '';
         if (movie.genres && movie.genres !== "Нет данных") {
@@ -1517,8 +1923,45 @@
         }
         document.getElementById('modalGenres').innerHTML = genresHtml;
 
-        document.getElementById('modalOverview').textContent = movie.overview || 'Данные об игре утеряны...';
+        document.getElementById('modalOverview').innerHTML = escapeHTML(movie.overview || 'Данные об игре утеряны...').replace(/\n/g, '<br>');
         
+        const mediaCol = document.getElementById('modalMediaCol');
+        const screenshotsWrapper = document.getElementById('modalScreenshotsWrapper');
+        const trailersWrapper = document.getElementById('modalTrailersWrapper');
+        const screenshotsContainer = document.getElementById('modalScreenshots');
+        const trailersContainer = document.getElementById('modalTrailers');
+
+        modalMediaItems = []; 
+
+        let screenshotsHtml = '';
+        if (movie.screenshots && Array.isArray(movie.screenshots) && movie.screenshots.length > 0) {
+            movie.screenshots.forEach(src => {
+                const index = modalMediaItems.length;
+                modalMediaItems.push({ type: 'image', src: src });
+                screenshotsHtml += `<img src="${src}" class="media-thumb" onclick="openLightbox(${index})" alt="Скриншот">`;
+            });
+            screenshotsContainer.innerHTML = screenshotsHtml;
+            screenshotsWrapper.style.display = 'block';
+        } else {
+            screenshotsWrapper.style.display = 'none';
+        }
+
+        let trailersHtml = '';
+        if (movie.trailers && Array.isArray(movie.trailers) && movie.trailers.length > 0) {
+            const bgImg = movie.backdrop && !movie.backdrop.includes('via.placeholder') ? movie.backdrop : fallbackBackdropUrl;
+            movie.trailers.forEach(src => {
+                const index = modalMediaItems.length;
+                modalMediaItems.push({ type: 'video', src: src });
+                trailersHtml += `<div class="media-thumb video-thumb" style="background-image: url('${bgImg}')" onclick="openLightbox(${index})" title="Смотреть трейлер"></div>`;
+            });
+            trailersContainer.innerHTML = trailersHtml;
+            trailersWrapper.style.display = 'block';
+        } else {
+            trailersWrapper.style.display = 'none';
+        }
+
+        mediaCol.style.display = modalMediaItems.length > 0 ? 'block' : 'none';
+
         const dateReqEl = document.getElementById('modalDateReq');
         if (movie.dateRequested) {
              dateReqEl.innerHTML = `<div class="modal-grid-box">${movie.dateRequested.split(' ')[0]}</div>`;
@@ -1584,10 +2027,7 @@
         if (movie.cried) {
             tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: var(--text-main); border-color: var(--accent-main); padding: 5px 11px;"><svg class="icon-3d-effect" width="16" height="16" viewBox="0 0 24 24" fill="var(--text-main)" stroke="var(--text-main)" stroke-width="1" style="margin-right: 4px;"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg> СЛЁЗЫ</div>`;
         }
-		
-		
-		
-		
+        
         if (movie.burned) {
             tagsHtml += `<div class="modal-grid-box" style="margin-top: 0; color: var(--accent-light); border-color: var(--accent-light); padding: 5px 11px;"><svg class="icon-3d-effect" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="square" stroke-linejoin="miter" style="margin-right:4px;"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path></svg> СГОРЕЛА</div>`;
         }
@@ -1605,10 +2045,7 @@
         }
         
         const tagsCol = document.getElementById('modalTagsColumn');
-		
-		
-		
-		
+        
         if (tagsHtml === '') {
             tagsCol.style.display = 'none';
             modalMainGrid.classList.remove('has-tags');
@@ -1635,17 +2072,14 @@
         
         document.getElementById('modalRequesterBlock').innerHTML = reqInner;
         
-        
-        
         const datePriceEl = document.getElementById('modalDatePrice');
         const priceEl = document.getElementById('modalPrice');
         const updateCmdEl = document.getElementById('modalUpdateCmd');
         const priceNoticeEl = document.getElementById('priceNotice'); 
 
         datePriceEl.textContent = movie.datePriceUpdated ? movie.datePriceUpdated.split(' ')[0] : 'неизвестно';
-       	
-		
-		const priceText = movie.price && movie.price !== "Неизвестно" ? movie.price : "Цена не найдена / Скрыта";
+        
+        const priceText = movie.price && movie.price !== "Неизвестно" ? movie.price : "Цена не найдена / Скрыта";
         
         let modalPriceBadgesMarkup = '';
         if (priceText !== "Цена не найдена / Скрыта") {
@@ -1656,7 +2090,6 @@
         }
         
         priceEl.innerHTML = `<div style="display: flex; flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 8px; width: 100%; margin-top: 4px;">${modalPriceBadgesMarkup}</div>`;
-		
         
         if (priceText.includes('~')) {
             priceNoticeEl.style.display = 'block';
@@ -1669,6 +2102,14 @@
 
         document.getElementById('modalStudios').textContent = movie.studios === "Нет данных" || !movie.studios ? "Архив скрыт" : movie.studios;
 
+        const reviewBlock = document.getElementById('modalReviewBlock');
+        if (movie.reviewText && movie.reviewText.trim() !== "") {
+            reviewBlock.style.display = 'block';
+            reviewBlock.querySelector('.modal-review-text').innerHTML = escapeHTML(movie.reviewText).replace(/\n/g, '<br>');
+        } else {
+            reviewBlock.style.display = 'none';
+        }
+
         modal.classList.add('active'); document.body.style.overflow = 'hidden'; 
     }
 
@@ -1676,10 +2117,80 @@
         if (arg === true || (arg && arg.target && arg.target.id === 'movieModal')) {
             document.getElementById('movieModal').classList.remove('active'); 
             document.body.style.overflow = ''; 
+            closeLightbox();
         }
     }
     
     loadMovies();
 </script>
+
+<script>
+    
+    const canvas = document.createElement('canvas');
+    canvas.id = 'starsCanvas';
+    canvas.style.position = 'fixed';
+    canvas.style.top = '0';
+    canvas.style.left = '0';
+    canvas.style.width = '100%';
+    canvas.style.height = '100%';
+    canvas.style.zIndex = '-1'; 
+    canvas.style.pointerEvents = 'none';
+    document.body.appendChild(canvas);
+
+    const ctx = canvas.getContext('2d');
+    let width, height, stars = [];
+
+    function initStars() {
+        width = canvas.width = window.innerWidth;
+        height = canvas.height = window.innerHeight;
+        stars = [];
+        
+        const numStars = Math.floor((width * height) / 4000); 
+        for (let i = 0; i < numStars; i++) {
+            stars.push({
+                x: Math.random() * width,
+                y: Math.random() * height,
+                radius: Math.random() * 1.5 + 0.3, 
+                velocity: Math.random() * 0.4 + 0.1, 
+                alpha: Math.random(), 
+                twinkleSpeed: (Math.random() * 0.02) + 0.005, 
+                fadeDir: Math.random() > 0.5 ? 1 : -1 
+            });
+        }
+    }
+
+    function drawStars() {
+        ctx.clearRect(0, 0, width, height);
+        
+        stars.forEach(star => {
+            ctx.beginPath();
+            ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255, 255, 255, ${star.alpha})`;
+            ctx.fill();
+            
+            star.y -= star.velocity;
+            
+            if (star.y < 0) {
+                star.y = height;
+                star.x = Math.random() * width;
+            }
+
+            star.alpha += star.twinkleSpeed * star.fadeDir;
+            if (star.alpha <= 0.1) {
+                star.alpha = 0.1;
+                star.fadeDir = 1;
+            } else if (star.alpha >= 1) {
+                star.alpha = 1;
+                star.fadeDir = -1;
+            }
+        });
+        requestAnimationFrame(drawStars);
+    }
+    
+    initStars();
+    drawStars();
+    window.addEventListener('resize', initStars);
+</script>
+
 </body>
 </html>
